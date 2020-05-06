@@ -1,24 +1,31 @@
-# README
+# Q.ふらっと
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+Twitterのようにシンプルな作りの、いろいろなジャンルのクイズの投稿、閲覧サイト。  
+回答機能をなくすことで、クイズの幅を広げ（一問一答以外のクイズも出しやすくなる）、  
+より気軽に、ストレスなく学ぶことができる。
 
-Things you may want to cover:
+### サイトテーマ
+みんなで楽しく学ぶ
 
-* Ruby version
+### テーマを選んだ理由
+自粛生活で退屈な時間を、離れた所にいる友達や家族と、
+楽しく有意義な時間に変えられるようなサービスを作りたいと思ったから
 
-* System dependencies
+### ターゲットユーザ
+* 友達や家族と過ごす時間が好きな人
+* 楽しく学びたい人
+* 勉強が苦手な人
+* 身につけた知識をアウトプットしたい人
 
-* Configuration
+### 主な利用シーン
+* 友達や家族と通話やチャットをしながら盛り上がりたいときや、勉強したいとき
+* 楽しく知識を身につけたいとき
+* 身につけた知識をアウトプットしたいとき（投稿）
 
-* Database creation
+## 設計書
 
-* Database initialization
+### 機能一覧
+https://docs.google.com/spreadsheets/d/1IpGupJTz9x343cnfXItzDCjRUPG9_EwBwpObiiufqk8/edit?usp=sharing
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
