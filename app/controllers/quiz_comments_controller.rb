@@ -1,0 +1,2 @@
+class QuizCommentsController < ApplicationController
+end
