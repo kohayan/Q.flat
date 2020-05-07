@@ -5,5 +5,5 @@ class Quiz < ApplicationRecord
 	has_many :quiz_categories
 	has_many :quiz_comments
 	has_many :favorites
-	has_many :categories, thorough: :quiz_categories
+	has_many :categories, through: :quiz_categories
 end
