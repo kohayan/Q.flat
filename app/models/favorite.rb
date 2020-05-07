@@ -1,5 +1,5 @@
 class Favorite < ApplicationRecord
-	validdates :user, :quiz, presence: true
+	validates :user, :quiz, presence: true
 
 	belongs_to :user
 	belongs_to :quiz
