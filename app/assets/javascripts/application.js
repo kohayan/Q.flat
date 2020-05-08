@@ -17,3 +17,27 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+$(document).on('turbolinks:load',function(){
+
+	// サイドバーを画面いっぱいに表示
+	hsize = $(window).height();
+	$("#sideber").css("height", hsize + "px");
+	$(window).resize(function () {
+		hsize = $(window).height();
+		$("#sideber").css("height", hsize + "px");
+	});
+
+	// サイドバーのカテゴリーをアコーディオン表示
+	$('.category-menu').click(function() {
+		if($('.category-item').hasClass('open')) { 
+			$('.category-item').removeClass('open');
+			$('.category-item').slideUp();
+			$(this).find('span').text('＋');
+		}else{
+			$('.category-item').addClass('open');
+			$('.category-item').slideDown();
+			$(this).find('span').text('−');
+		}
+	});
+});

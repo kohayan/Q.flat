@@ -14,3 +14,11 @@
  *= require_self
  */
 @import "bootstrap";
+
+.category-menu{
+	cursor:pointer;
+}
+
+.category-item{
+	display: none;
+}

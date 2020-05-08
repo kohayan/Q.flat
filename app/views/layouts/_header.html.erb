@@ -1,0 +1,13 @@
+<header class="ml-4 bg-light">
+	<h1>Q.flat</h1>
+	<% unless user_signed_in? %>
+		<ul>
+			<li>
+				<%= link_to '新規登録', new_user_registration_path %>
+			</li>
+			<li>
+				<%= link_to 'ログイン', new_user_session_path %>
+			</li>
+		</ul>
+	<% end %>
+</header>
