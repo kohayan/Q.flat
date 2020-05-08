@@ -1,0 +1,40 @@
+<div id="sideber" class="text-center bg-light">
+	<% if user_signed_in? %>
+		<ul class="list-unstyled">
+			<li>
+				<h3>ホーム</h3>
+			</li>
+			<li>
+				<h3 class="category-menu">カテゴリ<span>＋</span></h3>
+				<div class="category-item">
+					<p>テスト</p>
+				</div>
+			</li>
+			<li>
+				<h3>人気クイズ</h3>
+			</li>
+			<li>
+				<h3><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></h3>
+			</li>
+			<li>
+				<h3>Q.flatとは？</h3>
+			</li>
+		</ul>
+	<% else %>
+		<ul class="list-unstyled">
+			<li>
+				<h3>カテゴリ</h3>
+			</li>
+			<li>
+				<h3>人気クイズ</h3>
+			</li>
+			<li>
+				<h3><%= link_to '新規登録', new_user_registration_path %></h3>
+			</li>
+			<li>
+				<h3><%= link_to 'ログイン', new_user_session_path %></h3>
+			</li>
+			<li>Q.flatとは？</li>
+		</ul>
+	<% end %>
+</div>

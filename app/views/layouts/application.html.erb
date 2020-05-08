@@ -10,6 +10,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/header' %>
+    <div class="row">
+      <div class="col-md-3">
+        <%= render 'layouts/sideber' %>
+      </div>
+      <div class="col-md-9">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
