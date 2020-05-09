@@ -1,11 +1,11 @@
-<div id="sideber" class="text-center bg-light">
+<div id="sideber" class="text-center bg-light p-4">
 	<% if user_signed_in? %>
 		<ul class="list-unstyled">
 			<li>
-				<h3>ホーム</h3>
+				<h3><%= link_to 'ホーム', quizzes_path %></h3>
 			</li>
 			<li>
-				<h3 class="category-menu">カテゴリ<span>＋</span></h3>
+				<h3 class="category-show">カテゴリ<span>＋</span></h3>
 				<div class="category-item">
 					<p>テスト</p>
 				</div>
@@ -17,7 +17,7 @@
 				<h3><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></h3>
 			</li>
 			<li>
-				<h3>Q.flatとは？</h3>
+				<h3><%= link_to 'Q.flatとは？', '/homes/about' %></h3>
 			</li>
 		</ul>
 	<% else %>
@@ -34,7 +34,12 @@
 			<li>
 				<h3><%= link_to 'ログイン', new_user_session_path %></h3>
 			</li>
-			<li>Q.flatとは？</li>
+			<li>
+				<h3><%= link_to 'Q.flatとは？', '/homes/about' %></h3>
+			</li>
 		</ul>
 	<% end %>
+	<div id="quiz-form-show" class="btn btn-primary">
+		<span>クイズを投稿する</span>
+	</div>
 </div>
