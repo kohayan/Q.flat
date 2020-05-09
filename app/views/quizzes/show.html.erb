@@ -1,6 +1,3 @@
-<div class="quiz-box">
-	<div>
-		<%= @quiz.user.nick_name %>
-	</div>
-	<div>
-		<h3>問
+<div class="quiz_<%= @quiz.id %>">
+	<%= render 'quiz_detail', quiz: @quiz %>
+</div>
