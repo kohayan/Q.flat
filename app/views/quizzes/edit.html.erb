@@ -1,0 +1,20 @@
+<div>
+  <div>
+    <%= form_for @quiz do |f| %>
+      <%= render 'layouts/errors', obj: @quiz %>
+      <div>
+        <%= f.label :question %>
+        <%= f.text_area :question %>
+      </div>
+      <div>
+        <%= f.label :answer %>
+        <%= f.text_field :answer %>
+      </div>
+      <div>
+        <%= f.label :explanation %>
+        <%= f.text_area :explanation %>
+      </div>
+      <%= f.submit '更新', class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

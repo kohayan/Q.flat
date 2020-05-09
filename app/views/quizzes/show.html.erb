@@ -1,0 +1,23 @@
+<div class="quiz-box">
+	<div>
+		<%= @quiz.user.nick_name %>
+	</div>
+	<div>
+		<h3>問題</h3>
+		<%= @quiz.question %>
+	</div>
+	<h3 class="answer-show">答えを見る</h3>
+	<div class="answer">
+		<%= @quiz.answer %>
+		<% unless @quiz.explanation == "" %>
+			<h3 class="explanation-show">解説を見る</h3>
+			<div class="explanation">
+				<%= @quiz.explanation %>
+			</div>
+		<% end %>
+	</div>
+	<% if @quiz.user_id == current_user.id %>
+		<%= link_to '編集', edit_quiz_path(@quiz), class: "btn btn-primary" %>
+		<%= link_to '削除', quiz_path(@quiz), method: :delete, "data-confirm" => "本当に削除しますか?", class: "btn btn-danger" %>
+	<% end %>
+</div>
