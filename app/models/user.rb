@@ -8,9 +8,9 @@ class User < ApplicationRecord
 	validates :nick_name, length:{in: 2..20}
 	validates :introduction, length: {maximum:49}
 
-	has_many :quizzes
-	has_many :favorites
-	has_many :quiz_comments
+	has_many :quizzes, dependent: :destroy
+	has_many :favorites, dependent: :destroy
+	has_many :quiz_comments, dependent: :destroy
 	has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
 	has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
 	has_many :following_user, through: :follower, source: :followed
