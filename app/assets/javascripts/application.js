@@ -18,7 +18,7 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).on('turbolinks:load',function(){
+$(document).on('turbolinks:load',function() {
 
 	// サイドバーを画面いっぱいに表示
 	hsize = $(window).height();
@@ -29,7 +29,7 @@ $(document).on('turbolinks:load',function(){
 	});
 
 	// サイドバーのカテゴリーをアコーディオン表示
-	$('.category-menu').click(function() {
+	$('.category-show').click(function() {
 		if($('.category-item').hasClass('open')) { 
 			$('.category-item').removeClass('open');
 			$('.category-item').slideUp();
@@ -38,6 +38,40 @@ $(document).on('turbolinks:load',function(){
 			$('.category-item').addClass('open');
 			$('.category-item').slideDown();
 			$(this).find('span').text('−');
+		}
+	});
+
+	// クイズフォームの表示、非表示
+	$('#quiz-form-show').click(function() {
+		$('.quiz-form-wrapper').fadeIn();
+	});
+
+	$('.close-quiz-form').click(function() {
+		$('.quiz-form-wrapper').fadeOut();
+	});
+
+	// クイズ詳細画面の答え、解説をアコーディオン表示
+	$('.answer-show').click(function() {
+		if($('.answer').hasClass('open')) {
+			$('.answer').removeClass('open');
+			$('.answer').slideUp();
+			$('.answer-show').text('答えを見る');
+		}else{
+			$('.answer').addClass('open');
+			$('.answer').slideDown();
+			$('.answer-show').text('答え');
+		}
+	});
+
+	$('.explanation-show').click(function() {
+		if($('.explanation').hasClass('open')) {
+			$('.explanation').removeClass('open');
+			$('.explanation').slideUp();
+			$('.explanation-show').text('解説を見る');
+		}else{
+			$('.explanation').addClass('open');
+			$('.explanation').slideDown();
+			$('.explanation-show').text('解説');
 		}
 	});
 });
