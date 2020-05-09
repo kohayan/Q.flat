@@ -1,0 +1,11 @@
+<div class="offset-1 col-md-10">
+	<% @quizzes.each do |quiz| %>
+		<%= link_to quiz_path(quiz) do %>
+			<div class="quiz-box">
+				<%= quiz.user.nick_name %>
+				<h5>問題</h5>
+				<%= quiz.question %>
+			</div>
+		<% end %>
+	<% end %>
+</div>
