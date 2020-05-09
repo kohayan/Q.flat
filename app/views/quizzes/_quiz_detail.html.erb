@@ -1,0 +1,36 @@
+<div class="quiz-box">
+	<div>
+		<%= quiz.user.nick_name %>
+	</div>
+	<div>
+		<h3>問題</h3>
+		<%= quiz.question %>
+	</div>
+	<h3 class="answer-show">答えを見る</h3>
+	<div class="answer">
+		<%= quiz.answer %>
+		<% unless quiz.explanation == "" %>
+			<h3 class="explanation-show">解説を見る</h3>
+			<div class="explanation">
+				<%= quiz.explanation %>
+			</div>
+		<% end %>
+	</div>
+	<div>
+		<% if quiz.favorited_by?(current_user) %>
+			<%= link_to quiz_favorites_path(quiz), method: :delete, remote: true do %>
+				<i class="fas fa-star"></i>
+			<% end %>
+			<%= quiz.favorites.count %>
+		<% else %>
+			<%= link_to quiz_favorites_path(quiz), method: :post, remote: true do %>
+				<i class="far fa-star"></i>
+			<% end %>
+			<%= quiz.favorites.count %>
+		<% end %>
+	</div>
+	<% if quiz.user_id == current_user.id %>
+		<%= link_to '編集', edit_quiz_path(quiz), class: "btn btn-primary" %>
+		<%= link_to '削除', quiz_path(quiz), method: :delete, "data-confirm" => "本当に削除しますか?", class: "btn btn-danger" %>
+	<% end %>
+</div>

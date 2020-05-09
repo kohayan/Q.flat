@@ -1,0 +1,20 @@
+<%= link_to quiz_path(quiz) do %>
+	<div class="quiz-box">
+		<%= quiz.user.nick_name %>
+		<h5>問題</h5>
+		<%= quiz.question %>
+		<div>
+			<% if quiz.favorited_by?(current_user) %>
+				<%= link_to quiz_favorites_path(quiz), method: :delete, remote: true do %>
+					<i class="fas fa-star"></i>
+				<% end %>
+				<%= quiz.favorites.count %>
+			<% else %>
+				<%= link_to quiz_favorites_path(quiz), method: :post, remote: true do %>
+					<i class="far fa-star"></i>
+				<% end %>
+				<%= quiz.favorites.count %>
+			<% end %>
+		</div>
+	</div>
+<% end %>
