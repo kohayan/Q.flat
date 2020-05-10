@@ -1,12 +1,12 @@
 <div class="comment-form-wrapper">
-		<div class="comment-form">
-			<div class="close-comment-form">
-				<i class="fa fa-2x fa-times"></i>
-			</div>
-			<%= form_with model:[quiz, comment] do |f| %>
-				<div class="cnt_area"><span class="now_cnt">0</span> / 140</div>
-				<%= f.text_area :comment, class: "comment-area" %>
-				<%= f.submit 'コメントする', class: "comment-send" %>
-			<% end %>
+	<div class="comment-form">
+		<div class="close-comment-form">
+			<i class="fa fa-2x fa-times"></i>
 		</div>
+		<%= form_with model:[quiz, comment] do |f| %>
+			<div class="cnt_area"><span class="now_cnt">0</span> / 140</div>
+			<%= f.text_area :comment, class: "comment-area" %>
+			<%= f.submit 'コメントする', class: "comment-send" %>
+		<% end %>
 	</div>
+</div>
