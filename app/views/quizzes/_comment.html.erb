@@ -1,0 +1,17 @@
+<% comments.each do |comment| %>
+	<div class="comment-box">
+		<div>
+			<%= comment.user.nick_name %>
+		</div>
+		<div>
+			<%= comment.comment %>
+		</div>
+		<div>
+			<% if comment.user_id == current_user.id %>
+				<%= link_to quiz_quiz_comment_path(@quiz, comment), method: :delete, remote: true, "data-confirm" => "本当に削除しますか?" do %>
+					<i class="far fa-trash-alt"></i>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+<% end %>
