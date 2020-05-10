@@ -1,11 +1,7 @@
-<div class="offset-1 col-md-10">
+<div class="offset-1 col-md-10 mt-4">
 	<% @quizzes.each do |quiz| %>
-		<%= link_to quiz_path(quiz) do %>
-			<div class="quiz-box">
-				<%= quiz.user.nick_name %>
-				<h5>問題</h5>
-				<%= quiz.question %>
-			</div>
-		<% end %>
+		<div class="quiz_<%= quiz.id %>">
+			<%= render 'quiz', quiz: quiz %>
+		</div>
 	<% end %>
 </div>

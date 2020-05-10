@@ -1,0 +1,6 @@
+if (location.pathname == '/quizzes') {
+	$(".quiz_<%= @quiz.id %>").html("<%= j(render 'quizzes/quiz', quiz: @quiz) %>")
+}else{
+	$(".quiz_<%= @quiz.id %>").html("<%= j(render 'quizzes/quiz_detail', quiz: @quiz) %>")
+}
+location.reload();

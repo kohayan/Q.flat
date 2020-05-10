@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
 	resources :quizzes do
 		resource :favorites, only:[:create, :destroy]
-		resource :quiz_comments, only:[:create, :destroy]
+		resources :quiz_comments, only:[:create, :destroy]
 	end
 
 	resources :notifications, only: [:index]
