@@ -1,0 +1,27 @@
+<div class="offset-1 col-md-10 mt-4">
+	<div class="user-edit">
+		<%= render 'layouts/errors', obj: @user %>
+		<div id="img_field" class="mb-4">
+			<%= attachment_image_tag @user, :image, size: "60x60", format: 'jpeg', class: "rounded-circle", fallback: "sozai_cman_jp_20200510165455.jpg" %>
+		</div>
+		<span onClick="$('#file').click()" class="btn btn-primary">画像選択</span>
+		<%= form_for @user do |f| %>
+			<div>
+				<%= f.attachment_field :image, style: "display:none;", id: "file" %>
+			</div>
+			<div>
+				<%= f.label :nick_name, "ニックネーム" %> 
+				<%= f.text_field :nick_name %>
+			</div>
+			<div>
+				<%= f.label :introduction, "自己紹介" %>
+				<%= f.text_area :introduction %>
+			</div>
+			<div>
+				<%= f.label :email, "メールアドレス" %>
+				<%= f.text_field :email %>
+			</div>
+			<%= f.submit 'プロフィールを更新', class: "btn btn-primary" %>
+		<% end %>
+	</div>
+</div>
