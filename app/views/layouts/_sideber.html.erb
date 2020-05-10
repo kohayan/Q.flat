@@ -1,5 +1,11 @@
 <div id="sideber" class="text-center bg-light p-4">
 	<% if user_signed_in? %>
+		<div>
+			<%= link_to user_path(current_user) do %>
+				<%= attachment_image_tag current_user, :image, size: "60x60", format: 'jpeg', class: "rounded-circle", fallback: "sozai_cman_jp_20200510165455.jpg" %>
+				<h3 class="strong"><%= current_user.nick_name %></h3>
+			<% end %>
+		</div>
 		<ul class="list-unstyled">
 			<li>
 				<h3><%= link_to 'ホーム', quizzes_path %></h3>
