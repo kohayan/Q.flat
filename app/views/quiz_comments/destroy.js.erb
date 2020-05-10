@@ -1,2 +1,3 @@
 $(".quiz_<%= @quiz.id %>").html("<%= j(render 'quizzes/quiz_detail', quiz: @quiz) %>")
 $(".comment_<%= @quiz.id %>").html("<%= j(render 'quizzes/comment', comments: @quiz.quiz_comments ) %>");
+location.reload();

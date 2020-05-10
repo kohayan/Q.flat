@@ -1,5 +1,3 @@
-$("textarea").val("");
 $(".quiz_<%= @quiz.id %>").html("<%= j(render 'quizzes/quiz_detail', quiz: @quiz) %>")
 $(".comment_<%= @quiz.id %>").html("<%= j(render 'quizzes/comment', comments: @quiz.quiz_comments ) %>");
-$(".comment-form-wrapper").css("display", "none")
-$(".now_cnt").text(0);
+location.reload();
