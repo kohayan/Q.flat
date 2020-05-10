@@ -7,6 +7,8 @@ class Quiz < ApplicationRecord
 	has_many :favorites, dependent: :destroy
 	has_many :categories, through: :quiz_categories
 
+	attachment :quiz_image
+
 	def favorited_by?(user)
 		favorites.where(user_id: user.id).exists?
 	end

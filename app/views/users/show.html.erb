@@ -1,0 +1,35 @@
+<div class="offset-1 col-md-10 mt-4">	
+	<div class="profile text-center">
+		<% if @user == current_user %>
+			<%= link_to edit_user_path(@user) do %>
+				<i class="fas fa-cog"></i>
+			<% end %>
+		<% end %>
+		<%= attachment_image_tag @user, :image, size: "60x60", format: 'jpeg', class: "rounded-circle", fallback: "sozai_cman_jp_20200510165455.jpg" %>
+		<h3 class="strong"><%= @user.nick_name %></h3>
+		<p><%= @user.introduction %></p>
+	</div>
+	<div class="user-tab-wrap">
+		<ul id="tab-menu" class="clearfix">
+			<li><a href="#tab1" class="active">投稿</a></li>
+			<li><a href="#tab2" class="">お気に入り</a></li>
+		</ul>
+
+		<div id="tab-contents" class="clearfix">
+			<div id="tab1" class="tab">
+				<% @user.quizzes.each do |quiz| %>
+					<div class="quiz_<%= quiz.id %>">
+						<%= render 'quizzes/quiz', quiz: quiz %>
+					</div>
+				<% end %>
+			</div>
+			<div id="tab2" class="tab">
+				<% @user.favorite_quizzes.each do |quiz| %>
+					<div class="quiz_<%= quiz.id %>">
+						<%= render 'quizzes/quiz', quiz: quiz %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

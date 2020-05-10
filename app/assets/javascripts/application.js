@@ -41,6 +41,39 @@ $(document).on('turbolinks:load',function() {
 		}
 	});
 
+	// ユーザー詳細画面のタブメニュー
+	$('#tab-contents .tab[id != "tab1"]').hide();
+
+	$('#tab-menu a').on('click', function() {
+		$("#tab-contents .tab").hide();
+		$("#tab-menu .active").removeClass("active");
+		$(this).addClass("active");
+		$($(this).attr("href")).show();
+		return false;
+	});
+
+	// ユーザー編集画面の画像プレビュー
+	$fileField = $('#file')
+
+	$($fileField).on('change', $fileField, function(e) {
+		file = e.target.files[0]
+		reader = new FileReader(),
+		$preview = $("#img_field");
+
+		reader.onload = (function(file) {
+			return function(e) {
+				$preview.empty();
+				$preview.append($('<img>').attr({
+					src: e.target.result,
+					width: "100%",
+					class: "preview",
+					title: file.name
+				}));
+			};
+		})(file);
+		reader.readAsDataURL(file);
+	});
+
 	// クイズフォームの表示、非表示
 	$('#quiz-form-show').click(function() {
 		$('.quiz-form-wrapper').fadeIn();

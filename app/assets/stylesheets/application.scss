@@ -33,6 +33,35 @@ a:link, a:visited, a:hover, a:active{
 	display: none;
 }
 
+/*ユーザー詳細画面*/
+.profile{
+	background-color: white;
+	position: relative;
+	margin-bottom: 20px;
+	padding: 30px 0 30px;
+	border-radius: 5px 5px 0 0;
+}
+
+#tab-menu .active {
+  background: #fff;
+  color: #000;
+}
+
+.fa-cog {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	color: rgba(128, 128, 128, 0.46);
+	cursor: pointer;
+}
+
+.user-edit{
+	background-color: white;
+	margin-bottom: 20px;
+	padding: 10px;
+	border-radius: 5px;
+}
+
 /*クイズ投稿画面*/
 .quiz-form-wrapper{
 	display: none;
