@@ -28,6 +28,11 @@
 			<% end %>
 			<%= quiz.favorites.count %>
 		<% end %>
+
+		<i class="far fa-comment-alt comment-form-show"></i>
+		<span class="comment-count">
+			<%= @quiz.quiz_comments.count %>
+		</span>
 	</div>
 	<% if quiz.user_id == current_user.id %>
 		<%= link_to '編集', edit_quiz_path(quiz), class: "btn btn-primary" %>

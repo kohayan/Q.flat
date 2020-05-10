@@ -13,6 +13,8 @@ class QuizzesController < ApplicationController
 	end
 
 	def show
+		@comment = QuizComment.new
+		@comments = @quiz.quiz_comments
 	end
 
 	def index
