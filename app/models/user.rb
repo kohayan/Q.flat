@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
 	has_many :quizzes, dependent: :destroy
 	has_many :favorites, dependent: :destroy
+	has_many :favorite_quizzes, through: :favorites, source: :quiz
 	has_many :quiz_comments, dependent: :destroy
 	has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
 	has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
