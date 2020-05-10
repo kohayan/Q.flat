@@ -67,12 +67,16 @@ a:link, a:visited, a:hover, a:active{
 /*クイズ一覧、詳細画面*/
 .quiz-box{
 	background-color: white;
-	margin: 20px;
+	margin-bottom: 20px;
 	padding: 10px;
 	border-radius: 5px;
 }
 
-.answer{
+.answer-show, .explanation-show, .comment-form-show{
+	cursor: pointer;
+}
+
+.answer, .explanation, .comment-form-wrapper{
 	display: none;
 }
 
@@ -82,4 +86,38 @@ a:link, a:visited, a:hover, a:active{
 
 .fa-star{
 	color: #FFCC00;
+}
+
+/*クイズへのコメント*/
+.comment-form-wrapper{
+	display: none;
+	background-color: rgba(0, 0, 0, 0.6);
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.comment-form{
+	background-color: #e6ecf0;
+	position: absolute;
+	top: 25%;
+	left: 30%;
+	padding: 20px 0 40px;
+	text-align: center;
+	border-radius: 5px;
+	width: 40%;
+	height: 50%;
+}
+
+.cnt_area.cnt_danger{
+    color: #FF0000;
+}
+
+.comment-box{
+	background-color: white;
+	margin-bottom: 5px;
+	padding: 10px;
+	border-radius: 5px;
 }

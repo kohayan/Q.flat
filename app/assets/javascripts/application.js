@@ -74,4 +74,34 @@ $(document).on('turbolinks:load',function() {
 			$('.explanation-show').text('解説');
 		}
 	});
+
+	// クイズへのコメントフォームの表示、非表示
+	$('.comment-form-show').click(function() {
+		$('.comment-form-wrapper').fadeIn();
+	});
+
+	$('.close-comment-form').click(function() {
+		$('.comment-form-wrapper').fadeOut();
+	});
+
+
+	// コメントの送信ボタンを有効、無効の切り替え
+	$('.comment-send').prop("disabled", true);
+
+	$('.comment-area').on('input', function(){
+        //文字数を取得
+        var cnt = $(this).val().length;
+        //現在の文字数を表示
+        $('.now_cnt').text(cnt);
+        if(cnt > 0 && 140 > cnt){
+            //1文字以上かつ140文字以内の場合はボタンを有効化＆黒字
+            $('.comment-send').prop('disabled', false);
+            $('.cnt_area').removeClass('cnt_danger');
+        }else{
+            //0文字または140文字を超える場合はボタンを無効化＆赤字
+            $('.comment-send').prop('disabled', true);
+            $('.cnt_area').addClass('cnt_danger');
+        }
+    });
+
 });
