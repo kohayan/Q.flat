@@ -126,7 +126,7 @@ $(document).on('turbolinks:load',function() {
         var cnt = $(this).val().length;
         //現在の文字数を表示
         $('.now_cnt').text(cnt);
-        if(cnt > 0 && 140 > cnt){
+        if(cnt > 0 && 141 > cnt){
             //1文字以上かつ140文字以内の場合はボタンを有効化＆黒字
             $('.comment-send').prop('disabled', false);
             $('.cnt_area').removeClass('cnt_danger');
