@@ -158,6 +158,8 @@ a:link, a:visited, a:hover, a:active{
 	border-radius: 5px;
 }
 
+
+/*通知一覧*/
 .notification-wrapper{
 	display: none;
 	background-color: rgba(0, 0, 0, 0.6);
@@ -178,4 +180,5 @@ a:link, a:visited, a:hover, a:active{
 	border-radius: 5px;
 	width: 40%;
 	height: 50%;
+	overflow: scroll;
 }
