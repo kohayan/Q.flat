@@ -6,6 +6,8 @@ class QuizCommentsController < ApplicationController
 		@comment.user_id = current_user.id
 		if @comment.save
 			flash[:success] = "コメントを送信しました"
+			@quiz = @comment.quiz
+			@quiz.create_notification_comment!(current_user, @comment.id, @quiz.user.id)
 		else
 			redirect_back(fallback_location: root_path)
 		end
@@ -29,5 +31,4 @@ class QuizCommentsController < ApplicationController
 	def quiz_comment_params
 		params.require(:quiz_comment).permit(:comment)
 	end
-
 end

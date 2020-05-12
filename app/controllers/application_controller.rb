@@ -2,11 +2,18 @@ class ApplicationController < ActionController::Base
 
 	before_action :configure_permitted_parameters, if: :devise_controller?
 	before_action :new_quiz
+	before_action :notification
 
 	protected
 
 	def new_quiz
 		@new_quiz = Quiz.new
+	end
+
+	def notification
+		if user_signed_in?
+			@notifications = current_user.passive_notifications.where.not(visitor_id: current_user.id)
+		end
 	end
 
 	def configure_permitted_parameters
