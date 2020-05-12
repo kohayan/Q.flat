@@ -17,5 +17,9 @@ Rails.application.routes.draw do
 		resources :quiz_comments, only:[:create, :destroy]
 	end
 
-	resources :notifications, only: [:index]
+	resources :notifications, only: [:index] do
+		collection do
+			delete 'destroy_all' => 'notifications#destroy_all', as: 'destroy_all'
+		end
+	end
 end
