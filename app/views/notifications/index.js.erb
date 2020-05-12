@@ -1,0 +1,6 @@
+$(".notification-wrapper").html("<%= j(render 'layouts/notification', notifications: @notifications) %>")
+$('.notification-wrapper').fadeIn();
+$('.close-notification').click(function() {
+	$('.notification-wrapper').fadeOut();
+	location.reload();
+});

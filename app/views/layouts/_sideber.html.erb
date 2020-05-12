@@ -5,6 +5,12 @@
 				<%= attachment_image_tag current_user, :image, size: "60x60", format: 'jpeg', class: "rounded-circle", fallback: "sozai_cman_jp_20200510165455.jpg" %>
 				<h3 class="strong"><%= current_user.nick_name %></h3>
 			<% end %>
+			<%= link_to notifications_path, remote: true do %>
+				<i class="far fa-bell"></i>
+			<% end %>
+			<% if unchecked_notifications.any? %>
+				<i class="fa fa-circle" style="color: gold;"></i>
+			<% end %>
 		</div>
 		<ul class="list-unstyled">
 			<li>

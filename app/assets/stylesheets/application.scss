@@ -157,3 +157,28 @@ a:link, a:visited, a:hover, a:active{
 	padding: 10px;
 	border-radius: 5px;
 }
+
+
+/*通知一覧*/
+.notification-wrapper{
+	display: none;
+	background-color: rgba(0, 0, 0, 0.6);
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.notification-box{
+	background-color: #e6ecf0;
+	position: absolute;
+	top: 25%;
+	left: 30%;
+	padding: 20px 0 40px;
+	text-align: center;
+	border-radius: 5px;
+	width: 40%;
+	height: 50%;
+	overflow: scroll;
+}

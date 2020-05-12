@@ -1,22 +1,29 @@
 class RelationshipsController < ApplicationController
+	before_action :set_user
 
 	def create
-		current_user.follow(params[:user_id])
+		current_user.follow(@user.id)
+		@user.create_notification_follow!(current_user)
 		redirect_back(fallback_location: root_path)
 	end
 
 	def destroy
-		current_user.unfollow(params[:user_id])
+		current_user.unfollow(@user.id)
 		redirect_back(fallback_location: root_path)
 	end
 
 	def follower
-		user = User.find(params[:user_id])
-		@users = user.following_user
+		@users = @user.following_user
 	end
 
 	def followed
-		user = User.find(params[:user_id])
-		@users = user.follower_user
+		@users = @user.follower_user
+	end
+
+
+	private
+
+	def set_user
+		@user = User.find(params[:user_id])
 	end
 end
