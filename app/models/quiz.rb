@@ -9,6 +9,8 @@ class Quiz < ApplicationRecord
 
 	attachment :quiz_image
 
+	enum category: {謎解き:0, エンタメ:1, 雑学:2, 時事:3}
+
 	def favorited_by?(user)
 		favorites.where(user_id: user.id).exists?
 	end

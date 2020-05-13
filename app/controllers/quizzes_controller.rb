@@ -18,7 +18,11 @@ class QuizzesController < ApplicationController
 	end
 
 	def index
-		@quizzes = Quiz.all
+		if params[:category]
+			@quizzes = Quiz.where(category: params[:category])
+		else
+			@quizzes = Quiz.all
+		end
 	end
 
 	def edit
@@ -49,7 +53,8 @@ class QuizzesController < ApplicationController
 			:question,
 			:answer,
 			:explanation,
-			:quiz_image_id
+			:quiz_image_id,
+			:category
 		)
 	end
 

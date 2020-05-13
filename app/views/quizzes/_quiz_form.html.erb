@@ -5,6 +5,9 @@
     </div>
     <%= form_for new_quiz do |f| %>
       <div>
+        <%= f.label :category %>
+        <%= f.select :category, Quiz.categories.keys.to_a, {include_blank: "--選択してください--"} %>
+      <div>
         <div class="question_cnt_area"><span class="question_now_cnt">0</span> / 500</div>
         <%= f.label :question %>
         <%= f.text_area :question, class: "question-area" %>
