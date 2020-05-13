@@ -49,7 +49,8 @@ class QuizzesController < ApplicationController
 			:question,
 			:answer,
 			:explanation,
-			:quiz_image_id
+			:quiz_image_id,
+			:category
 		)
 	end
 
