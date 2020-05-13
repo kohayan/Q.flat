@@ -6,7 +6,9 @@
 		<% end %>
 	</div>
 	<div>
-		<%= link_to quiz.category, quizzes_path(category: quiz.category) %>
+		<% unless quiz.category.nil? %>
+			<%= link_to quiz.category, quizzes_path(category: quiz.category) %>
+		<% end %>
 		<h3>問題</h3>
 		<%= quiz.question %>
 	</div>
