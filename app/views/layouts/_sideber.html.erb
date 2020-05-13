@@ -19,7 +19,9 @@
 			<li>
 				<h3 class="category-show">カテゴリ<span>＋</span></h3>
 				<div class="category-item">
-					<p>テスト</p>
+					<% @categories.each do |category| %>
+						<%= link_to category, quizzes_path(category: category) %>
+					<% end %>
 				</div>
 			</li>
 			<li>

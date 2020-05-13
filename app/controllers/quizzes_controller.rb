@@ -18,7 +18,11 @@ class QuizzesController < ApplicationController
 	end
 
 	def index
-		@quizzes = Quiz.all
+		if params[:category]
+			@quizzes = Quiz.where(category: params[:category])
+		else
+			@quizzes = Quiz.all
+		end
 	end
 
 	def edit

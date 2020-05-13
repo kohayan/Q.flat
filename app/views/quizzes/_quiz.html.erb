@@ -3,6 +3,9 @@
 		<%= attachment_image_tag quiz.user, :image, size: "40x40", format: 'jpeg', class: "rounded-circle", fallback: "sozai_cman_jp_20200510165455.jpg" %>
 		<%= quiz.user.nick_name %>
 	<% end %>
+	<% unless quiz.category.nil? %>
+		<%= link_to quiz.category, quizzes_path(category: quiz.category) %>
+	<% end %>
 	<%= link_to quiz_path(quiz) do %>
 		<h5>問題</h5>
 		<%= quiz.question %>
