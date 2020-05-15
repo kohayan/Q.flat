@@ -1,0 +1,11 @@
+<div class="offset-1 col-md-10 mt-4">
+	<div class="quiz_<%= @quiz.id %>">
+		<%= render 'quiz_detail', quiz: @quiz %>
+	</div>
+
+	<div class="comment_<%= @quiz.id %> mb-4">
+		<%= render 'comment', comments: @comments %>
+	</div>
+
+	<%= render 'comment_form', quiz: @quiz, comment: @comment %>
+</div>

@@ -1,0 +1,184 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap";
+
+body{
+	background-color: #eeeeee;
+}
+
+a:link, a:visited, a:hover, a:active{
+	color: #000000;
+	text-decoration: none;
+}
+
+/*サイドバー*/
+.category-show{
+	cursor: pointer;
+}
+
+.category-item{
+	display: none;
+}
+
+/*ユーザー詳細画面*/
+.profile{
+	background-color: white;
+	position: relative;
+	margin-bottom: 20px;
+	padding: 30px 0 30px;
+	border-radius: 5px 5px 0 0;
+}
+
+#tab-menu .active {
+  background: #fff;
+  color: #000;
+}
+
+.fa-cog {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	color: rgba(128, 128, 128, 0.46);
+	cursor: pointer;
+}
+
+.user-edit{
+	background-color: white;
+	margin-bottom: 20px;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.follow-box{
+	background-color: white;
+	margin-bottom: 20px;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+/*クイズ投稿画面*/
+.quiz-form-wrapper{
+	display: none;
+	background-color: rgba(0, 0, 0, 0.6);
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.quiz-form{
+	background-color: #e6ecf0;
+	position: absolute;
+	top: 15%;
+	left: 25%;
+	padding: 20px 0 40px;
+	text-align: center;
+	border-radius: 5px;
+	width: 50%;
+	height: 70%;
+}
+
+.fa-times {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	color: rgba(128, 128, 128, 0.46);
+	cursor: pointer;
+}
+
+/*クイズ一覧、詳細画面*/
+.quiz-box{
+	background-color: white;
+	margin-bottom: 20px;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.answer-show, .explanation-show, .comment-form-show{
+	cursor: pointer;
+}
+
+.answer, .explanation, .comment-form-wrapper{
+	display: none;
+}
+
+.explanation{
+	display: none;
+}
+
+.fa-star{
+	color: #FFCC00;
+}
+
+/*クイズへのコメント*/
+.comment-form-wrapper{
+	display: none;
+	background-color: rgba(0, 0, 0, 0.6);
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.comment-form{
+	background-color: #e6ecf0;
+	position: absolute;
+	top: 25%;
+	left: 30%;
+	padding: 20px 0 40px;
+	text-align: center;
+	border-radius: 5px;
+	width: 40%;
+	height: 50%;
+}
+
+.cnt_danger{
+    color: #FF0000;
+}
+
+.comment-box{
+	background-color: white;
+	margin-bottom: 5px;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+
+/*通知一覧*/
+.notification-wrapper{
+	display: none;
+	background-color: rgba(0, 0, 0, 0.6);
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.notification-box{
+	background-color: #e6ecf0;
+	position: absolute;
+	top: 25%;
+	left: 30%;
+	padding: 20px 0 40px;
+	text-align: center;
+	border-radius: 5px;
+	width: 40%;
+	height: 50%;
+	overflow: scroll;
+}

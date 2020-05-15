@@ -1,0 +1,21 @@
+ja:
+  activerecord:
+    models:
+      user: "ユーザー"
+    attributes:
+      user:
+        nick_name: "ニックネーム"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "パスワード（確認）"
+        introduction: "自己紹介"
+        image_id: "画像"
+    models:
+      quiz: "クイズ"
+    attributes:
+      quiz:
+        question: "問題文"
+        answer: "答え"
+        explanation: "解説"
+        quiz_image_id: "画像"
+        category: "カテゴリー"

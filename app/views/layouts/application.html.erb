@@ -7,9 +7,24 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/header' %>
+    <div class="row">
+      <div class="col-md-3">
+        <%= render 'layouts/sideber' %>
+      </div>
+      <div class="col-md-9">
+        <%= yield %>
+      </div>
+    </div>
+    <%= render 'quizzes/quiz_form', new_quiz: @new_quiz %>
+    <% if user_signed_in? %>
+      <div class="notification-wrapper">
+        <%= render 'layouts/notification', notifications: @notifications %>
+      </div>
+    <% end %>
   </body>
 </html>
