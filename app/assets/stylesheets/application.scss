@@ -24,6 +24,7 @@ a:link, a:visited, a:hover, a:active{
 	text-decoration: none;
 }
 
+/*ヘッダー*/
 header{
 	background-color: orange;
 	padding: 15px;
@@ -198,8 +199,35 @@ header{
 .quiz-box{
 	background-color: white;
 	margin-bottom: 20px;
-	padding: 10px;
+	padding: 15px;
 	border-radius: 5px;
+}
+
+.quiz-box h4{
+	margin-top: 20px;
+	font-weight: bold;
+	border-bottom: 1px solid orange;
+}
+
+.quiz-user{
+	margin-bottom: 10px;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.quiz-user-link{
+	margin-right: auto;
+}
+
+.quiz-category{
+	background-color: orange;
+	padding: 3px;
+	border-radius: 3px
+}
+
+.favorite-comment{
+	color: #888888;
+	margin-top: 15px;
 }
 
 .answer-show, .explanation-show, .comment-form-show{
@@ -216,6 +244,10 @@ header{
 
 .fa-star{
 	color: #FFCC00;
+}
+
+.far.fa-comment-alt{
+	color: #2C7CFF;
 }
 
 /*クイズへのコメント*/

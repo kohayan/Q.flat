@@ -20,7 +20,11 @@
         <%= yield %>
       </div>
     </div>
-    <%= render 'quizzes/quiz_form', new_quiz: @new_quiz %>
+
+    <div class="quiz-form-wrapper">
+      <%= render 'quizzes/quiz_form', new_quiz: @new_quiz %>
+    </div>
+
     <% if user_signed_in? %>
       <div class="notification-wrapper">
         <%= render 'layouts/notification', notifications: @notifications %>
