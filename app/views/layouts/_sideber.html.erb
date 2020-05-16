@@ -1,9 +1,9 @@
-<div id="sideber" class="text-center bg-light p-4">
+<div id="sideber" class="p-4">
 	<% if user_signed_in? %>
-		<div>
-			<%= link_to user_path(current_user) do %>
-				<%= attachment_image_tag current_user, :image, size: "60x60", format: 'jpeg', class: "rounded-circle", fallback: "sozai_cman_jp_20200510165455.jpg" %>
-				<h3 class="strong"><%= current_user.nick_name %></h3>
+		<div class="current-user">
+			<%= link_to user_path(current_user), class: "user-link" do %>
+				<%= attachment_image_tag current_user, :image, size: "40x40", format: 'jpeg', class: "rounded-circle", fallback: "sozai_cman_jp_20200510165455.jpg" %>
+				<strong class="user-name"><%= current_user.nick_name %></strong>
 			<% end %>
 			<%= link_to notifications_path, remote: true do %>
 				<i class="far fa-bell"></i>
@@ -12,12 +12,14 @@
 				<i class="fa fa-circle" style="color: gold;"></i>
 			<% end %>
 		</div>
-		<ul class="list-unstyled">
+		<ul class="sideber-nuv">
 			<li>
 				<h3><%= link_to 'ホーム', quizzes_path %></h3>
 			</li>
 			<li>
-				<h3 class="category-show">カテゴリ<span>＋</span></h3>
+				<h3 class="category-show">
+					カテゴリ<i class="fas fa-angle-down"></i>
+				</h3>
 				<div class="category-item">
 					<% @categories.each do |category| %>
 						<%= link_to category, quizzes_path(category: category) %>
@@ -30,14 +32,18 @@
 			<li>
 				<h3><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></h3>
 			</li>
-			<li>
-				<h3><%= link_to 'Q.flatとは？', '/homes/about' %></h3>
-			</li>
 		</ul>
 	<% else %>
-		<ul class="list-unstyled">
+		<ul class="sideber-nuv">
 			<li>
-				<h3>カテゴリ</h3>
+				<h3 class="category-show">
+					カテゴリ<i class="fas fa-angle-down"></i>
+				</h3>
+				<div class="category-item">
+					<% @categories.each do |category| %>
+						<%= link_to category, quizzes_path(category: category) %>
+					<% end %>
+				</div>
 			</li>
 			<li>
 				<h3>人気クイズ</h3>
@@ -48,12 +54,10 @@
 			<li>
 				<h3><%= link_to 'ログイン', new_user_session_path %></h3>
 			</li>
-			<li>
-				<h3><%= link_to 'Q.flatとは？', '/homes/about' %></h3>
-			</li>
 		</ul>
 	<% end %>
 	<div id="quiz-form-show" class="btn btn-primary">
 		<span>クイズを投稿する</span>
 	</div>
+	<h3 class="about-link"><%= link_to 'Q.flatとは？', '/homes/about' %></h3>
 </div>
