@@ -1,28 +1,32 @@
 <div class="quiz-box">
-	<div>
-		<%= link_to user_path(quiz.user) do %>
+	<div class="quiz-user">
+		<%= link_to user_path(quiz.user), class: "quiz-user-link" do %>
 			<%= attachment_image_tag quiz.user, :image, size: "40x40", format: 'jpeg', class: "rounded-circle", fallback: "sozai_cman_jp_20200510165455.jpg" %>
 			<%= quiz.user.nick_name %>
 		<% end %>
-	</div>
-	<div>
-		<% unless quiz.category.nil? %>
-			<%= link_to quiz.category, quizzes_path(category: quiz.category) %>
+		<% if quiz.user_id == current_user.id %>
+			<%= link_to '編集', edit_quiz_path(quiz) %>
+			<%= link_to '削除', quiz_path(quiz), method: :delete, "data-confirm" => "本当に削除しますか?", class: "ml-2" %>
 		<% end %>
-		<h3>問題</h3>
+	</div>
+	<% unless quiz.category.nil? %>
+		<%= link_to quiz.category, quizzes_path(category: quiz.category), class: "quiz-category" %>
+	<% end %>
+	<div>
+		<h4>問題</h4>
 		<%= quiz.question %>
 	</div>
-	<h3 class="answer-show">答えを見る</h3>
+	<h4 class="answer-show">答えを見る</h4>
 	<div class="answer">
 		<%= quiz.answer %>
 		<% unless quiz.explanation == "" %>
-			<h3 class="explanation-show">解説を見る</h3>
+			<h4 class="explanation-show">解説を見る</h4>
 			<div class="explanation">
 				<%= quiz.explanation %>
 			</div>
 		<% end %>
 	</div>
-	<div>
+	<div class="favorite-comment">
 		<% if quiz.favorited_by?(current_user) %>
 			<%= link_to quiz_favorites_path(quiz), method: :delete, remote: true do %>
 				<i class="fas fa-star"></i>
@@ -40,8 +44,4 @@
 			<%= @quiz.quiz_comments.count %>
 		</span>
 	</div>
-	<% if quiz.user_id == current_user.id %>
-		<%= link_to '編集', edit_quiz_path(quiz), class: "btn btn-primary" %>
-		<%= link_to '削除', quiz_path(quiz), method: :delete, "data-confirm" => "本当に削除しますか?", class: "btn btn-danger" %>
-	<% end %>
 </div>

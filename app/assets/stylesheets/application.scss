@@ -20,17 +20,112 @@ body{
 }
 
 a:link, a:visited, a:hover, a:active{
-	color: #000000;
+	color: #444444;
 	text-decoration: none;
 }
 
+/*ヘッダー*/
+header{
+	background-color: orange;
+	padding: 15px;
+	display: flex;
+	justify-content: flex-end;
+}
+
+#logo{
+	color: #fff;
+	margin-right: auto;
+}
+
+#logo span{
+	color: #FF0000;
+}
+
+.header-nuv{
+	list-style: none;
+	display: flex;
+}
+
+.header-nuv a{
+	color: #fff;
+	padding: 0 15px;
+	font-weight: bold;
+}
+
+.header-nuv li :hover{
+	color: #ff0000;
+}
+
 /*サイドバー*/
+#sideber{
+	position: relative;
+	background-color: #fff;
+}
+
+.sideber-nuv{
+	list-style: none;
+	padding-left: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.sideber-nuv li{
+	padding: 10px;
+	border-bottom: solid 1px orange;
+}
+
+.sideber-nuv li :hover {
+	color: orange;
+}
+
+.sideber-nuv h3{
+	display: flex;
+	color: #444444;
+}
+
+.current-user{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 30px;
+}
+
+.user-link{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .category-show{
 	cursor: pointer;
 }
 
 .category-item{
 	display: none;
+}
+
+.fa-angle-up, .fa-angle-down{
+	color: #999999;
+	margin-left: auto;
+}
+
+#quiz-form-show{
+	position: absolute;
+	bottom: 30%;
+	left: 50%;
+	transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	cursor: pointer;
+}
+
+.about-link{
+	position: absolute;
+	bottom: 15%;
+	left: 50%;
+	transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
 }
 
 /*ユーザー詳細画面*/
@@ -43,8 +138,8 @@ a:link, a:visited, a:hover, a:active{
 }
 
 #tab-menu .active {
-  background: #fff;
-  color: #000;
+	background: #fff;
+	color: #000;
 }
 
 .fa-cog {
@@ -104,8 +199,35 @@ a:link, a:visited, a:hover, a:active{
 .quiz-box{
 	background-color: white;
 	margin-bottom: 20px;
-	padding: 10px;
+	padding: 15px;
 	border-radius: 5px;
+}
+
+.quiz-box h4{
+	margin-top: 20px;
+	font-weight: bold;
+	border-bottom: 1px solid orange;
+}
+
+.quiz-user{
+	margin-bottom: 10px;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.quiz-user-link{
+	margin-right: auto;
+}
+
+.quiz-category{
+	background-color: orange;
+	padding: 3px;
+	border-radius: 3px
+}
+
+.favorite-comment{
+	color: #888888;
+	margin-top: 15px;
 }
 
 .answer-show, .explanation-show, .comment-form-show{
@@ -122,6 +244,10 @@ a:link, a:visited, a:hover, a:active{
 
 .fa-star{
 	color: #FFCC00;
+}
+
+.far.fa-comment-alt{
+	color: #2C7CFF;
 }
 
 /*クイズへのコメント*/
