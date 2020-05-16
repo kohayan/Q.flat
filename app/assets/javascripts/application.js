@@ -30,14 +30,16 @@ $(document).on('turbolinks:load',function() {
 
 	// サイドバーのカテゴリーをアコーディオン表示
 	$('.category-show').click(function() {
-		if($('.category-item').hasClass('open')) { 
+		if($('.category-item').hasClass('open')) {
 			$('.category-item').removeClass('open');
 			$('.category-item').slideUp();
-			$(this).find('span').text('＋');
+			$(this).find('i').removeClass('fa-angle-up');
+			$(this).find('i').addClass('fa-angle-down');
 		}else{
 			$('.category-item').addClass('open');
 			$('.category-item').slideDown();
-			$(this).find('span').text('−');
+			$(this).find('i').removeClass('fa-angle-down');
+			$(this).find('i').addClass('fa-angle-up');
 		}
 	});
 
