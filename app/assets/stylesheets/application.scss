@@ -52,6 +52,7 @@ header{
 .header-nuv{
 	list-style: none;
 	display: flex;
+	align-items: center;
 }
 
 .header-nuv a{
@@ -70,6 +71,36 @@ header{
 	background-color: #fff;
 }
 
+.current-user{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 30px;
+}
+
+.search-ber{
+	margin-bottom: 15px;
+}
+
+.search-ber input{
+	height: 40px;
+	width: 90%;
+	border: 1px solid orange;
+	border-right: transparent;
+	outline: none;
+}
+
+.search-ber button{
+	width: 10%;
+	background-color: #fff;
+	border: 1px solid orange;
+	border-left: transparent;
+}
+
+.fa-search{
+	color: orange;
+}
+
 .sideber-nuv{
 	list-style: none;
 	display: flex;
@@ -77,7 +108,7 @@ header{
 }
 
 .sideber-nuv li{
-	padding: 10px;
+	padding: 15px;
 	border-bottom: solid 1px orange;
 }
 
@@ -90,19 +121,6 @@ header{
 	color: #444444;
 }
 
-.current-user{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 30px;
-}
-
-.user-link{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
 .category-show{
 	cursor: pointer;
 }
@@ -112,13 +130,14 @@ header{
 }
 
 .fa-angle-up, .fa-angle-down{
-	color: #999999;
+	color: #dddddd;
 	margin-left: auto;
 }
 
 #quiz-form-show{
+	width: 80%;
 	position: absolute;
-	bottom: 30%;
+	bottom: 25%;
 	left: 50%;
 	transform: translateX(-50%);
 	-webkit-transform: translateX(-50%);
