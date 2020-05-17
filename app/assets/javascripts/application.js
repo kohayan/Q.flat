@@ -46,11 +46,11 @@ $(document).on('turbolinks:load',function() {
 	// ユーザー詳細画面のタブメニュー
 	$('#tab-contents .tab[id != "tab1"]').hide();
 
-	$('#tab-menu a').on('click', function() {
+	$('#tab-menu li').on('click', function() {
 		$("#tab-contents .tab").hide();
 		$("#tab-menu .active").removeClass("active");
 		$(this).addClass("active");
-		$($(this).attr("href")).show();
+		$($(this).find('a').attr("href")).show();
 		return false;
 	});
 
