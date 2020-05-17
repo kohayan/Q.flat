@@ -124,7 +124,7 @@ $(document).on('turbolinks:load',function() {
 	});
 
 	// クイズ詳細画面の答え、解説をアコーディオン表示
-	$(document).on('click','.answer-show', function() {
+	$('.answer-show').click(function() {
 		if($('.answer').hasClass('open')) {
 			$('.answer').removeClass('open');
 			$('.answer').slideUp();
@@ -136,7 +136,7 @@ $(document).on('turbolinks:load',function() {
 		}
 	});
 
-	$(document).on('click', '.explanation-show', function() {
+	$('.explanation-show').click(function() {
 		if($('.explanation').hasClass('open')) {
 			$('.explanation').removeClass('open');
 			$('.explanation').slideUp();
