@@ -21,7 +21,7 @@
 $(document).on('turbolinks:load',function() {
 
 	// フラッシュメッセージを自動でフェードアウト
-	setTimeout("$('.flash').slideUp('slow')", 2000);
+	setTimeout("$('#flash').fadeOut()", 2000);
 
 	$('#top-btn a').on('click',function(){
 		$('body, html').animate({
