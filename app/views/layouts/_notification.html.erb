@@ -1,15 +1,14 @@
-
-  <div class="notification-box">
-    <div class="close-notification">
-      <i class="fa fa-2x fa-times"></i>
-    </div>
-    <h3 class="text-center">通知</h3>
-    <%= link_to "通知削除", destroy_all_notifications_path, method: :delete ,class: "fas fa-trash", remote: true %>
-    <% if notifications.exists? %>
-      <div class="notification-index">
-        <%= render notifications %>
-      </div>
-    <% else %>
-      <p>通知はありません</p>
-    <% end %>
+<div class="notification-box">
+  <div class="close-notification">
+    <i class="fa fa-2x fa-times"></i>
   </div>
+  <h3 class="text-center">通知</h3>
+  <%= link_to "通知削除", destroy_all_notifications_path, method: :delete ,class: "fas fa-trash", remote: true, "data-confirm" => "本当に削除しますか?" %>
+  <% if notifications.exists? %>
+    <div class="notification-index">
+      <%= render notifications %>
+    </div>
+  <% else %>
+    <p>通知はありません</p>
+  <% end %>
+</div>
