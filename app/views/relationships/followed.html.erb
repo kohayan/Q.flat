@@ -1,10 +1,5 @@
 <div class="offset-1 col-md-10 mt-4">
 	<% @users.each do |user| %>
-		<%= link_to user_path(user) do %>
-			<div class="follow-box">
-				<%= attachment_image_tag user, :image, size: "60x60", format: 'jpeg', class: "rounded-circle", fallback: "sozai_cman_jp_20200510165455.jpg" %>
-				<%= user.nick_name %>
-			</div>
-		<% end %>
+		<%= render 'users/user', user: user %>
 	<% end %>
 </div>
