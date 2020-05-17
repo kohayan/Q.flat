@@ -24,6 +24,14 @@ a:link, a:visited, a:hover, a:active{
 	text-decoration: none;
 }
 
+ul{
+	padding-left: 0;
+}
+
+h1, h2, h3, h4, h5, h6{
+	margin-bottom: 0;
+}
+
 /*ヘッダー*/
 header{
 	background-color: orange;
@@ -64,7 +72,6 @@ header{
 
 .sideber-nuv{
 	list-style: none;
-	padding-left: 0;
 	display: flex;
 	flex-direction: column;
 }
@@ -132,14 +139,60 @@ header{
 .profile{
 	background-color: white;
 	position: relative;
-	margin-bottom: 20px;
 	padding: 30px 0 30px;
+	border-bottom: solid 1px orange;
 	border-radius: 5px 5px 0 0;
+	text-align: center;
 }
 
-#tab-menu .active {
-	background: #fff;
-	color: #000;
+.introduction{
+	width: 70%;
+	margin: 0 auto;
+}
+
+.follow-related{
+	margin: 10px 0 5px 0;
+}
+
+.follow-related a{
+	color: #777777;
+}
+
+.followed{
+	color: #999999;
+	background-color: #eeeeee;
+	border-radius: 1px;
+}
+
+#tab-menu{
+	list-style: none;
+	display: flex;
+	background-color: #fff;
+}
+
+#tab-menu li{
+	width: 50%;
+	padding:30px 0;
+	text-align: center;
+}
+
+#tab-menu li :hover{
+	color: orange;
+}
+
+
+#tab-menu .active{
+	border-bottom: solid 5px orange;
+}
+
+#tab-menu .active a{
+	color: orange;
+}
+
+.tab h3{
+	text-align: center;
+	margin-top: 50px;
+	color: #777777;
 }
 
 .fa-cog {
