@@ -20,6 +20,16 @@
 
 $(document).on('turbolinks:load',function() {
 
+	// フラッシュメッセージを自動でフェードアウト
+	setTimeout("$('#flash').fadeOut()", 2000);
+
+	$('#top-btn a').on('click',function(){
+		$('body, html').animate({
+			scrollTop:0
+		}, 800);
+		return false;
+	});
+
 	// サイドバーを画面いっぱいに表示
 	hsize = $(window).height();
 	$("#sideber").css("height", hsize + "px");

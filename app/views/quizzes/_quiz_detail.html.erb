@@ -16,16 +16,16 @@
 
 	<div>
 		<h4>問題</h4>
-		<%= quiz.question %>
+		<p><%= simple_format(quiz.question) %></p>
 	</div>
 
 	<h4 class="answer-show">答えを見る</h4>
 	<div class="answer">
-		<%= quiz.answer %>
+		<P><%= simple_format(quiz.answer) %></P>
 		<% unless quiz.explanation == "" %>
 			<h4 class="explanation-show">解説を見る</h4>
 			<div class="explanation">
-				<%= quiz.explanation %>
+				<p><%= simple_format(quiz.explanation) %></p>
 			</div>
 		<% end %>
 	</div>
