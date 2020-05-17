@@ -152,7 +152,14 @@ $(document).on('turbolinks:load',function() {
 	// $(".comment-form-show").click(function () {
 	$(document).on('click', '.comment-form-show', function () {
 		$('.comment-form-wrapper').fadeIn();
+
+		var val = $('.comment-area').val();
+
+		if(val == 0) {
+			$('.comment-send').prop("disabled", true);
+		}
 	});
+
 	// $(".close-comment-form").click(function () {
 	$(document).on('click', '.close-comment-form', function () {
 		$('.comment-form-wrapper').fadeOut();
@@ -160,14 +167,12 @@ $(document).on('turbolinks:load',function() {
 
 
 	// コメントの送信ボタンの有効、無効の切り替え
-	$('.comment-send').prop("disabled", true);
-
 	$('.comment-area').on('input', function(){
 		//文字数を取得
 		var cnt = $(this).val().length;
 		//現在の文字数を表示
 		$('.now_cnt').text(cnt);
-		if(cnt > 0 && 141 > cnt){
+		if(cnt > 0 && 141 > cnt) {
 			//1文字以上かつ140文字以内の場合はボタンを有効化＆黒字
 			$('.comment-send').prop('disabled', false);
 			$('.cnt_area').removeClass('cnt_danger');
