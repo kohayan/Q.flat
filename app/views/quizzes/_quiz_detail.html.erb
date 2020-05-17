@@ -9,13 +9,16 @@
 			<%= link_to '削除', quiz_path(quiz), method: :delete, "data-confirm" => "本当に削除しますか?", class: "ml-2" %>
 		<% end %>
 	</div>
+
 	<% unless quiz.category.nil? %>
 		<%= link_to quiz.category, quizzes_path(category: quiz.category), class: "quiz-category" %>
 	<% end %>
+
 	<div>
 		<h4>問題</h4>
 		<%= quiz.question %>
 	</div>
+
 	<h4 class="answer-show">答えを見る</h4>
 	<div class="answer">
 		<%= quiz.answer %>

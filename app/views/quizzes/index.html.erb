@@ -1,7 +1,9 @@
-<% if @quizzes.blank? %>
-	<h3>クイズがありません</h3>
-<% else %>
-	<div class="offset-1 col-md-10 mt-4">
+<div class="offset-1 col-md-10 mt-4">
+	<% if @quizzes.blank? %>
+		<h3>クイズがありません</h3>
+	<% else %>
 		<% @quizzes.each do |quiz| %>
-			<div class="quiz_<%= quiz.id %>">
-				<%= render 'quiz', quiz: q
+			<%= render 'quiz', quiz: quiz %>
+		<% end %>
+	<% end %>
+</div>
