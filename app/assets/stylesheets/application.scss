@@ -281,6 +281,10 @@ header{
 	border-bottom: 1px solid orange;
 }
 
+.quiz-box p{
+	font-size: 20px;
+}
+
 .quiz-user, .comment-user{
 	margin-bottom: 10px;
 	display: flex;
@@ -298,6 +302,7 @@ header{
 }
 
 .favorite-comment{
+	font-size: 20px;
 	color: #888888;
 	margin-top: 15px;
 }
