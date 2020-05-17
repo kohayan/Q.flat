@@ -1,6 +1,1 @@
-if (location.pathname == '/quizzes' || location.pathname.includes('/users')) {
-	$(".quiz_<%= @quiz.id %>").html("<%= j(render 'quizzes/quiz', quiz: @quiz) %>")
-}else{
-	$(".quiz_<%= @quiz.id %>").html("<%= j(render 'quizzes/quiz_detail', quiz: @quiz) %>")
-	location.reload();
-}
+$(".favorite_comment_<%= @quiz.id %>").html("<%= j(render 'quizzes/favorite_comment', quiz: @quiz) %>");

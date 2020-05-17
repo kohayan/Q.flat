@@ -4,8 +4,4 @@
 	<div class="offset-1 col-md-10 mt-4">
 		<% @quizzes.each do |quiz| %>
 			<div class="quiz_<%= quiz.id %>">
-				<%= render 'quiz', quiz: quiz %>
-			</div>
-		<% end %>
-	</div>
-<% end %>
+				<%= render 'quiz', quiz: q
