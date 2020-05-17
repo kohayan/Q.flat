@@ -5,6 +5,7 @@ class QuizzesController < ApplicationController
 	def create
 		@new_quiz = current_user.quizzes.new(quiz_params)
 		if @new_quiz.save
+			flash[:notice] = "クイズを投稿しました！"
 			redirect_to quizzes_path
 		else
 			@quizzes = Quiz.all
@@ -30,6 +31,7 @@ class QuizzesController < ApplicationController
 
 	def update
 		if @quiz.update(quiz_params)
+			flash[:notice] = "クイズを編集しました！"
 			redirect_to quiz_path(@quiz)
 		else
 			render :show
@@ -38,6 +40,7 @@ class QuizzesController < ApplicationController
 
 	def destroy
 		@quiz.destroy
+		flash[:notice] = "クイズを削除しました！"
 		redirect_to quizzes_path
 	end
 
