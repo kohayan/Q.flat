@@ -12,6 +12,8 @@ class Quiz < ApplicationRecord
 
 	enum category: {謎解き:0, エンタメ:1, 雑学:2, 時事:3}
 
+	default_scope -> { order(created_at: :desc) }
+
 	def favorited_by?(user)
 		favorites.where(user_id: user.id).exists?
 	end
