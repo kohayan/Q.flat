@@ -1,0 +1,19 @@
+<div class="offset-1 col-md-10 mt-4">
+	<% if @users.blank? && @quizzes.blank? %>
+		<h3>検索結果が存在しません</h3>
+	<% else %>
+		<% unless @users.blank? %>
+			<h3>ユーザー</h3>
+			<% @users.each do |user| %>
+				<%= render 'users/user', user: user %>
+			<% end %>
+		<% end %>
+
+		<% unless @quizzes.blank? %>
+		<h3>クイズ</h3>
+			<% @quizzes.each do |quiz| %>
+				<%= render 'quizzes/quiz', quiz: quiz %>
+			<% end %>
+		<% end %>
+	<% end %>
+</div>
