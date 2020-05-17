@@ -12,6 +12,14 @@
 				<i class="fa fa-circle" style="color: gold;"></i>
 			<% end %>
 		</div>
+		<div class="search-ber">
+			<%= form_tag(search_path, :method => "get") do %>
+				<%= text_field_tag :keyword %>
+				<%= button_tag :type => "submit" do %>
+					<i class="fa fa-search"></i>
+				<% end %>
+			<% end %>
+		</div>
 		<ul class="sideber-nuv">
 			<li>
 				<h3><%= link_to 'ホーム', quizzes_path %></h3>
@@ -34,6 +42,14 @@
 			</li>
 		</ul>
 	<% else %>
+		<div class="search-ber">
+			<%= form_tag(search_path, :method => "get") do %>
+				<%= text_field_tag :keyword %>
+				<%= button_tag :type => "submit" do %>
+					<i class="fa fa-search"></i>
+				<% end %>
+			<% end %>
+		</div>
 		<ul class="sideber-nuv">
 			<li>
 				<h3 class="category-show">
