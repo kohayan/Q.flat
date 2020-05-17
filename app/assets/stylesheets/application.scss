@@ -32,9 +32,28 @@ h1, h2, h3, h4, h5, h6{
 	margin-bottom: 0;
 }
 
-.flash{
+/*フラッシュメッセージ*/
+#flash{
 	margin-top: 15px;
 	color: orange;
+}
+
+/*トップへスクロールするボタン*/
+#top-btn{
+	background-color: orange;
+	position: fixed;
+	right: 30px;
+	bottom: 20px;
+	width: 40px;
+	height: 40px;
+	border-radius: 40px;
+	text-align: center;
+	box-shadow: 1px 1px 1px 1px #ccc;
+}
+
+#top-btn i{
+	font-size: 35px;
+	color: #fff;
 }
 
 /*ヘッダー*/
