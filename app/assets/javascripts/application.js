@@ -124,7 +124,7 @@ $(document).on('turbolinks:load',function() {
 	});
 
 	// クイズ詳細画面の答え、解説をアコーディオン表示
-	$('.answer-show').click(function() {
+	$(document).on('click','.answer-show', function() {
 		if($('.answer').hasClass('open')) {
 			$('.answer').removeClass('open');
 			$('.answer').slideUp();
@@ -136,7 +136,7 @@ $(document).on('turbolinks:load',function() {
 		}
 	});
 
-	$('.explanation-show').click(function() {
+	$(document).on('click', '.explanation-show', function() {
 		if($('.explanation').hasClass('open')) {
 			$('.explanation').removeClass('open');
 			$('.explanation').slideUp();
@@ -149,11 +149,12 @@ $(document).on('turbolinks:load',function() {
 	});
 
 	// クイズへのコメントフォームの表示、非表示
-	$('.comment-form-show').click(function() {
+	// $(".comment-form-show").click(function () {
+	$(document).on('click', '.comment-form-show', function () {
 		$('.comment-form-wrapper').fadeIn();
 	});
-
-	$('.close-comment-form').click(function() {
+	// $(".close-comment-form").click(function () {
+	$(document).on('click', '.close-comment-form', function () {
 		$('.comment-form-wrapper').fadeOut();
 	});
 

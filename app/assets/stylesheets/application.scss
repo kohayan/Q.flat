@@ -209,13 +209,13 @@ header{
 	border-bottom: 1px solid orange;
 }
 
-.quiz-user{
+.quiz-user, .comment-user{
 	margin-bottom: 10px;
 	display: flex;
 	justify-content: flex-end;
 }
 
-.quiz-user-link{
+.quiz-user-link, .comment-user-link{
 	margin-right: auto;
 }
 
@@ -235,10 +235,6 @@ header{
 }
 
 .answer, .explanation, .comment-form-wrapper{
-	display: none;
-}
-
-.explanation{
 	display: none;
 }
 

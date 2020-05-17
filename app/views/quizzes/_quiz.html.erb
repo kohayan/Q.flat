@@ -5,30 +5,19 @@
 			<%= quiz.user.nick_name %>
 		<% end %>
 	</div>
+
 	<% unless quiz.category.nil? %>
 		<%= link_to quiz.category, quizzes_path(category: quiz.category), class: "quiz-category" %>
 	<% end %>
+
 	<%= link_to quiz_path(quiz) do %>
 		<div>
 			<h4>問題</h4>
 			<%= quiz.question %>
 		</div>
 	<% end %>
-	<div class="favorite-comment">
-		<% if quiz.favorited_by?(current_user) %>
-			<%= link_to quiz_favorites_path(quiz), method: :delete, remote: true do %>
-				<i class="fas fa-star"></i>
-			<% end %>
-			<%= quiz.favorites.count %>
-		<% else %>
-			<%= link_to quiz_favorites_path(quiz), method: :post, remote: true do %>
-				<i class="far fa-star"></i>
-			<% end %>
-			<%= quiz.favorites.count %>
-		<% end %>
-		<i class="far fa-comment-alt"></i>
-		<span class="comment-count">
-			<%= quiz.quiz_comments.count %>
-		</span>
+
+	<div class="favorite-comment favorite_comment_<%= quiz.id %>">
+		<%= render 'favorite_comment', quiz: quiz %>
 	</div>
 </div>
