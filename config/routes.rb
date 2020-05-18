@@ -11,6 +11,9 @@ Rails.application.routes.draw do
 	get 'search' => 'search#search'
 
 	resources :users,only: [:show,:edit,:update,:index] do
+		collection do
+			get 'home' => 'users#home'
+		end
 		resource :relationships, only: [:create, :destroy]
 		get 'follows' => 'relationships#follower', as: 'follows'
 		get 'followers' => 'relationships#followed', as: 'followers'

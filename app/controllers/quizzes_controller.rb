@@ -1,6 +1,7 @@
 class QuizzesController < ApplicationController
 	before_action :set_quiz, only: [:show, :edit, :update, :destroy]
 	before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+	before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
 
 	def create
 		@new_quiz = current_user.quizzes.new(quiz_params)

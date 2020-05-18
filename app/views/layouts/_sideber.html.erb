@@ -29,7 +29,10 @@
 		</div>
 		<ul class="sideber-nuv">
 			<li>
-				<h3><%= link_to 'ホーム', quizzes_path %></h3>
+				<h3><%= link_to 'ホーム', home_users_path %></h3>
+			</li>
+			<li>
+				<h3><%= link_to 'クイズ一覧', quizzes_path %></h3>
 			</li>
 			<li>
 				<h3 class="category-show">
@@ -60,6 +63,9 @@
 			<% end %>
 		</div>
 		<ul class="sideber-nuv">
+			<li>
+				<h3><%= link_to 'クイズ一覧', quizzes_path %></h3>
+			</li>
 			<li>
 				<h3 class="category-show">
 					カテゴリ<i class="fas fa-angle-down"></i>

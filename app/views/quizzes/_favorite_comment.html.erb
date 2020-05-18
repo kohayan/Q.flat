@@ -1,16 +1,28 @@
-<% if quiz.favorited_by?(current_user) %>
-	<%= link_to quiz_favorites_path(quiz), method: :delete, remote: true do %>
-		<i class="fas fa-star"></i>
+<% if user_signed_in? %>
+	<% if quiz.favorited_by?(current_user) %>
+		<%= link_to quiz_favorites_path(quiz), method: :delete, remote: true do %>
+			<i class="fas fa-star"></i>
+		<% end %>
+		<%= quiz.favorites.count %>
+	<% else %>
+		<%= link_to quiz_favorites_path(quiz), method: :post, remote: true do %>
+			<i class="far fa-star"></i>
+		<% end %>
+		<%= quiz.favorites.count %>
 	<% end %>
-	<%= quiz.favorites.count %>
+
+	<i class="far fa-comment-alt comment-form-show ml-1"></i>
+	<span class="comment-count">
+		<%= quiz.quiz_comments.count %>
+	</span>
 <% else %>
-	<%= link_to quiz_favorites_path(quiz), method: :post, remote: true do %>
+	<%= link_to quiz_favorites_path(quiz), method: :post do %>
 		<i class="far fa-star"></i>
 	<% end %>
 	<%= quiz.favorites.count %>
-<% end %>
 
-<i class="far fa-comment-alt comment-form-show ml-1"></i>
-<span class="comment-count">
-	<%= quiz.quiz_comments.count %>
-</span>
+	<i class="far fa-comment-alt comment-form-show ml-1"></i>
+	<span class="comment-count">
+		<%= quiz.quiz_comments.count %>
+	</span>
+<% end %>

@@ -65,6 +65,13 @@ h1, h2, h3, h4, h5, h6{
 	color: #fff;
 }
 
+/*ページに何もクイズがなかったとき*/
+.nothing{
+	text-align: center;
+	margin-top: 50px;
+	color: #777777;
+}
+
 /*ヘッダー*/
 header{
 	height: 10vh;
@@ -179,7 +186,7 @@ header{
 #quiz-form-show{
 	width: 80%;
 	position: absolute;
-	bottom: 20%;
+	bottom: 15%;
 	left: 50%;
 	transform: translateX(-50%);
 	-webkit-transform: translateX(-50%);
@@ -271,12 +278,6 @@ header{
 
 #tab-menu .active a{
 	color: orange;
-}
-
-.tab h3{
-	text-align: center;
-	margin-top: 50px;
-	color: #777777;
 }
 
 .fa-cog {
