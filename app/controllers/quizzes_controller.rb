@@ -35,14 +35,14 @@ class QuizzesController < ApplicationController
 			flash[:notice] = "クイズを編集しました！"
 			redirect_to quiz_path(@quiz)
 		else
-			render :show
+			render :edit
 		end
 	end
 
 	def destroy
 		@quiz.destroy
 		flash[:notice] = "クイズを削除しました！"
-		redirect_to quizzes_path
+		redirect_to user_path(@quiz.user)
 	end
 
 
