@@ -32,6 +32,15 @@ h1, h2, h3, h4, h5, h6{
 	margin-bottom: 0;
 }
 
+.btn-warning{
+	color: #fff;
+}
+
+.errors{
+	list-style: none;
+	color: orange;
+}
+
 /*フラッシュメッセージ*/
 #flash{
 	margin-top: 15px;
@@ -189,6 +198,25 @@ header{
 
 .about-link a{
 	color: #bbbbbb;
+}
+
+/*新規登録、ログイン画面*/
+.sign-form{
+	width: 60%;
+	margin: 15% auto;
+	background-color: white;
+	padding: 30px;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.sign-form h3{
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+
+.field{
+	margin-bottom: 30px;
 }
 
 /*ユーザー詳細画面*/
