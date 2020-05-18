@@ -303,7 +303,7 @@ header{
 }
 
 /*クイズ投稿画面*/
-.quiz-form-wrapper{
+#quiz-form-wrapper{
 	display: none;
 	background-color: rgba(0, 0, 0, 0.6);
 	position: fixed;
@@ -314,16 +314,21 @@ header{
 	z-index: 10;
 }
 
-.quiz-form{
-	background-color: #e6ecf0;
+#quiz-form{
+	background-color: #fff;
 	position: absolute;
-	top: 15%;
+	top: 10%;
 	left: 25%;
-	padding: 20px 0 40px;
+	padding: 50px;
 	text-align: center;
 	border-radius: 5px;
 	width: 50%;
-	height: 70%;
+	height: 80%;
+	overflow: scroll;
+}
+
+#quiz-form textarea{
+	height: 200px;
 }
 
 .fa-times {
@@ -332,6 +337,23 @@ header{
 	right: 12px;
 	color: rgba(128, 128, 128, 0.46);
 	cursor: pointer;
+}
+
+#quiz-edit-form{
+	width: 60%;
+	margin: 5% auto;
+	background-color: white;
+	padding: 30px;
+	border-radius: 5px;
+	text-align: center;
+}
+
+#quiz-edit-form label{
+	font-weight: bold;
+}
+
+#quiz-edit-form textarea{
+	height: 200px;
 }
 
 /*クイズ一覧、詳細画面*/
