@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
 	def home
 		users = current_user.following_user
-		@quizzes = Quiz.where(user_id: users)
+		@quizzes = Quiz.where(user_id: users).or(Quiz.where(user_id: current_user.id))
 	end
 
 	def show
