@@ -4,9 +4,11 @@
 			<%= attachment_image_tag quiz.user, :image, size: "40x40", format: 'jpeg', class: "rounded-circle", fallback: "sozai_cman_jp_20200510165455.jpg" %>
 			<%= quiz.user.nick_name %>
 		<% end %>
-		<% if quiz.user_id == current_user.id %>
-			<%= link_to '編集', edit_quiz_path(quiz) %>
-			<%= link_to '削除', quiz_path(quiz), method: :delete, "data-confirm" => "本当に削除しますか?", class: "ml-2" %>
+		<% if user_signed_in? %>
+			<% if quiz.user_id == current_user.id %>
+				<%= link_to '編集', edit_quiz_path(quiz) %>
+				<%= link_to '削除', quiz_path(quiz), method: :delete, "data-confirm" => "本当に削除しますか?", class: "ml-2" %>
+			<% end %>
 		<% end %>
 	</div>
 

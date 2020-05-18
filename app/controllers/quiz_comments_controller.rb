@@ -1,5 +1,6 @@
 class QuizCommentsController < ApplicationController
 	before_action :set_quiz
+	before_action :authenticate_user!
 
 	def create
 		@comment = @quiz.quiz_comments.new(quiz_comment_params)

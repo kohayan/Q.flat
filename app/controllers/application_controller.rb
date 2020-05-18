@@ -5,7 +5,16 @@ class ApplicationController < ActionController::Base
 	before_action :notification
 	before_action :categories
 
+	def authenticate_user!
+		unless user_signed_in?
+			flash[:notice] = "ログインしてください"
+			redirect_to new_user_session_path
+		end
+	end
+
+
 	protected
+
 
 	def new_quiz
 		@new_quiz = Quiz.new
