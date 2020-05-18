@@ -7,7 +7,7 @@ class QuizzesController < ApplicationController
 		@new_quiz = current_user.quizzes.new(quiz_params)
 		if @new_quiz.save
 			flash[:notice] = "クイズを投稿しました！"
-			redirect_to quizzes_path
+			redirect_to home_users_path
 		else
 			@quizzes = Quiz.all
 			render :index
