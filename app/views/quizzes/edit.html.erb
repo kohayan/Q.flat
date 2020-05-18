@@ -1,24 +1,22 @@
-<div>
-  <div>
-    <%= form_for @quiz do |f| %>
-      <%= render 'layouts/errors', obj: @quiz %>
-      <div>
-        <%= f.label :category %>
-        <%= f.select :category, Quiz.categories.keys.to_a, {include_blank: "--選択してください--"} %>
-      <div>
-      <div>
-        <%= f.label :question %>
-        <%= f.text_area :question %>
-      </div>
-      <div>
-        <%= f.label :answer %>
-        <%= f.text_field :answer %>
-      </div>
-      <div>
-        <%= f.label :explanation %>
-        <%= f.text_area :explanation %>
-      </div>
-      <%= f.submit '更新', class: "btn btn-primary" %>
-    <% end %>
-  </div>
+<div id="quiz-edit-form">
+  <%= form_for @quiz do |f| %>
+    <%= render 'layouts/errors', obj: @quiz %>
+    <div class="field">
+      <%= f.label :category %>
+      <%= f.select :category, Quiz.categories.keys.to_a, {include_blank: "カテゴリーを選択してください"}, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :question %>
+      <%= f.text_area :question, placeholder: "問題文", class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :answer %>
+      <%= f.text_area :answer, placeholder: "答え", class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :explanation %>
+      <%= f.text_area :explanation, placeholder: "解説があったら嬉しいな…", class: "form-control" %>
+    </div>
+    <%= f.submit '更新', class: "btn btn-warning" %>
+  <% end %>
 </div>

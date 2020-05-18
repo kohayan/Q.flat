@@ -80,17 +80,17 @@ $(document).on('turbolinks:load',function() {
 
 	// クイズフォームの表示、非表示
 	$('#quiz-form-show').click(function() {
-		$('.quiz-form-wrapper').fadeIn();
+		$('#quiz-form-wrapper').fadeIn();
 	});
 
 	$('.close-quiz-form').click(function() {
-		$('.quiz-form-wrapper').fadeOut();
+		$('#quiz-form-wrapper').fadeOut();
 	});
 
 	// クイズの投稿ボタンの有効、無効の切り替え
 	$('.quiz-send').prop("disabled", true);
 
-	$('.quiz-form').on('input', function(){
+	$('#quiz-form').on('input', function(){
 		//文字数を取得
 		var q_cnt = $('.question-area').val().length;
 		var a_cnt = $('.answer-area').val().length;

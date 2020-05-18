@@ -1,5 +1,7 @@
 class Quiz < ApplicationRecord
 	validates :user, :question, :answer, presence: true
+	validates :question, :explanation, length: {maximum:500}
+	validates :answer, length: {maximum:200}
 
 	belongs_to :user
 	has_many :quiz_categories
