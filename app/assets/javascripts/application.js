@@ -30,14 +30,6 @@ $(document).on('turbolinks:load',function() {
 		return false;
 	});
 
-	// サイドバーを画面いっぱいに表示
-	hsize = $(window).height();
-	$("#sideber").css("height", hsize + "px");
-	$(window).resize(function () {
-		hsize = $(window).height();
-		$("#sideber").css("height", hsize + "px");
-	});
-
 	// サイドバーのカテゴリーをアコーディオン表示
 	$('.category-show').click(function() {
 		if($('.category-item').hasClass('open')) {

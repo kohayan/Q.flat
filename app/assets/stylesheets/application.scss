@@ -58,10 +58,15 @@ h1, h2, h3, h4, h5, h6{
 
 /*ヘッダー*/
 header{
+	height: 10vh;
 	background-color: orange;
 	padding: 15px;
+	position: sticky;
+	top: 0;
+	z-index: 9;
 	display: flex;
 	justify-content: flex-end;
+	align-items: center;
 }
 
 #logo{
@@ -91,15 +96,19 @@ header{
 
 /*サイドバー*/
 #sideber{
-	position: relative;
+	height: 90vh;
 	background-color: #fff;
+	position: sticky;
+	top: 10vh;
 }
 
 .current-user{
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	text-align: center;
 	padding: 30px;
+}
+
+.notification a{
+	color: #777777;
 }
 
 .search-ber{
@@ -161,7 +170,7 @@ header{
 #quiz-form-show{
 	width: 80%;
 	position: absolute;
-	bottom: 25%;
+	bottom: 20%;
 	left: 50%;
 	transform: translateX(-50%);
 	-webkit-transform: translateX(-50%);
@@ -171,11 +180,15 @@ header{
 
 .about-link{
 	position: absolute;
-	bottom: 15%;
+	bottom: 10px;
 	left: 50%;
 	transform: translateX(-50%);
 	-webkit-transform: translateX(-50%);
 	-ms-transform: translateX(-50%);
+}
+
+.about-link a{
+	color: #bbbbbb;
 }
 
 /*ユーザー詳細画面*/
@@ -269,6 +282,7 @@ header{
 	right: 0;
 	bottom: 0;
 	left: 0;
+	z-index: 10;
 }
 
 .quiz-form{
@@ -356,6 +370,7 @@ header{
 	right: 0;
 	bottom: 0;
 	left: 0;
+	z-index: 10;
 }
 
 .comment-form{
@@ -391,6 +406,7 @@ header{
 	right: 0;
 	bottom: 0;
 	left: 0;
+	z-index: 10;
 }
 
 .notification-box{
