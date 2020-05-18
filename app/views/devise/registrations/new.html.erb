@@ -1,34 +1,31 @@
-<h2>新規登録</h2>
+<div class="offset-1 col-md-10 mt-4">
+  <div class="sign-form">
+    <h3>新規登録</h3>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :nick_name, "ニックネーム" %><br />
-    <%= f.text_field :nick_name, autofocus: true, autocomplete: "nick_name" %>
+      <div class="field">
+        <%= f.text_field :nick_name, autofocus: true, autocomplete: "nick_name", placeholder: "ニックネーム", class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード（6文字以上）", class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード（確認）", class: "form-control" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "登録", class: "btn btn-warning" %>
+      </div>
+    <% end %>
+
+    <%= link_to '登録済みの方はこちら', new_user_session_path %>
   </div>
-
-  <div class="field">
-    <%= f.label :email, "メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password, "パスワード" %>
-    <% if @minimum_password_length %>
-    <span>(<%= @minimum_password_length %>文字以上)</span>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "パスワード（確認)" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
