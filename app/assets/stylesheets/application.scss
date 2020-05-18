@@ -331,6 +331,25 @@ header{
 	height: 200px;
 }
 
+.please-signin{
+	background-color: #e6ecf0;
+	position: absolute;
+	top: 25%;
+	left: 30%;
+	border-radius: 5px;
+	width: 40%;
+	height: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.please-signin .btn{
+	width: 50%;
+	margin: 10px;
+}
+
 .fa-times {
 	position: absolute;
 	top: 12px;
