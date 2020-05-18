@@ -1,6 +1,6 @@
 <div class="offset-1 col-md-10 mt-4">
 	<% if @quizzes.blank? %>
-		<h3>ユーザーをフォローしよう！</h3>
+		<h3 class="nothing">ユーザーをフォローしよう！</h3>
 	<% else %>
 		<% @quizzes.each do |quiz| %>
 			<%= render 'quizzes/quiz', quiz: quiz %>

@@ -52,7 +52,7 @@
 		<div id="tab-contents">
 			<div id="tab1" class="tab">
 				<% if @user.quizzes.blank? %>
-					<h3>クイズを投稿しよう！</h3>
+					<h3 class="nothing">クイズを投稿しよう！</h3>
 				<% else %>
 					<% @user.quizzes.each do |quiz| %>
 						<%= render 'quizzes/quiz', quiz: quiz %>
@@ -61,7 +61,7 @@
 			</div>
 			<div id="tab2" class="tab">
 				<% if @user.favorite_quizzes.blank? %>
-					<h3>気にいったクイズをお気に入りに登録しよう！</h3>
+					<h3 class="nothing">気にいったクイズをお気に入りに登録しよう！</h3>
 				<% else %>
 					<% @user.favorite_quizzes.each do |quiz| %>
 						<%= render 'quizzes/quiz', quiz: quiz %>
