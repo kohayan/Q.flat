@@ -64,6 +64,11 @@ $(document).on('turbolinks:load',function() {
 		reader = new FileReader(),
 		$preview = $("#img_field");
 
+		if(file.type.indexOf("image") < 0){
+			alert("画像ファイルを指定してください。");
+			return false;
+		}
+
 		reader.onload = (function(file) {
 			return function(e) {
 				$preview.empty();
