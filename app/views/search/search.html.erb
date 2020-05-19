@@ -5,7 +5,7 @@
 		<% else %>
 			<% unless @users.blank? %>
 				<div class="mb-5">
-					<h3 class="mb-4">ユーザー</h3>
+					<h3>ユーザー</h3>
 					<% @users.each do |user| %>
 						<%= render 'users/user', user: user %>
 					<% end %>
