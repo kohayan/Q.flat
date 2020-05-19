@@ -2,6 +2,8 @@
 	<% if @quizzes.blank? %>
 		<h3 class="nothing">ユーザーをフォローしよう！</h3>
 	<% else %>
-		<%= render 'quizzes/index', quizzes: @quizzes %>
+		<% @quizzes.each do |quiz| %>
+			<%= render 'quizzes/quiz', quiz: quiz %>
+		<% end %>
 	<% end %>
 </div>

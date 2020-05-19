@@ -51,17 +51,21 @@
 
 		<div id="tab-contents">
 			<div id="tab1" class="tab">
-				<% if @user.quizzes.blank? %>
+				<% if @quizzes.blank? %>
 					<h3 class="nothing">投稿がありません</h3>
 				<% else %>
-					<%= render 'quizzes/index', quizzes: @user.quizzes %>
+					<% @quizzes.each do |quiz| %>
+						<%= render 'quizzes/quiz', quiz: quiz %>
+					<% end %>
 				<% end %>
 			</div>
 			<div id="tab2" class="tab">
-				<% if @user.favorite_quizzes.blank? %>
+				<% if @favorites.blank? %>
 					<h3 class="nothing">お気に入りがありません</h3>
 				<% else %>
-					<%= render 'quizzes/index', quizzes: @user.favorite_quizzes %>
+					<% @favorites.each do |quiz| %>
+						<%= render 'quizzes/quiz', quiz: quiz %>
+					<% end %>
 				<% end %>
 			</div>
 		</div>

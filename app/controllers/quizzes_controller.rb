@@ -22,9 +22,9 @@ class QuizzesController < ApplicationController
 
 	def index
 		if params[:category]
-			@quizzes = Quiz.where(category: params[:category])
+			@quizzes = Quiz.where(category: params[:category]).date
 		else
-			@quizzes = Quiz.all
+			@quizzes = Quiz.all.date
 		end
 	end
 
