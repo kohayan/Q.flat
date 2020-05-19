@@ -47,7 +47,8 @@ class QuizzesController < ApplicationController
 	end
 
 	def famous
-		@impressions = Quiz.find(Impression.where(['created_at LIKE ?', "%#{Date.today}%"]).group(:quiz_id).order('count(quiz_id) desc').pluck(:quiz_id))
+		@impression_ranks = Quiz.impression_rank
+		@favorite_ranks = Quiz.favorite_rank
 	end
 
 
