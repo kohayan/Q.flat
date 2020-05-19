@@ -511,14 +511,32 @@ header{
 }
 
 .notification-box{
-	background-color: #e6ecf0;
+	background-color: #fff;
 	position: absolute;
 	top: 25%;
 	left: 30%;
-	padding: 20px 0 40px;
-	text-align: center;
+	padding: 40px;
 	border-radius: 5px;
 	width: 40%;
 	height: 50%;
 	overflow: scroll;
+}
+
+.notification-detail{
+	margin-right: auto;
+	padding: 10px;
+	border-top: 1px solid #dddddd;
+}
+
+.notification-detail p{
+	color: #c0c0c0;
+	text-align: center;
+}
+
+.notification-detail a{
+	font-weight: bold;
+}
+
+.notification-detail span{
+	color: #bbbbbb;
 }

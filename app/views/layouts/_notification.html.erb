@@ -2,8 +2,10 @@
   <div class="close-notification">
     <i class="fa fa-2x fa-times"></i>
   </div>
-  <h3 class="text-center">通知</h3>
-  <%= link_to "通知削除", destroy_all_notifications_path, method: :delete ,class: "fas fa-trash", remote: true, "data-confirm" => "本当に削除しますか?" %>
+  <div class="text-center mb-3">
+    <h3>通知</h3>
+    <%= link_to "通知削除", destroy_all_notifications_path, method: :delete ,class: "fas fa-trash", remote: true, "data-confirm" => "本当に削除しますか?" %>
+  </div>
   <% if notifications.exists? %>
     <div class="notification-index">
       <%= render notifications %>
