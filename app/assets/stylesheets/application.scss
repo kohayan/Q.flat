@@ -259,6 +259,8 @@ header{
 	list-style: none;
 	display: flex;
 	background-color: #fff;
+	position: sticky;
+	top: 10vh;
 }
 
 #tab-menu li{

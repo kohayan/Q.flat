@@ -18,6 +18,7 @@ class User < ApplicationRecord
 	has_many :follower_user, through: :followed, source: :follower
 	has_many :active_notifications, foreign_key:"visitor_id", class_name: "Notification", dependent: :destroy
 	has_many :passive_notifications, foreign_key:"visited_id", class_name: "Notification", dependent: :destroy
+	has_many :impressions
 
 	attachment :image
 

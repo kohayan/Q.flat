@@ -43,7 +43,7 @@
 		<% end %>
 	</div>
 
-	<div class="user-tab-wrap">
+	<div class="tab-wrap">
 		<ul id="tab-menu">
 			<li class="active"><h4><a href="#tab1">投稿</a></h4></li>
 			<li><h4><a href="#tab2" class="">お気に入り</a></h4></li>
@@ -51,19 +51,19 @@
 
 		<div id="tab-contents">
 			<div id="tab1" class="tab">
-				<% if @user.quizzes.blank? %>
+				<% if @quizzes.blank? %>
 					<h3 class="nothing">投稿がありません</h3>
 				<% else %>
-					<% @user.quizzes.each do |quiz| %>
+					<% @quizzes.each do |quiz| %>
 						<%= render 'quizzes/quiz', quiz: quiz %>
 					<% end %>
 				<% end %>
 			</div>
 			<div id="tab2" class="tab">
-				<% if @user.favorite_quizzes.blank? %>
+				<% if @favorites.blank? %>
 					<h3 class="nothing">お気に入りがありません</h3>
 				<% else %>
-					<% @user.favorite_quizzes.each do |quiz| %>
+					<% @favorites.each do |quiz| %>
 						<%= render 'quizzes/quiz', quiz: quiz %>
 					<% end %>
 				<% end %>

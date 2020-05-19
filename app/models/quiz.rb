@@ -9,12 +9,19 @@ class Quiz < ApplicationRecord
 	has_many :favorites, dependent: :destroy
 	has_many :categories, through: :quiz_categories
 	has_many :notifications, dependent: :destroy
+	has_many :impressions
 
 	attachment :quiz_image
 
 	enum category: {謎解き:0, エンタメ:1, 雑学:2, 時事:3}
 
-	default_scope -> { order(created_at: :desc) }
+	scope :date, -> { order(created_at: :desc) }
+
+	scope :impression_rank, -> { find(Impression.where(['created_at LIKE ?', "%#{Date.today}%"]).group(:quiz_id).order('count(quiz_id) desc').limit(20).pluck(:quiz_id)) }
+
+	scope :favorite_rank, -> { find(Favorite.where(['created_at LIKE ?', "%#{Date.today}%"]).group(:quiz_id).order('count(quiz_id) desc').limit(20).pluck(:quiz_id)) }
+
+	require "date"
 
 	def favorited_by?(user)
 		favorites.where(user_id: user.id).exists?
@@ -22,7 +29,7 @@ class Quiz < ApplicationRecord
 
 	def create_notification_like!(current_user)
 		temp = Notification.where(["visitor_id = ? and visited_id = ? and quiz_id = ? and action = ? ",
-                          current_user.id, user_id, id, 'like'])
+									current_user.id, user_id, id, 'like'])
 		if temp.blank?
 			notification = current_user.active_notifications.new(
 				quiz_id: id,
@@ -48,5 +55,15 @@ class Quiz < ApplicationRecord
 			notification.checked = true
 		end
 		notification.save if notification.valid?
+	end
+
+	def create_impression(current_user)
+		data = Impression.where(["user_id = ? and quiz_id = ? and created_at LIKE ?",
+									current_user.id, id, "%#{Date.today}%"])
+		if data.blank?
+			impression = current_user.impressions.new(quiz_id: id)
+
+			impression.save if impression.valid?
+		end
 	end
 end

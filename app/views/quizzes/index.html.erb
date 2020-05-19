@@ -3,7 +3,7 @@
 		<h3 class="nothing">クイズがありません</h3>
 	<% else %>
 		<% @quizzes.each do |quiz| %>
-			<%= render 'quiz', quiz: quiz %>
+			<%= render 'quizzes/quiz', quiz: quiz %>
 		<% end %>
 	<% end %>
 </div>

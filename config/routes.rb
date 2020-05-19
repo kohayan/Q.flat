@@ -20,6 +20,9 @@ Rails.application.routes.draw do
 	end
 
 	resources :quizzes do
+		collection do
+			get 'famous' => 'quizzes#famous'
+		end
 		resource :favorites, only:[:create, :destroy]
 		resources :quiz_comments, only:[:create, :destroy]
 	end

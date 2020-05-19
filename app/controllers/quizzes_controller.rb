@@ -17,13 +17,14 @@ class QuizzesController < ApplicationController
 	def show
 		@comment = QuizComment.new
 		@comments = @quiz.quiz_comments
+		@quiz.create_impression(current_user)
 	end
 
 	def index
 		if params[:category]
-			@quizzes = Quiz.where(category: params[:category])
+			@quizzes = Quiz.where(category: params[:category]).date
 		else
-			@quizzes = Quiz.all
+			@quizzes = Quiz.all.date
 		end
 	end
 
@@ -43,6 +44,11 @@ class QuizzesController < ApplicationController
 		@quiz.destroy
 		flash[:notice] = "クイズを削除しました！"
 		redirect_to user_path(@quiz.user)
+	end
+
+	def famous
+		@impression_ranks = Quiz.impression_rank
+		@favorite_ranks = Quiz.favorite_rank
 	end
 
 
