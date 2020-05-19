@@ -17,6 +17,7 @@ class QuizzesController < ApplicationController
 	def show
 		@comment = QuizComment.new
 		@comments = @quiz.quiz_comments
+		@quiz.create_impression(current_user)
 	end
 
 	def index
