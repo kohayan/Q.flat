@@ -54,18 +54,14 @@
 				<% if @user.quizzes.blank? %>
 					<h3 class="nothing">投稿がありません</h3>
 				<% else %>
-					<% @user.quizzes.each do |quiz| %>
-						<%= render 'quizzes/quiz', quiz: quiz %>
-					<% end %>
+					<%= render 'quizzes/index', quizzes: @user.quizzes %>
 				<% end %>
 			</div>
 			<div id="tab2" class="tab">
 				<% if @user.favorite_quizzes.blank? %>
 					<h3 class="nothing">お気に入りがありません</h3>
 				<% else %>
-					<% @user.favorite_quizzes.each do |quiz| %>
-						<%= render 'quizzes/quiz', quiz: quiz %>
-					<% end %>
+					<%= render 'quizzes/index', quizzes: @user.favorite_quizzes %>
 				<% end %>
 			</div>
 		</div>

@@ -11,9 +11,7 @@
 
 		<% unless @quizzes.blank? %>
 		<h3>クイズ</h3>
-			<% @quizzes.each do |quiz| %>
-				<%= render 'quizzes/quiz', quiz: quiz %>
-			<% end %>
+			<%=render 'quizzes/index', quizzes: @quizzes %>
 		<% end %>
 	<% end %>
 </div>

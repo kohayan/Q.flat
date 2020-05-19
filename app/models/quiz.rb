@@ -15,7 +15,11 @@ class Quiz < ApplicationRecord
 
 	enum category: {謎解き:0, エンタメ:1, 雑学:2, 時事:3}
 
-	default_scope -> { order(created_at: :desc) }
+	scope :date, -> { order(created_at: :desc) }
+
+	scope :impression_rank, -> { find(Impression.where(['created_at LIKE ?', "%#{Date.today}%"]).group(:quiz_id).order('count(quiz_id) desc').pluck(:quiz_id)) }
+
+	scope :favorite_rank, -> { find(Favorite.where(['created_at LIKE ?', "%#{Date.today}%"]).group(:quiz_id).order('count(quiz_id) desc').pluck(:quiz_id)) }
 
 	require "date"
 

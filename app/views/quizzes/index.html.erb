@@ -2,8 +2,6 @@
 	<% if @quizzes.blank? %>
 		<h3 class="nothing">クイズがありません</h3>
 	<% else %>
-		<% @quizzes.each do |quiz| %>
-			<%= render 'quiz', quiz: quiz %>
-		<% end %>
+		<%= render 'index', quizzes: @quizzes %>
 	<% end %>
 </div>
