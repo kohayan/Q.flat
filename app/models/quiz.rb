@@ -17,9 +17,9 @@ class Quiz < ApplicationRecord
 
 	scope :date, -> { order(created_at: :desc) }
 
-	scope :impression_rank, -> { find(Impression.where(['created_at LIKE ?', "%#{Date.today}%"]).group(:quiz_id).order('count(quiz_id) desc').pluck(:quiz_id)) }
+	scope :impression_rank, -> { find(Impression.where(['created_at LIKE ?', "%#{Date.today}%"]).group(:quiz_id).order('count(quiz_id) desc').limit(20).pluck(:quiz_id)) }
 
-	scope :favorite_rank, -> { find(Favorite.where(['created_at LIKE ?', "%#{Date.today}%"]).group(:quiz_id).order('count(quiz_id) desc').pluck(:quiz_id)) }
+	scope :favorite_rank, -> { find(Favorite.where(['created_at LIKE ?', "%#{Date.today}%"]).group(:quiz_id).order('count(quiz_id) desc').limit(20).pluck(:quiz_id)) }
 
 	require "date"
 
