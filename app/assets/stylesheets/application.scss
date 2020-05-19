@@ -290,9 +290,25 @@ header{
 
 .user-edit{
 	background-color: white;
+	width: 60%;
+	margin: 5% auto;
 	margin-bottom: 20px;
-	padding: 10px;
+	padding: 30px;
 	border-radius: 5px;
+}
+
+.user-edit input{
+	border: transparent;
+	border-bottom: 1px solid orange;
+	outline: none;
+}
+
+.user-edit textarea{
+	resize: none;
+	height: 150px;
+	border: transparent;
+	border-bottom: 1px solid orange;
+	outline: none;
 }
 
 .user-box{
