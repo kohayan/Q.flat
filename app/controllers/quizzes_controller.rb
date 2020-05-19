@@ -46,6 +46,10 @@ class QuizzesController < ApplicationController
 		redirect_to user_path(@quiz.user)
 	end
 
+	def famous
+		@impressions = Quiz.find(Impression.where(['created_at LIKE ?', "%#{Date.today}%"]).group(:quiz_id).order('count(quiz_id) desc').pluck(:quiz_id))
+	end
+
 
 	private
 

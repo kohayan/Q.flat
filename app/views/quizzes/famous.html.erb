@@ -1,0 +1,9 @@
+<div class="offset-1 col-md-10 mt-4">
+	<% if @impressions.blank? %>
+		<h3 class="nothing">クイズがありません</h3>
+	<% else %>
+		<% @impressions.each do |quiz| %>
+			<%= render 'quiz', quiz: quiz %>
+		<% end %>
+	<% end %>
+</div>
