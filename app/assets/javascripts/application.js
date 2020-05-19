@@ -153,7 +153,7 @@ $(document).on('turbolinks:load',function() {
 	// クイズへのコメントフォームの表示、非表示
 	// $(".comment-form-show").click(function () {
 	$(document).on('click', '.comment-form-show', function () {
-		$('.comment-form-wrapper').fadeIn();
+		$('#comment-form-wrapper').fadeIn();
 
 		var val = $('.comment-area').val();
 
@@ -164,7 +164,7 @@ $(document).on('turbolinks:load',function() {
 
 	// $(".close-comment-form").click(function () {
 	$(document).on('click', '.close-comment-form', function () {
-		$('.comment-form-wrapper').fadeOut();
+		$('#comment-form-wrapper').fadeOut();
 	});
 
 

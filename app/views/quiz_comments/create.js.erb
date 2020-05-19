@@ -1,5 +1,5 @@
 $(".favorite_comment_<%= @quiz.id %>").html("<%= j(render 'quizzes/favorite_comment', quiz: @quiz) %>");
 $(".comments_<%= @quiz.id %>").html("<%= j(render 'quizzes/comments', comments: @quiz.quiz_comments ) %>");
-$(".comment-form-wrapper").hide();
+$("#comment-form-wrapper").hide();
 $(".comment-area").val("");
 $('.now_cnt').text(0);
