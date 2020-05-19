@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
 	validates :nick_name, presence: true
 	validates :nick_name, length:{in: 2..20}
-	validates :introduction, length: {maximum:49}
+	validates :introduction, length: {maximum:50}
 
 	has_many :quizzes, dependent: :destroy
 	has_many :favorites, dependent: :destroy
