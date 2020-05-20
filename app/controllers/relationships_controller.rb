@@ -14,11 +14,13 @@ class RelationshipsController < ApplicationController
 	end
 
 	def follower
-		@users = @user.following_user
+		@follows = @user.following_user
+		@followers = @user.follower_user
 	end
 
 	def followed
-		@users = @user.follower_user
+		@follows = @user.following_user
+		@followers = @user.follower_user
 	end
 
 
