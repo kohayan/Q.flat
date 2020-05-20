@@ -178,19 +178,23 @@ header{
 	display: none;
 }
 
+.category-item a{
+	font-size: 20px;
+	margin-right: 5px
+}
+
+.category-item a:nth-child(3n)::after{
+	content: "\A";
+	white-space: pre;
+}
+
 .fa-angle-up, .fa-angle-down{
 	color: #dddddd;
 	margin-left: auto;
 }
 
 #quiz-form-show{
-	width: 80%;
-	position: absolute;
-	bottom: 15%;
-	left: 50%;
-	transform: translateX(-50%);
-	-webkit-transform: translateX(-50%);
-	-ms-transform: translateX(-50%);
+	width: 100%;
 	cursor: pointer;
 }
 
