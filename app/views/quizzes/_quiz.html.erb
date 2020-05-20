@@ -7,7 +7,17 @@
 	</div>
 
 	<% unless quiz.category.nil? %>
-		<%= link_to quiz.category, quizzes_path(category: quiz.category), class: "quiz-category" %>
+		<div class="category">
+		<%= link_to quiz.category, quizzes_path(category: quiz.category) %>
+		</div>
+	<% end %>
+
+	<% unless quiz.tags.blank? %>
+		<div class="tags">
+			<% quiz.tags.each do |tag| %>
+				<%= link_to tag.name, quizzes_path(tag: tag) %>
+			<% end %>
+		</div>
 	<% end %>
 
 	<%= link_to quiz_path(quiz) do %>

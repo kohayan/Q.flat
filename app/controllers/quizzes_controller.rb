@@ -5,7 +5,9 @@ class QuizzesController < ApplicationController
 
 	def create
 		@new_quiz = current_user.quizzes.new(quiz_params)
+		tag_list = params[:quiz][:tag_list].split(",")
 		if @new_quiz.save
+			@new_quiz.save_tags(tag_list)
 			flash[:notice] = "クイズを投稿しました！"
 			redirect_to home_users_path
 		else
@@ -23,16 +25,22 @@ class QuizzesController < ApplicationController
 	def index
 		if params[:category]
 			@quizzes = Quiz.where(category: params[:category]).date
+		elsif params[:tag]
+			tag = Tag.find(params[:tag])
+			@quizzes = tag.quizzes.date
 		else
 			@quizzes = Quiz.all.date
 		end
 	end
 
 	def edit
+		@tag_list = @quiz.tags.pluck(:name).join(",")
 	end
 
 	def update
+		tag_list = params[:quiz][:tag_list].split(",")
 		if @quiz.update(quiz_params)
+			@quiz.save_tags(tag_list)
 			flash[:notice] = "クイズを編集しました！"
 			redirect_to quiz_path(@quiz)
 		else

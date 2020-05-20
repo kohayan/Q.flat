@@ -4,7 +4,7 @@
       <i class="fa fa-2x fa-times"></i>
     </div>
 
-    <%= form_for new_quiz do |f| %>
+    <%= form_with(model: new_quiz, local: true) do |f| %>
       <div class="field">
         <%= f.select :category, Quiz.categories.keys.to_a, {include_blank: "カテゴリーを選択してください"}, class: "form-control" %>
       </div>
@@ -19,6 +19,9 @@
       <div class="field">
         <div class="explanation_cnt_area"><span class="explanation_now_cnt">0</span> / 500</div>
         <%= f.text_area :explanation, placeholder: "解説があったら嬉しいな…", class: "explanation-area form-control" %>
+      </div>
+      <div class="field">
+        <%= f.text_area :tag_list, placeholder: "タグ（” , ”でくぎってください）", class: "form-control" %>
       </div>
       <%= f.submit '投稿', class: "btn btn-warning quiz-send" %>
     <% end %>

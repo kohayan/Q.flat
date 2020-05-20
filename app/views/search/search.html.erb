@@ -3,6 +3,7 @@
 		<ul id="tab-menu">
 			<li class="active"><h4><a href="#tab1">クイズ</a></h4></li>
 			<li><h4><a href="#tab2" class="">ユーザー</a></h4></li>
+			<li><h4><a href="#tab3" class="">タグ</a></h4></li>
 		</ul>
 
 		<div id="tab-contents">
@@ -22,6 +23,20 @@
 					<% @users.each do |user| %>
 						<%= render 'users/user', user: user %>
 					<% end %>
+				<% end %>
+			</div>
+			<div id="tab3" class="tab">
+				<% if @tags.blank? %>
+					<h3 class="nothing">タグがありません</h3>
+				<% else %>
+					<div class="tags search-tags">
+						<% @tags.each do |tag| %>
+							<%= link_to quizzes_path(tag: tag) do %>
+								<%= tag.name %>
+								(<%= tag.quiz_tags.count %>)
+							<% end %>
+						<% end %>
+					</div>
 				<% end %>
 			</div>
 		</div>
