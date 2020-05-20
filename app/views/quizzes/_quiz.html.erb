@@ -27,7 +27,9 @@
 		</div>
 	<% end %>
 
-	<div class="favorite-comment favorite_comment_<%= quiz.id %>">
-		<%= render 'quizzes/favorite_comment', quiz: quiz %>
+	<div class="favorite-comment">
+		<div class="favorite_comment_<%= quiz.id %>">
+			<%= render 'quizzes/favorite_comment', quiz: quiz %>
+		</div>
 	</div>
 </div>

@@ -42,8 +42,10 @@
 		<% end %>
 	</div>
 
-	<div class="favorite-comment favorite_comment_<%= quiz.id %>">
-		<%= render 'favorite_comment', quiz: quiz %>
+	<div class="favorite-comment">
+		<div class="favorite_comment_<%= quiz.id %>">
+			<%= render 'favorite_comment', quiz: quiz %>
+		</div>
 		<span class="comment-form-show">コメントする</span>
 	</div>
 </div>
