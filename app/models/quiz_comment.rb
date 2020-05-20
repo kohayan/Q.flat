@@ -1,5 +1,6 @@
 class QuizComment < ApplicationRecord
 	validates :user, :quiz, :comment, presence: true
+	validates :comment, length: {maximum:140}
 
 	belongs_to :user
 	belongs_to :quiz
