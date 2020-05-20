@@ -4,10 +4,10 @@ class Quiz < ApplicationRecord
 	validates :answer, length: {maximum:200}
 
 	belongs_to :user
-	has_many :quiz_categories
+	has_many :quiz_tags, dependent: :destroy
+	has_many :tags, through: :quiz_tags
 	has_many :quiz_comments, dependent: :destroy
 	has_many :favorites, dependent: :destroy
-	has_many :categories, through: :quiz_categories
 	has_many :notifications, dependent: :destroy
 	has_many :impressions
 
