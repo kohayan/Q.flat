@@ -1,25 +1,29 @@
-<div class="offset-1 col-md-10 mt-4">
-	<div class="search-results">
-		<% if @users.blank? && @quizzes.blank? %>
-			<h3>検索結果が存在しません</h3>
-		<% else %>
-			<% unless @users.blank? %>
-				<div class="mb-5">
-					<h3>ユーザー</h3>
-					<% @users.each do |user| %>
-						<%= render 'users/user', user: user %>
-					<% end %>
-				</div>
-			<% end %>
+<div class="offset-1 col-md-10">
+	<div class="tab-wrap">
+		<ul id="tab-menu">
+			<li class="active"><h4><a href="#tab1">クイズ</a></h4></li>
+			<li><h4><a href="#tab2" class="">ユーザー</a></h4></li>
+		</ul>
 
-			<% unless @quizzes.blank? %>
-				<div>
-					<h3>クイズ</h3>
+		<div id="tab-contents">
+			<div id="tab1" class="tab">
+				<% if @quizzes.blank? %>
+					<h3 class="nothing">投稿がありません</h3>
+				<% else %>
 					<% @quizzes.each do |quiz| %>
 						<%= render 'quizzes/quiz', quiz: quiz %>
 					<% end %>
-				</div>
-			<% end %>
-		<% end %>
+				<% end %>
+			</div>
+			<div id="tab2" class="tab">
+				<% if @users.blank? %>
+					<h3 class="nothing">ユーザーがいません</h3>
+				<% else %>
+					<% @users.each do |user| %>
+						<%= render 'users/user', user: user %>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
 	</div>
 </div>
