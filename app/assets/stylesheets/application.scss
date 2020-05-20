@@ -24,12 +24,65 @@ a:link, a:visited, a:hover, a:active{
 	text-decoration: none;
 }
 
+ul{
+	padding-left: 0;
+}
+
+h1, h2, h3, h4, h5, h6{
+	margin-bottom: 0;
+}
+
+.btn-warning{
+	color: #fff;
+}
+
+.errors{
+	list-style: none;
+	color: orange;
+}
+
+/*フラッシュメッセージ*/
+#flash{
+	margin-top: 15px;
+	color: orange;
+}
+
+/*トップへスクロールするボタン*/
+#top-btn{
+	background-color: orange;
+	position: fixed;
+	right: 30px;
+	bottom: 20px;
+	width: 40px;
+	height: 40px;
+	border-radius: 40px;
+	text-align: center;
+	box-shadow: 1px 1px 1px 1px #ccc;
+}
+
+#top-btn i{
+	font-size: 35px;
+	color: #fff;
+}
+
+/*ページに何もクイズがなかったとき*/
+.nothing{
+	text-align: center;
+	margin-top: 50px;
+	color: #777777;
+}
+
 /*ヘッダー*/
 header{
+	height: 10vh;
 	background-color: orange;
 	padding: 15px;
+	position: sticky;
+	top: 0;
+	z-index: 9;
 	display: flex;
 	justify-content: flex-end;
+	align-items: center;
 }
 
 #logo{
@@ -44,6 +97,7 @@ header{
 .header-nuv{
 	list-style: none;
 	display: flex;
+	align-items: center;
 }
 
 .header-nuv a{
@@ -58,19 +112,52 @@ header{
 
 /*サイドバー*/
 #sideber{
-	position: relative;
+	height: 90vh;
 	background-color: #fff;
+	position: sticky;
+	top: 10vh;
+}
+
+.current-user{
+	text-align: center;
+	padding: 30px;
+}
+
+.notification a{
+	color: #777777;
+}
+
+.search-ber{
+	margin-bottom: 15px;
+}
+
+.search-ber input{
+	height: 40px;
+	width: 90%;
+	border: 1px solid orange;
+	border-right: transparent;
+	outline: none;
+}
+
+.search-ber button{
+	width: 10%;
+	background-color: #fff;
+	border: 1px solid orange;
+	border-left: transparent;
+}
+
+.fa-search{
+	color: orange;
 }
 
 .sideber-nuv{
 	list-style: none;
-	padding-left: 0;
 	display: flex;
 	flex-direction: column;
 }
 
 .sideber-nuv li{
-	padding: 10px;
+	padding: 15px;
 	border-bottom: solid 1px orange;
 }
 
@@ -83,19 +170,6 @@ header{
 	color: #444444;
 }
 
-.current-user{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 30px;
-}
-
-.user-link{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
 .category-show{
 	cursor: pointer;
 }
@@ -104,42 +178,112 @@ header{
 	display: none;
 }
 
+.category-item a{
+	font-size: 20px;
+	margin-right: 5px
+}
+
+.category-item a:nth-child(3n)::after{
+	content: "\A";
+	white-space: pre;
+}
+
 .fa-angle-up, .fa-angle-down{
-	color: #999999;
+	color: #dddddd;
 	margin-left: auto;
 }
 
 #quiz-form-show{
-	position: absolute;
-	bottom: 30%;
-	left: 50%;
-	transform: translateX(-50%);
-	-webkit-transform: translateX(-50%);
-	-ms-transform: translateX(-50%);
+	width: 100%;
 	cursor: pointer;
 }
 
 .about-link{
 	position: absolute;
-	bottom: 15%;
+	bottom: 10px;
 	left: 50%;
 	transform: translateX(-50%);
 	-webkit-transform: translateX(-50%);
 	-ms-transform: translateX(-50%);
+}
+
+.about-link a{
+	color: #bbbbbb;
+}
+
+/*新規登録、ログイン画面*/
+.sign-form{
+	width: 60%;
+	margin: 15% auto;
+	background-color: white;
+	padding: 30px;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.sign-form h3{
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+
+.field{
+	margin-bottom: 30px;
 }
 
 /*ユーザー詳細画面*/
 .profile{
 	background-color: white;
 	position: relative;
-	margin-bottom: 20px;
 	padding: 30px 0 30px;
+	border-bottom: solid 1px orange;
 	border-radius: 5px 5px 0 0;
+	text-align: center;
 }
 
-#tab-menu .active {
-	background: #fff;
-	color: #000;
+.introduction{
+	width: 70%;
+	margin: 0 auto;
+}
+
+.follow-related{
+	margin-bottom: 5px;
+}
+
+.follow-related a{
+	color: #777777;
+}
+
+.followed{
+	color: #999999;
+	background-color: #eeeeee;
+	border-radius: 1px;
+}
+
+#tab-menu{
+	list-style: none;
+	display: flex;
+	background-color: #fff;
+	position: sticky;
+	top: 10vh;
+}
+
+#tab-menu li{
+	width: 100%;
+	padding:30px 0;
+	text-align: center;
+}
+
+#tab-menu li :hover{
+	color: orange;
+}
+
+
+#tab-menu .active{
+	border-bottom: solid 5px orange;
+}
+
+#tab-menu .active a{
+	color: orange;
 }
 
 .fa-cog {
@@ -152,20 +296,40 @@ header{
 
 .user-edit{
 	background-color: white;
+	width: 60%;
+	margin: 5% auto;
 	margin-bottom: 20px;
-	padding: 10px;
+	padding: 30px;
 	border-radius: 5px;
 }
 
-.follow-box{
+.user-edit input{
+	border: transparent;
+	border-bottom: 1px solid orange;
+	outline: none;
+}
+
+.user-edit textarea{
+	resize: none;
+	height: 150px;
+	border: transparent;
+	border-bottom: 1px solid orange;
+	outline: none;
+}
+
+.user-box{
 	background-color: white;
-	margin-bottom: 20px;
-	padding: 10px;
+	margin: 0 auto 20px;
+	padding: 15px 30px;
 	border-radius: 5px;
+}
+
+.user-box span{
+	font-weight: bold;
 }
 
 /*クイズ投稿画面*/
-.quiz-form-wrapper{
+#quiz-form-wrapper{
 	display: none;
 	background-color: rgba(0, 0, 0, 0.6);
 	position: fixed;
@@ -173,26 +337,69 @@ header{
 	right: 0;
 	bottom: 0;
 	left: 0;
+	z-index: 10;
 }
 
-.quiz-form{
-	background-color: #e6ecf0;
+#quiz-form{
+	background-color: #fff;
 	position: absolute;
-	top: 15%;
+	top: 10%;
 	left: 25%;
-	padding: 20px 0 40px;
+	padding: 50px;
 	text-align: center;
 	border-radius: 5px;
 	width: 50%;
-	height: 70%;
+	height: 80%;
+	overflow: scroll;
+}
+
+#quiz-form textarea{
+	height: 200px;
+	resize: none;
+}
+
+.please-signin{
+	background-color: #e6ecf0;
+	position: absolute;
+	top: 25%;
+	left: 30%;
+	border-radius: 5px;
+	width: 40%;
+	height: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.please-signin .btn{
+	width: 50%;
+	margin: 10px;
 }
 
 .fa-times {
 	position: absolute;
 	top: 12px;
 	right: 12px;
-	color: rgba(128, 128, 128, 0.46);
+	color: orange;
 	cursor: pointer;
+}
+
+#quiz-edit-form{
+	width: 60%;
+	margin: 5% auto;
+	background-color: white;
+	padding: 30px;
+	border-radius: 5px;
+	text-align: center;
+}
+
+#quiz-edit-form label{
+	font-weight: bold;
+}
+
+#quiz-edit-form textarea{
+	height: 200px;
 }
 
 /*クイズ一覧、詳細画面*/
@@ -209,25 +416,49 @@ header{
 	border-bottom: 1px solid orange;
 }
 
-.quiz-user{
+.quiz-box p{
+	font-size: 20px;
+}
+
+.quiz-user, .comment-user{
 	margin-bottom: 10px;
 	display: flex;
 	justify-content: flex-end;
 }
 
-.quiz-user-link{
+.quiz-user-link, .comment-user-link{
 	margin-right: auto;
 }
 
-.quiz-category{
+.category a{
 	background-color: orange;
+	color: #fff;
+	padding: 3px;
+	border-radius: 3px
+}
+
+.tags{
+	margin: 10px 0;
+}
+
+.tags a{
+	background-color: #33CC00;
+	color: #fff;
+	margin-right: 5px;
 	padding: 3px;
 	border-radius: 3px
 }
 
 .favorite-comment{
+	font-size: 20px;
 	color: #888888;
 	margin-top: 15px;
+	display: flex;
+	align-items: center;
+}
+
+.comment-form-show{
+	margin-left: 5px;
 }
 
 .answer-show, .explanation-show, .comment-form-show{
@@ -235,10 +466,6 @@ header{
 }
 
 .answer, .explanation, .comment-form-wrapper{
-	display: none;
-}
-
-.explanation{
 	display: none;
 }
 
@@ -251,7 +478,7 @@ header{
 }
 
 /*クイズへのコメント*/
-.comment-form-wrapper{
+#comment-form-wrapper{
 	display: none;
 	background-color: rgba(0, 0, 0, 0.6);
 	position: fixed;
@@ -259,10 +486,11 @@ header{
 	right: 0;
 	bottom: 0;
 	left: 0;
+	z-index: 10;
 }
 
-.comment-form{
-	background-color: #e6ecf0;
+#comment-form{
+	background-color: #fff;
 	position: absolute;
 	top: 25%;
 	left: 30%;
@@ -271,6 +499,14 @@ header{
 	border-radius: 5px;
 	width: 40%;
 	height: 50%;
+}
+
+.comment-area{
+	resize: none;
+	width: 90%;
+	height: 270px;
+	border: transparent;
+	outline: none;
 }
 
 .cnt_danger{
@@ -284,6 +520,10 @@ header{
 	border-radius: 5px;
 }
 
+.comment-form-show{
+	font-size: 15px;
+}
+
 
 /*通知一覧*/
 .notification-wrapper{
@@ -294,17 +534,42 @@ header{
 	right: 0;
 	bottom: 0;
 	left: 0;
+	z-index: 10;
 }
 
 .notification-box{
-	background-color: #e6ecf0;
+	background-color: #fff;
 	position: absolute;
 	top: 25%;
 	left: 30%;
-	padding: 20px 0 40px;
-	text-align: center;
+	padding: 40px;
 	border-radius: 5px;
 	width: 40%;
 	height: 50%;
 	overflow: scroll;
+}
+
+.notification-detail{
+	margin-right: auto;
+	padding: 10px;
+	border-top: 1px solid #dddddd;
+}
+
+.notification-detail p{
+	color: #c0c0c0;
+	text-align: center;
+}
+
+.notification-detail a{
+	font-weight: bold;
+}
+
+.notification-detail span{
+	color: #bbbbbb;
+}
+
+.search-tags{
+	background-color: white;
+	padding: 15px;
+	border-radius: 5px;
 }

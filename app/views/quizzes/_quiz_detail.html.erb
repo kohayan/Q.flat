@@ -4,44 +4,48 @@
 			<%= attachment_image_tag quiz.user, :image, size: "40x40", format: 'jpeg', class: "rounded-circle", fallback: "sozai_cman_jp_20200510165455.jpg" %>
 			<%= quiz.user.nick_name %>
 		<% end %>
-		<% if quiz.user_id == current_user.id %>
-			<%= link_to '編集', edit_quiz_path(quiz) %>
-			<%= link_to '削除', quiz_path(quiz), method: :delete, "data-confirm" => "本当に削除しますか?", class: "ml-2" %>
+		<% if user_signed_in? %>
+			<% if quiz.user_id == current_user.id %>
+				<%= link_to '編集', edit_quiz_path(quiz) %>
+				<%= link_to '削除', quiz_path(quiz), method: :delete, "data-confirm" => "本当に削除しますか?", class: "ml-2" %>
+			<% end %>
 		<% end %>
 	</div>
+
 	<% unless quiz.category.nil? %>
-		<%= link_to quiz.category, quizzes_path(category: quiz.category), class: "quiz-category" %>
+		<div class="category">
+			<%= link_to quiz.category, quizzes_path(category: quiz.category) %>
+		</div>
 	<% end %>
+
+	<% unless quiz.tags.blank? %>
+		<div class="tags">
+			<% quiz.tags.each do |tag| %>
+				<%= link_to tag.name, quizzes_path(tag: tag) %>
+			<% end %>
+		</div>
+	<% end %>
+
 	<div>
 		<h4>問題</h4>
-		<%= quiz.question %>
+		<p><%= simple_format(quiz.question) %></p>
 	</div>
+
 	<h4 class="answer-show">答えを見る</h4>
 	<div class="answer">
-		<%= quiz.answer %>
+		<P><%= simple_format(quiz.answer) %></P>
 		<% unless quiz.explanation == "" %>
 			<h4 class="explanation-show">解説を見る</h4>
 			<div class="explanation">
-				<%= quiz.explanation %>
+				<p><%= simple_format(quiz.explanation) %></p>
 			</div>
 		<% end %>
 	</div>
-	<div class="favorite-comment">
-		<% if quiz.favorited_by?(current_user) %>
-			<%= link_to quiz_favorites_path(quiz), method: :delete, remote: true do %>
-				<i class="fas fa-star"></i>
-			<% end %>
-			<%= quiz.favorites.count %>
-		<% else %>
-			<%= link_to quiz_favorites_path(quiz), method: :post, remote: true do %>
-				<i class="far fa-star"></i>
-			<% end %>
-			<%= quiz.favorites.count %>
-		<% end %>
 
-		<i class="far fa-comment-alt comment-form-show"></i>
-		<span class="comment-count">
-			<%= @quiz.quiz_comments.count %>
-		</span>
+	<div class="favorite-comment">
+		<div class="favorite_comment_<%= quiz.id %>">
+			<%= render 'favorite_comment', quiz: quiz %>
+		</div>
+		<span class="comment-form-show">コメントする</span>
 	</div>
 </div>

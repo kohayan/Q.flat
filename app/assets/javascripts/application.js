@@ -20,12 +20,14 @@
 
 $(document).on('turbolinks:load',function() {
 
-	// サイドバーを画面いっぱいに表示
-	hsize = $(window).height();
-	$("#sideber").css("height", hsize + "px");
-	$(window).resize(function () {
-		hsize = $(window).height();
-		$("#sideber").css("height", hsize + "px");
+	// フラッシュメッセージを自動でフェードアウト
+	setTimeout("$('#flash').fadeOut()", 2000);
+
+	$('#top-btn a').on('click',function(){
+		$('body, html').animate({
+			scrollTop:0
+		}, 800);
+		return false;
 	});
 
 	// サイドバーのカテゴリーをアコーディオン表示
@@ -46,11 +48,11 @@ $(document).on('turbolinks:load',function() {
 	// ユーザー詳細画面のタブメニュー
 	$('#tab-contents .tab[id != "tab1"]').hide();
 
-	$('#tab-menu a').on('click', function() {
+	$('#tab-menu li').on('click', function() {
 		$("#tab-contents .tab").hide();
 		$("#tab-menu .active").removeClass("active");
 		$(this).addClass("active");
-		$($(this).attr("href")).show();
+		$($(this).find('a').attr("href")).show();
 		return false;
 	});
 
@@ -61,6 +63,11 @@ $(document).on('turbolinks:load',function() {
 		file = e.target.files[0]
 		reader = new FileReader(),
 		$preview = $("#img_field");
+
+		if(file.type.indexOf("image") < 0){
+			alert("画像ファイルを指定してください。");
+			return false;
+		}
 
 		reader.onload = (function(file) {
 			return function(e) {
@@ -78,17 +85,17 @@ $(document).on('turbolinks:load',function() {
 
 	// クイズフォームの表示、非表示
 	$('#quiz-form-show').click(function() {
-		$('.quiz-form-wrapper').fadeIn();
+		$('#quiz-form-wrapper').fadeIn();
 	});
 
 	$('.close-quiz-form').click(function() {
-		$('.quiz-form-wrapper').fadeOut();
+		$('#quiz-form-wrapper').fadeOut();
 	});
 
 	// クイズの投稿ボタンの有効、無効の切り替え
 	$('.quiz-send').prop("disabled", true);
 
-	$('.quiz-form').on('input', function(){
+	$('#quiz-form').on('input', function(){
 		//文字数を取得
 		var q_cnt = $('.question-area').val().length;
 		var a_cnt = $('.answer-area').val().length;
@@ -149,24 +156,30 @@ $(document).on('turbolinks:load',function() {
 	});
 
 	// クイズへのコメントフォームの表示、非表示
-	$('.comment-form-show').click(function() {
-		$('.comment-form-wrapper').fadeIn();
+	// $(".comment-form-show").click(function () {
+	$(document).on('click', '.comment-form-show', function () {
+		$('#comment-form-wrapper').fadeIn();
+
+		var val = $('.comment-area').val();
+
+		if(val == 0) {
+			$('.comment-send').prop("disabled", true);
+		}
 	});
 
-	$('.close-comment-form').click(function() {
-		$('.comment-form-wrapper').fadeOut();
+	// $(".close-comment-form").click(function () {
+	$(document).on('click', '.close-comment-form', function () {
+		$('#comment-form-wrapper').fadeOut();
 	});
 
 
 	// コメントの送信ボタンの有効、無効の切り替え
-	$('.comment-send').prop("disabled", true);
-
 	$('.comment-area').on('input', function(){
 		//文字数を取得
 		var cnt = $(this).val().length;
 		//現在の文字数を表示
 		$('.now_cnt').text(cnt);
-		if(cnt > 0 && 141 > cnt){
+		if(cnt > 0 && 141 > cnt) {
 			//1文字以上かつ140文字以内の場合はボタンを有効化＆黒字
 			$('.comment-send').prop('disabled', false);
 			$('.cnt_area').removeClass('cnt_danger');

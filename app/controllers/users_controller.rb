@@ -1,8 +1,16 @@
 class UsersController < ApplicationController
-	before_action :set_user
+	before_action :set_user, except: [:home]
 	before_action :ensure_correct_user, only: [:edit, :update]
+	before_action :authenticate_user!, only: [:edit, :update]
+
+	def home
+		users = current_user.following_user
+		@quizzes = Quiz.where(user_id: users).or(Quiz.where(user_id: current_user.id)).date
+	end
 
 	def show
+		@quizzes = @user.quizzes.date
+		@favorites = @user.favorite_quizzes.date
 	end
 
 	def edit

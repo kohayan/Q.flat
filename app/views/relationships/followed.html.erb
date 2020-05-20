@@ -1,10 +1,29 @@
-<div class="offset-1 col-md-10 mt-4">
-	<% @users.each do |user| %>
-		<%= link_to user_path(user) do %>
-			<div class="follow-box">
-				<%= attachment_image_tag user, :image, size: "60x60", format: 'jpeg', class: "rounded-circle", fallback: "sozai_cman_jp_20200510165455.jpg" %>
-				<%= user.nick_name %>
+<div class="offset-1 col-md-10">
+	<div class="tab-wrap">
+		<ul id="tab-menu">
+			<li><h4><a href="#tab2">フォロー</a></h4></li>
+			<li class="active"><h4><a href="#tab1" class="">フォロワー</a></h4></li>
+		</ul>
+
+		<div id="tab-contents">
+			<div id="tab2" class="tab">
+				<% if @follows.blank? %>
+					<h3 class="nothing">フォローしている人はいません</h3>
+				<% else %>
+					<% @follows.each do |user| %>
+						<%= render 'users/user', user: user %>
+					<% end %>
+				<% end %>
 			</div>
-		<% end %>
-	<% end %>
+			<div id="tab1" class="tab">
+				<% if @followers.blank? %>
+					<h3 class="nothing">フォロワーがいません</h3>
+				<% else %>
+					<% @followers.each do |user| %>
+						<%= render 'users/user', user: user %>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+	</div>
 </div>

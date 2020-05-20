@@ -1,20 +1,19 @@
 <% comments.each do |comment| %>
 	<div class="comment-box">
-		<div>
-			<%= link_to user_path(comment.user) do %>
+		<div class="comment-user">
+			<%= link_to user_path(comment.user), class: "comment-user-link" do %>
 				<%= attachment_image_tag comment.user, :image, size: "40x40", format: 'jpeg', class: "rounded-circle", fallback: "sozai_cman_jp_20200510165455.jpg" %>
 				<%= comment.user.nick_name %>
 			<% end %>
-		</div>
-		<div>
-			<%= comment.comment %>
-		</div>
-		<div>
 			<% if comment.user_id == current_user.id %>
 				<%= link_to quiz_quiz_comment_path(@quiz, comment), method: :delete, remote: true, "data-confirm" => "本当に削除しますか?" do %>
 					<i class="far fa-trash-alt"></i>
 				<% end %>
 			<% end %>
+		</div>
+
+		<div>
+			<%= simple_format(comment.comment) %>
 		</div>
 	</div>
 <% end %>

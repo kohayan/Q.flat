@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
 	validates :nick_name, presence: true
 	validates :nick_name, length:{in: 2..20}
-	validates :introduction, length: {maximum:49}
+	validates :introduction, length: {maximum:50}
 
 	has_many :quizzes, dependent: :destroy
 	has_many :favorites, dependent: :destroy
@@ -18,8 +18,11 @@ class User < ApplicationRecord
 	has_many :follower_user, through: :followed, source: :follower
 	has_many :active_notifications, foreign_key:"visitor_id", class_name: "Notification", dependent: :destroy
 	has_many :passive_notifications, foreign_key:"visited_id", class_name: "Notification", dependent: :destroy
+	has_many :impressions, dependent: :destroy
 
 	attachment :image
+
+	scope :date, -> { order(created_at: :desc) }
 
 	def follow(user_id)
 		follower.create(followed_id: user_id)

@@ -1,5 +1,6 @@
 class RelationshipsController < ApplicationController
 	before_action :set_user
+	before_action :authenticate_user!
 
 	def create
 		current_user.follow(@user.id)
@@ -13,11 +14,13 @@ class RelationshipsController < ApplicationController
 	end
 
 	def follower
-		@users = @user.following_user
+		@follows = @user.following_user
+		@followers = @user.follower_user
 	end
 
 	def followed
-		@users = @user.follower_user
+		@follows = @user.following_user
+		@followers = @user.follower_user
 	end
 
 

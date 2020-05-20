@@ -17,11 +17,20 @@
         <%= render 'layouts/sideber' %>
       </div>
       <div class="col-md-9">
+        <% if flash[:notice] %>
+          <h4 id="flash"><%= flash[:notice] %></h4>
+        <% end %>
         <%= yield %>
       </div>
     </div>
 
-    <div class="quiz-form-wrapper">
+    <span id="top-btn">
+      <a href="#">
+        <i class="fas fa-angle-up"></i>
+      </a>
+    </span>
+
+    <div id="quiz-form-wrapper">
       <%= render 'quizzes/quiz_form', new_quiz: @new_quiz %>
     </div>
 
