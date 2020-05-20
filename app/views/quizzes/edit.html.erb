@@ -1,5 +1,5 @@
 <div id="quiz-edit-form">
-  <%= form_for @quiz do |f| %>
+  <%= form_with(model: @quiz, local: true) do |f| %>
     <%= render 'layouts/errors', obj: @quiz %>
     <div class="field">
       <%= f.label :category %>
@@ -16,6 +16,10 @@
     <div class="field">
       <%= f.label :explanation %>
       <%= f.text_area :explanation, placeholder: "解説があったら嬉しいな…", class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :tag_list, "タグ" %>
+      <%= f.text_area :tag_list, placeholder: "タグ（” , ”でくぎってください）", value: @tag_list, class: "form-control" %>
     </div>
     <%= f.submit '更新', class: "btn btn-warning" %>
   <% end %>
