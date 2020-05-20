@@ -426,8 +426,20 @@ header{
 	margin-right: auto;
 }
 
-.quiz-category{
+.category a{
 	background-color: orange;
+	color: #fff;
+	padding: 3px;
+	border-radius: 3px
+}
+
+.tags{
+	margin: 10px 0;
+}
+
+.tags a{
+	background-color: #33CC00;
+	color: #fff;
 	padding: 3px;
 	border-radius: 3px
 }

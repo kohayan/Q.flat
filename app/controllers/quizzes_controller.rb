@@ -25,6 +25,9 @@ class QuizzesController < ApplicationController
 	def index
 		if params[:category]
 			@quizzes = Quiz.where(category: params[:category]).date
+		elsif params[:tag]
+			tag = Tag.find(params[:tag])
+			@quizzes = tag.quizzes.date
 		else
 			@quizzes = Quiz.all.date
 		end
