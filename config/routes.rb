@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 		:sessions => 'users/sessions'
 	}
 
-	root 'homes#top'
+	root 'quizzes#index'
 	get 'homes/about'
 	get 'search' => 'search#search'
 

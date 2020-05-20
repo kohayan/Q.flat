@@ -1,2 +1,0 @@
-class QuizCategoriesController < ApplicationController
-end
