@@ -444,7 +444,7 @@ header{
 .tags a{
 	background-color: #33CC00;
 	color: #fff;
-	margin: 0 3px;
+	margin-right: 5px;
 	padding: 3px;
 	border-radius: 3px
 }
@@ -453,6 +453,12 @@ header{
 	font-size: 20px;
 	color: #888888;
 	margin-top: 15px;
+	display: flex;
+	align-items: center;
+}
+
+.comment-form-show{
+	margin-left: 5px;
 }
 
 .answer-show, .explanation-show, .comment-form-show{
