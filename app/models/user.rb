@@ -22,6 +22,8 @@ class User < ApplicationRecord
 
 	attachment :image
 
+	scope :date, -> { order(created_at: :desc) }
+
 	def follow(user_id)
 		follower.create(followed_id: user_id)
 	end
