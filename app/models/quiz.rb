@@ -9,7 +9,7 @@ class Quiz < ApplicationRecord
 	has_many :favorites, dependent: :destroy
 	has_many :categories, through: :quiz_categories
 	has_many :notifications, dependent: :destroy
-	has_many :impressions
+	has_many :impressions, dependent: :destroy
 
 	attachment :quiz_image
 
