@@ -337,6 +337,12 @@ header{
 	margin: 0 auto 20px;
 	padding: 15px 30px;
 	border-radius: 5px;
+	display: flex;
+	align-items: center;
+}
+
+.user-box .follow-related{
+	margin-left: auto;
 }
 
 .user-box span{

@@ -2,5 +2,25 @@
 	<div class="user-box">
 		<%= attachment_image_tag user, :image, size: "60x60", format: 'jpeg', class: "rounded-circle", fallback: "sozai_cman_jp_20200510165455.jpg" %>
 		<span><%= user.nick_name %></span>
+
+		<% if user_signed_in? %>
+
+			<div class="follow-related follow_<%= user.id %>">
+				<%= render 'users/follow', user: user %>
+			</div>
+
+		<% else %>
+
+			<div class="follow-related">
+				<%= link_to 'フォローする', user_relationships_path(user.id), method: :POST, class: "btn btn-warning rounded-pill" %>
+				<%= link_to user_follows_path(user) do %>
+					<span>フォロー</span> <%= user.follower.count %>
+				<% end %>
+				<%= link_to user_followers_path(user) do %>
+					<span>フォロワー</span> <%= user.followed.count %>
+				<% end %>
+			</div>
+
+		<% end %>
 	</div>
 <% end %>

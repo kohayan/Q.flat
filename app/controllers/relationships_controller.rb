@@ -5,12 +5,10 @@ class RelationshipsController < ApplicationController
   def create
     current_user.follow(@user.id)
     @user.create_notification_follow!(current_user)
-    redirect_back(fallback_location: root_path)
   end
 
   def destroy
     current_user.unfollow(@user.id)
-    redirect_back(fallback_location: root_path)
   end
 
   def follower
