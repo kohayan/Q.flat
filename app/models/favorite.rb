@@ -1,6 +1,6 @@
 class Favorite < ApplicationRecord
-	validates :user, :quiz, presence: true
+  validates :user, :quiz, presence: true
 
-	belongs_to :user
-	belongs_to :quiz
+  belongs_to :user
+  belongs_to :quiz
 end
