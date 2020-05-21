@@ -1,4 +1,5 @@
 <% if user_signed_in? %>
+
 	<div id="comment-form">
 		<div class="close-comment-form">
 			<i class="fa fa-2x fa-times"></i>
@@ -10,7 +11,9 @@
 			<%= f.submit 'コメントする', class: "comment-send btn btn-warning" %>
 		<% end %>
 	</div>
+
 <% else %>
+
 	<div class="please-signin">
 		<div class="close-comment-form">
 			<i class="fa fa-2x fa-times"></i>
@@ -20,4 +23,5 @@
 		<%= link_to 'ログインはこちら!', new_user_session_path, class: "btn btn-outline-warning" %>
 		<%= link_to '新規登録はこちら!', new_user_registration_path, class: "btn btn-outline-primary" %>
 	</div>
+
 <% end %>
