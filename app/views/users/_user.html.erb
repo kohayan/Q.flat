@@ -1,7 +1,7 @@
 <%= link_to user_path(user) do %>
 	<div class="user-box">
 		<%= attachment_image_tag user, :image, size: "60x60", format: 'jpeg', class: "rounded-circle", fallback: "sozai_cman_jp_20200510165455.jpg" %>
-		<span><%= user.nick_name %></span>
+		<span class="user-name"><%= user.nick_name %></span>
 
 		<% if user_signed_in? %>
 
