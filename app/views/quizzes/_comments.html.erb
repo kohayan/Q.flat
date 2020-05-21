@@ -6,9 +6,12 @@
 				<%= attachment_image_tag comment.user, :image, size: "40x40", format: 'jpeg', class: "rounded-circle", fallback: "sozai_cman_jp_20200510165455.jpg" %>
 				<%= comment.user.nick_name %>
 			<% end %>
-			<% if comment.user_id == current_user.id %>
-				<%= link_to quiz_quiz_comment_path(@quiz, comment), method: :delete, remote: true, "data-confirm" => "本当に削除しますか?" do %>
-					<i class="far fa-trash-alt"></i>
+			<!-- 削除ボタン -->
+			<% if user_signed_in? %>
+				<% if comment.user_id == current_user.id %>
+					<%= link_to quiz_quiz_comment_path(@quiz, comment), method: :delete, remote: true, "data-confirm" => "本当に削除しますか?" do %>
+						<i class="far fa-trash-alt"></i>
+					<% end %>
 				<% end %>
 			<% end %>
 		</div>
