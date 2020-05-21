@@ -13,7 +13,7 @@ class Quiz < ApplicationRecord
 
 	attachment :quiz_image
 
-	enum category: {謎解き:0, エンタメ:1, 雑学:2, 時事:3, ことば:4, すうじ:5, 科学:6, 英語:7, 歴史:8, その他:9}
+	enum category: {謎解き:0, エンタメ:1, 雑学:2, 時事:3, ことば:4, すうじ:5, 科学:6, 英語:7, 歴史:8, 音楽:9, その他:10}
 
 	scope :date, -> { order(created_at: :desc) }
 
