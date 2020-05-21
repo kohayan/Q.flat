@@ -24,8 +24,10 @@
       <div class="col-md-9">
         <div class="offset-1 col-md-10">
           <!-- フラッシュメッセージ -->
-          <% if flash[:notice] %>
-            <h4 id="flash"><%= flash[:notice] %></h4>
+          <% unless request.url.include?("sign_in") %>
+            <%- flash.each do |name, msg| -%>
+              <h4 id="flash"><%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %></h4>
+            <%- end -%>
           <% end %>
 
           <%= yield %>

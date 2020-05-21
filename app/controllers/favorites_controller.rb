@@ -1,6 +1,6 @@
 class FavoritesController < ApplicationController
-	before_action :set_quiz
 	before_action :authenticate_user!
+	before_action :set_quiz
 
 	def create
 		@favorite = @quiz.favorites.new(user_id: current_user.id)
