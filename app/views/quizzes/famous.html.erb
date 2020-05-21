@@ -1,29 +1,30 @@
-<div class="offset-1 col-md-10">
-	<div class="tab-wrap">
-		<ul id="tab-menu">
-			<li class="active"><h4><a href="#tab1">急上昇</a></h4></li>
-			<li><h4><a href="#tab2" class="">お気に入り</a></h4></li>
-		</ul>
+<div class="tab-wrap">
+	<!-- タブメニュー -->
+	<ul id="tab-menu">
+		<li class="active"><h4><a href="#tab1">急上昇</a></h4></li>
+		<li><h4><a href="#tab2" class="">お気に入り</a></h4></li>
+	</ul>
 
-		<div id="tab-contents">
-			<div id="tab1" class="tab">
-				<% if @impression_ranks.blank? %>
-					<h3 class="nothing">クイズがありません</h3>
-				<% else %>
-					<% @impression_ranks.each do |quiz| %>
-						<%= render 'quiz', quiz: quiz %>
-					<% end %>
+	<div id="tab-contents">
+		<!-- pv数ランキング -->
+		<div id="tab1" class="tab">
+			<% if @impression_ranks.blank? %>
+				<h3 class="nothing">クイズがありません</h3>
+			<% else %>
+				<% @impression_ranks.each do |quiz| %>
+					<%= render 'quiz', quiz: quiz %>
 				<% end %>
-			</div>
-			<div id="tab2" class="tab">
-				<% if @favorite_ranks.blank? %>
-					<h3 class="nothing">クイズがありません</h3>
-				<% else %>
-					<% @favorite_ranks.each do |quiz| %>
-						<%= render 'quiz', quiz: quiz %>
-					<% end %>
+			<% end %>
+		</div>
+		<!-- お気に入り数ランキング -->
+		<div id="tab2" class="tab">
+			<% if @favorite_ranks.blank? %>
+				<h3 class="nothing">クイズがありません</h3>
+			<% else %>
+				<% @favorite_ranks.each do |quiz| %>
+					<%= render 'quiz', quiz: quiz %>
 				<% end %>
-			</div>
+			<% end %>
 		</div>
 	</div>
 </div>

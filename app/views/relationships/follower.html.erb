@@ -1,29 +1,30 @@
-<div class="offset-1 col-md-10">
-	<div class="tab-wrap">
-		<ul id="tab-menu">
-			<li class="active"><h4><a href="#tab1">フォロー</a></h4></li>
-			<li><h4><a href="#tab2" class="">フォロワー</a></h4></li>
-		</ul>
+<div class="tab-wrap">
+	<!-- タブメニュー -->
+	<ul id="tab-menu">
+		<li class="active"><h4><a href="#tab1">フォロー</a></h4></li>
+		<li><h4><a href="#tab2" class="">フォロワー</a></h4></li>
+	</ul>
 
-		<div id="tab-contents">
-			<div id="tab1" class="tab">
-				<% if @follows.blank? %>
-					<h3 class="nothing">フォローしている人はいません</h3>
-				<% else %>
-					<% @follows.each do |user| %>
-						<%= render 'users/user', user: user %>
-					<% end %>
+	<div id="tab-contents">
+		<!-- フォローしているユーザー -->
+		<div id="tab1" class="tab">
+			<% if @follows.blank? %>
+				<h3 class="nothing">フォローしている人はいません</h3>
+			<% else %>
+				<% @follows.each do |user| %>
+					<%= render 'users/user', user: user %>
 				<% end %>
-			</div>
-			<div id="tab2" class="tab">
-				<% if @followers.blank? %>
-					<h3 class="nothing">フォロワーがいません</h3>
-				<% else %>
-					<% @followers.each do |user| %>
-						<%= render 'users/user', user: user %>
-					<% end %>
+			<% end %>
+		</div>
+		<!-- フォロワー -->
+		<div id="tab2" class="tab">
+			<% if @followers.blank? %>
+				<h3 class="nothing">フォロワーがいません</h3>
+			<% else %>
+				<% @followers.each do |user| %>
+					<%= render 'users/user', user: user %>
 				<% end %>
-			</div>
+			<% end %>
 		</div>
 	</div>
 </div>
