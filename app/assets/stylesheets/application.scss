@@ -121,6 +121,11 @@ header{
 	flex-direction: column;
 }
 
+#sideber .active{
+	color: orange;
+	font-weight: bold;
+}
+
 .current-user{
 	text-align: center;
 	padding: 30px;
@@ -166,6 +171,7 @@ header{
 
 .sideber-nuv li :hover {
 	color: orange;
+	font-weight: bold;
 }
 
 .sideber-nuv h3{
@@ -303,6 +309,10 @@ header{
 
 #tab-menu .active{
 	border-bottom: solid 5px orange;
+}
+
+#tab-menu .active a{
+	font-weight: bold;
 }
 
 #tab-menu .active a{
