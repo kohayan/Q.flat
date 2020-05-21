@@ -183,7 +183,7 @@ header{
 	margin-right: 5px
 }
 
-.category-item a:nth-child(3n)::after{
+.category-item a:nth-child(4n)::after{
 	content: "\A";
 	white-space: pre;
 }
