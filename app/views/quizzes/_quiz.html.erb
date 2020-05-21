@@ -1,4 +1,5 @@
 <div class="quiz-box">
+	<!-- 投稿したユーザー -->
 	<div class="quiz-user">
 		<%= link_to user_path(quiz.user), class: "quiz-user-link" do %>
 			<%= attachment_image_tag quiz.user, :image, size: "40x40", format: 'jpeg', class: "rounded-circle", fallback: "sozai_cman_jp_20200510165455.jpg" %>
@@ -6,12 +7,14 @@
 		<% end %>
 	</div>
 
+	<!-- クイズのカテゴリー -->
 	<% unless quiz.category.nil? %>
 		<div class="category">
 		<%= link_to quiz.category, quizzes_path(category: quiz.category) %>
 		</div>
 	<% end %>
 
+	<!-- タグ -->
 	<% unless quiz.tags.blank? %>
 		<div class="tags">
 			<% quiz.tags.each do |tag| %>
@@ -20,6 +23,7 @@
 		</div>
 	<% end %>
 
+	<!-- 問題文 -->
 	<%= link_to quiz_path(quiz) do %>
 		<div>
 			<h4>問題</h4>
@@ -27,6 +31,7 @@
 		</div>
 	<% end %>
 
+	<!-- お気に入りとコメントの数 -->
 	<div class="favorite-comment">
 		<div class="favorite_comment_<%= quiz.id %>">
 			<%= render 'quizzes/favorite_comment', quiz: quiz %>

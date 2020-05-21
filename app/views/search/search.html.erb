@@ -1,44 +1,46 @@
-<div class="offset-1 col-md-10">
-	<div class="tab-wrap">
-		<ul id="tab-menu">
-			<li class="active"><h4><a href="#tab1">クイズ</a></h4></li>
-			<li><h4><a href="#tab2" class="">ユーザー</a></h4></li>
-			<li><h4><a href="#tab3" class="">タグ</a></h4></li>
-		</ul>
+<div class="tab-wrap">
+	<!-- タブメニュー -->
+	<ul id="tab-menu">
+		<li class="active"><h4><a href="#tab1">クイズ</a></h4></li>
+		<li><h4><a href="#tab2" class="">ユーザー</a></h4></li>
+		<li><h4><a href="#tab3" class="">タグ</a></h4></li>
+	</ul>
 
-		<div id="tab-contents">
-			<div id="tab1" class="tab">
-				<% if @quizzes.blank? %>
-					<h3 class="nothing">投稿がありません</h3>
-				<% else %>
-					<% @quizzes.each do |quiz| %>
-						<%= render 'quizzes/quiz', quiz: quiz %>
-					<% end %>
+	<div id="tab-contents">
+		<!-- クイズの検索結果 -->
+		<div id="tab1" class="tab">
+			<% if @quizzes.blank? %>
+				<h3 class="nothing">投稿がありません</h3>
+			<% else %>
+				<% @quizzes.each do |quiz| %>
+					<%= render 'quizzes/quiz', quiz: quiz %>
 				<% end %>
-			</div>
-			<div id="tab2" class="tab">
-				<% if @users.blank? %>
-					<h3 class="nothing">ユーザーがいません</h3>
-				<% else %>
-					<% @users.each do |user| %>
-						<%= render 'users/user', user: user %>
-					<% end %>
+			<% end %>
+		</div>
+		<!-- ユーザーの検索結果 -->
+		<div id="tab2" class="tab">
+			<% if @users.blank? %>
+				<h3 class="nothing">ユーザーがいません</h3>
+			<% else %>
+				<% @users.each do |user| %>
+					<%= render 'users/user', user: user %>
 				<% end %>
-			</div>
-			<div id="tab3" class="tab">
-				<% if @tags.blank? %>
-					<h3 class="nothing">タグがありません</h3>
-				<% else %>
-					<div class="tags search-tags">
-						<% @tags.each do |tag| %>
-							<%= link_to quizzes_path(tag: tag) do %>
-								<%= tag.name %>
-								(<%= tag.quiz_tags.count %>)
-							<% end %>
+			<% end %>
+		</div>
+		<!-- タブの検索結果 -->
+		<div id="tab3" class="tab">
+			<% if @tags.blank? %>
+				<h3 class="nothing">タグがありません</h3>
+			<% else %>
+				<div class="tags search-tags">
+					<% @tags.each do |tag| %>
+						<%= link_to quizzes_path(tag: tag) do %>
+							<%= tag.name %>
+							(<%= tag.quiz_tags.count %>)
 						<% end %>
-					</div>
-				<% end %>
-			</div>
+					<% end %>
+				</div>
+			<% end %>
 		</div>
 	</div>
 </div>

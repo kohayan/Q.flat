@@ -1,10 +1,11 @@
-<div class="offset-1 col-md-10 mt-4">
+<div class="mt-4">
+	<!-- クイズの詳細 -->
 	<%= render 'quiz_detail', quiz: @quiz %>
-
+	<!-- クイズへのコメント -->
 	<div class="comments_<%= @quiz.id %> mb-4">
 		<%= render 'comments', comments: @comments %>
 	</div>
-
+	<!-- コメントフォーム -->
 	<div id="comment-form-wrapper">
 		<%= render 'comment_form', quiz: @quiz, comment: @comment %>
 	</div>

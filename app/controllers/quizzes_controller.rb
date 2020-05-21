@@ -19,7 +19,9 @@ class QuizzesController < ApplicationController
 	def show
 		@comment = QuizComment.new
 		@comments = @quiz.quiz_comments
-		@quiz.create_impression(current_user)
+		if user_signed_in?
+			@quiz.create_impression(current_user)
+		end
 	end
 
 	def index

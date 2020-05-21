@@ -233,6 +233,7 @@ header{
 .profile{
 	background-color: white;
 	position: relative;
+	margin: 5% auto 0;
 	padding: 10px 15px 30px;
 	border-bottom: solid 1px orange;
 	border-radius: 5px 5px 0 0;
@@ -312,8 +313,8 @@ header{
 	background-color: white;
 	width: 60%;
 	margin: 5% auto;
-	margin-bottom: 20px;
 	padding: 30px;
+	text-align: center;
 	border-radius: 5px;
 }
 
@@ -400,7 +401,7 @@ header{
 }
 
 #quiz-edit-form{
-	width: 60%;
+	width: 80%;
 	margin: 5% auto;
 	background-color: white;
 	padding: 30px;

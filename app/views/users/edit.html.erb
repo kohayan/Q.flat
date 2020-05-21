@@ -1,27 +1,25 @@
-<div class="offset-1 col-md-10 mt-4">
-	<div class="user-edit text-center">
-		<%= render 'layouts/errors', obj: @user %>
-		<div class="mb-4">
-			<div id="img_field" class="mb-4">
-				<%= attachment_image_tag @user, :image, size: "60x60", format: 'jpeg', class: "rounded-circle", fallback: "sozai_cman_jp_20200510165455.jpg" %>
-			</div>
-			<span onClick="$('#file').click()" class="btn btn-primary">画像選択</span>
+<div class="user-edit">
+	<%= render 'layouts/errors', obj: @user %>
+	<div class="mb-4">
+		<div id="img_field" class="mb-4">
+			<%= attachment_image_tag @user, :image, size: "60x60", format: 'jpeg', class: "rounded-circle", fallback: "sozai_cman_jp_20200510165455.jpg" %>
 		</div>
-
-		<%= form_for @user do |f| %>
-			<div>
-				<%= f.attachment_field :image, style: "display:none;", id: "file" %>
-			</div>
-			<div class="field">
-				<%= f.text_field :nick_name, placeholder: "ニックネーム", class: "form-control" %>
-			</div>
-			<div class="field">
-				<%= f.text_area :introduction, placeholder: "自己紹介（50文字）", class: "form-control" %>
-			</div>
-			<div class="field">
-				<%= f.email_field :email, placeholder: "メールアドレス", class: "form-control" %>
-			</div>
-			<%= f.submit 'プロフィールを更新', class: "btn btn-warning" %>
-		<% end %>
+		<span onClick="$('#file').click()" class="btn btn-primary">画像選択</span>
 	</div>
+
+	<%= form_for @user do |f| %>
+		<div>
+			<%= f.attachment_field :image, style: "display:none;", id: "file" %>
+		</div>
+		<div class="field">
+			<%= f.text_field :nick_name, placeholder: "ニックネーム", class: "form-control" %>
+		</div>
+		<div class="field">
+			<%= f.text_area :introduction, placeholder: "自己紹介（50文字）", class: "form-control" %>
+		</div>
+		<div class="field">
+			<%= f.email_field :email, placeholder: "メールアドレス", class: "form-control" %>
+		</div>
+		<%= f.submit 'プロフィールを更新', class: "btn btn-warning" %>
+	<% end %>
 </div>

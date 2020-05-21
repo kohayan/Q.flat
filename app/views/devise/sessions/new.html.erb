@@ -1,26 +1,26 @@
-<div class="offset-1 col-md-10 mt-4">
-  <div class="sign-form">
-    <h3>ログイン</h3>
+<div class="sign-form">
+  <h3>ログイン</h3>
 
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="errors mb-3">
-        <%- flash.each do |name, msg| -%>
-          <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-        <%- end -%>
-      </div>
-      <div class="field">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "form-control" %>
-      </div>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <!-- エラーメッセージ -->
+    <div class="errors mb-3">
+      <%- flash.each do |name, msg| -%>
+        <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+      <%- end -%>
+    </div>
+    <!-- メールアドレス -->
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "form-control" %>
+    </div>
+    <!-- パスワード -->
+    <div class="field">
+      <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "form-control" %>
+    </div>
 
-      <div class="field">
-        <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "form-control" %>
-      </div>
+    <div class="actions">
+      <%= f.submit "ログイン", class: "btn btn-warning" %>
+    </div>
+  <% end %>
 
-      <div class="actions">
-        <%= f.submit "ログイン", class: "btn btn-warning" %>
-      </div>
-    <% end %>
-
-    <%= link_to '新規登録はこちら', new_user_registration_path %>
-  </div>
+  <%= link_to '新規登録はこちら', new_user_registration_path %>
 </div>
