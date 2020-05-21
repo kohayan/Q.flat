@@ -1,31 +1,30 @@
-<div class="offset-1 col-md-10 mt-4">
-  <div class="sign-form">
-    <h3>新規登録</h3>
+<div class="sign-form">
+  <h3>新規登録</h3>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <!-- エラーメッセージ -->
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <!-- ニックネーム -->
+    <div class="field">
+      <%= f.text_field :nick_name, autofocus: true, autocomplete: "nick_name", placeholder: "ニックネーム", class: "form-control" %>
+    </div>
+    <!-- メールアドレス -->
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "form-control" %>
+    </div>
+    <!-- パスワード -->
+    <div class="field">
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード（6文字以上）", class: "form-control" %>
+    </div>
+    <!-- パスワード（確認） -->
+    <div class="field">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード（確認）", class: "form-control" %>
+    </div>
 
-      <div class="field">
-        <%= f.text_field :nick_name, autofocus: true, autocomplete: "nick_name", placeholder: "ニックネーム", class: "form-control" %>
-      </div>
+    <div class="actions">
+      <%= f.submit "登録", class: "btn btn-warning" %>
+    </div>
+  <% end %>
 
-      <div class="field">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "form-control" %>
-      </div>
-
-      <div class="field">
-        <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード（6文字以上）", class: "form-control" %>
-      </div>
-
-      <div class="field">
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード（確認）", class: "form-control" %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "登録", class: "btn btn-warning" %>
-      </div>
-    <% end %>
-
-    <%= link_to '登録済みの方はこちら', new_user_session_path %>
-  </div>
+  <%= link_to '登録済みの方はこちら', new_user_session_path %>
 </div>
