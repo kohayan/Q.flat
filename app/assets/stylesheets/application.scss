@@ -114,8 +114,11 @@ header{
 #sideber{
 	height: 90vh;
 	background-color: #fff;
+	padding: 20px;
 	position: sticky;
 	top: 10vh;
+	display: flex;
+	flex-direction: column;
 }
 
 .current-user{
@@ -199,12 +202,8 @@ header{
 }
 
 .about-link{
-	position: absolute;
-	bottom: 10px;
-	left: 50%;
-	transform: translateX(-50%);
-	-webkit-transform: translateX(-50%);
-	-ms-transform: translateX(-50%);
+	margin-top: auto;
+	text-align: center;
 }
 
 .about-link a{
@@ -234,10 +233,29 @@ header{
 .profile{
 	background-color: white;
 	position: relative;
-	padding: 30px 0 30px;
+	padding: 10px 15px 30px;
 	border-bottom: solid 1px orange;
 	border-radius: 5px 5px 0 0;
 	text-align: center;
+}
+
+.current-user-only{
+	display: flex;
+	justify-content: flex-end;
+}
+
+.current-user-only .log-out{
+	color: #bb0000;
+}
+
+.log-out{
+	margin-right: auto;
+	font-weight: bold;
+}
+
+.fa-cog {
+	color: rgba(128, 128, 128, 0.46);
+	cursor: pointer;
 }
 
 .introduction{
@@ -247,6 +265,10 @@ header{
 
 .follow-related{
 	margin-bottom: 5px;
+}
+
+.follow-related .btn-warning{
+	color: #fff;
 }
 
 .follow-related a{
@@ -284,14 +306,6 @@ header{
 
 #tab-menu .active a{
 	color: orange;
-}
-
-.fa-cog {
-	position: absolute;
-	top: 12px;
-	right: 12px;
-	color: rgba(128, 128, 128, 0.46);
-	cursor: pointer;
 }
 
 .user-edit{
