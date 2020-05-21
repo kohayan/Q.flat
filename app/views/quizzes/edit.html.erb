@@ -19,7 +19,7 @@
     </div>
     <div class="field">
       <%= f.label :tag_list, "タグ" %>
-      <%= f.text_area :tag_list, placeholder: "タグ（” , ”でくぎってください）", value: @tag_list, class: "form-control" %>
+      <%= f.text_area :tag_list, placeholder: "タグ（ , でくぎってください）", value: @tag_list, class: "form-control" %>
     </div>
     <%= f.submit '更新', class: "btn btn-warning" %>
   <% end %>
