@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
+	before_action :authenticate_user!, only: [:edit, :update]
 	before_action :set_user, except: [:home]
 	before_action :ensure_correct_user, only: [:edit, :update]
-	before_action :authenticate_user!, only: [:edit, :update]
 
 	def home
 		users = current_user.following_user
