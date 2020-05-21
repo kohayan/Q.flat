@@ -9,13 +9,6 @@ class ApplicationController < ActionController::Base
 		home_users_path
 	end
 
-	def authenticate_user!
-		unless user_signed_in?
-			flash[:notice] = "ログインしてください"
-			redirect_to new_user_session_path
-		end
-	end
-
 
 	protected
 
