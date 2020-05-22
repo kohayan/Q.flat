@@ -1,32 +1,38 @@
-<div id="quiz-edit-form">
-  <%= form_with(model: @quiz, local: true) do |f| %>
-    <%= render 'layouts/errors', obj: @quiz %>
-    <!-- カテゴリー -->
-    <div class="field">
-      <%= f.label :category %>
-      <%= f.select :category, Quiz.categories.keys.to_a, {include_blank: "カテゴリーを選択してください"}, class: "form-control" %>
-    </div>
-    <!-- 問題文 -->
-    <div class="field">
-      <%= f.label :question %>
-      <%= f.text_area :question, placeholder: "問題文", class: "form-control" %>
-    </div>
-    <!-- 答え -->
-    <div class="field">
-      <%= f.label :answer %>
-      <%= f.text_area :answer, placeholder: "答え", class: "form-control" %>
-    </div>
-    <!-- 解説 -->
-    <div class="field">
-      <%= f.label :explanation %>
-      <%= f.text_area :explanation, placeholder: "解説があったら嬉しいな…", class: "form-control" %>
-    </div>
-    <!-- タグ -->
-    <div class="field">
-      <%= f.label :tag_list, "タグ" %>
-      <%= f.text_area :tag_list, placeholder: "タグ（ , でくぎってください）", value: @tag_list, class: "form-control" %>
-    </div>
+<div class="mt-4">
+  <!-- 前のページに戻るボタン -->
+  <p class="back">
+    <a href="#" onClick="history.back(); return false;">⬅︎もどる</a>
+  </p>
+  <div id="quiz-edit-form">
+    <%= form_with(model: @quiz, local: true) do |f| %>
+      <%= render 'layouts/errors', obj: @quiz %>
+      <!-- カテゴリー -->
+      <div class="field">
+        <%= f.label :category %>
+        <%= f.select :category, Quiz.categories.keys.to_a, {include_blank: "カテゴリーを選択してください"}, class: "form-control" %>
+      </div>
+      <!-- 問題文 -->
+      <div class="field">
+        <%= f.label :question %>
+        <%= f.text_area :question, placeholder: "問題文", class: "form-control" %>
+      </div>
+      <!-- 答え -->
+      <div class="field">
+        <%= f.label :answer %>
+        <%= f.text_area :answer, placeholder: "答え", class: "form-control" %>
+      </div>
+      <!-- 解説 -->
+      <div class="field">
+        <%= f.label :explanation %>
+        <%= f.text_area :explanation, placeholder: "解説があったら嬉しいな…", class: "form-control" %>
+      </div>
+      <!-- タグ -->
+      <div class="field">
+        <%= f.label :tag_list, "タグ" %>
+        <%= f.text_area :tag_list, placeholder: "タグ（ , でくぎってください）", value: @tag_list, class: "form-control" %>
+      </div>
 
-    <%= f.submit '更新', class: "btn btn-warning" %>
-  <% end %>
+      <%= f.submit '更新', class: "btn btn-warning" %>
+    <% end %>
+  </div>
 </div>

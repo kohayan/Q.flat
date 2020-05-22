@@ -20,9 +20,14 @@
 
 $(document).on('turbolinks:load',function() {
 
+	// 今いるページのサイドバーのリンクに装飾
+	var url = window.location.pathname;
+        $('#sideber li a[href="'+url+'"]').addClass('active');
+
 	// フラッシュメッセージを自動でフェードアウト
 	setTimeout("$('#flash').fadeOut()", 2000);
 
+	// トップへ戻るボタン
 	$('#top-btn a').on('click',function(){
 		$('body, html').animate({
 			scrollTop:0
@@ -45,7 +50,7 @@ $(document).on('turbolinks:load',function() {
 		}
 	});
 
-	// ユーザー詳細画面のタブメニュー
+	// タブメニュー
 	$('#tab-contents .tab[id != "tab1"]').hide();
 
 	$('#tab-menu li').on('click', function() {
