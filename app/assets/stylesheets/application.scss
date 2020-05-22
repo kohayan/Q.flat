@@ -65,6 +65,12 @@ h1, h2, h3, h4, h5, h6{
 	color: #fff;
 }
 
+/*前のページに戻るボタン*/
+.back a{
+	color: orange;
+	font-weight: bold;
+}
+
 /*ページに何もクイズがなかったとき*/
 .nothing{
 	text-align: center;
@@ -121,6 +127,11 @@ header{
 	flex-direction: column;
 }
 
+#sideber .active{
+	color: orange;
+	font-weight: bold;
+}
+
 .current-user{
 	text-align: center;
 	padding: 30px;
@@ -166,6 +177,7 @@ header{
 
 .sideber-nuv li :hover {
 	color: orange;
+	font-weight: bold;
 }
 
 .sideber-nuv h3{
@@ -306,13 +318,17 @@ header{
 }
 
 #tab-menu .active a{
+	font-weight: bold;
+}
+
+#tab-menu .active a{
 	color: orange;
 }
 
 .user-edit{
 	background-color: white;
 	width: 60%;
-	margin: 5% auto;
+	margin: 0 auto;
 	padding: 30px;
 	text-align: center;
 	border-radius: 5px;
@@ -337,9 +353,15 @@ header{
 	margin: 0 auto 20px;
 	padding: 15px 30px;
 	border-radius: 5px;
+	display: flex;
+	align-items: center;
 }
 
-.user-box span{
+.user-box .follow-related{
+	margin-left: auto;
+}
+
+.user-name{
 	font-weight: bold;
 }
 
@@ -402,7 +424,7 @@ header{
 
 #quiz-edit-form{
 	width: 80%;
-	margin: 5% auto;
+	margin: 0 auto;
 	background-color: white;
 	padding: 30px;
 	border-radius: 5px;
