@@ -65,6 +65,12 @@ h1, h2, h3, h4, h5, h6{
 	color: #fff;
 }
 
+/*前のページに戻るボタン*/
+.back a{
+	color: orange;
+	font-weight: bold;
+}
+
 /*ページに何もクイズがなかったとき*/
 .nothing{
 	text-align: center;
@@ -322,7 +328,7 @@ header{
 .user-edit{
 	background-color: white;
 	width: 60%;
-	margin: 5% auto;
+	margin: 0 auto;
 	padding: 30px;
 	text-align: center;
 	border-radius: 5px;
@@ -418,7 +424,7 @@ header{
 
 #quiz-edit-form{
 	width: 80%;
-	margin: 5% auto;
+	margin: 0 auto;
 	background-color: white;
 	padding: 30px;
 	border-radius: 5px;
