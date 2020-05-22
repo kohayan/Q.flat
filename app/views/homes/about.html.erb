@@ -1,2 +1,204 @@
-<h1>Homes#about</h1>
-<p>Find me in app/views/homes/about.html.erb</p>
+<div class="mt-4">
+	<div class="about-page">
+		<!-- タイトル -->
+		<h1 class="site-name"><span>Q</span>.flat</h1>
+
+		<section>
+			<h2>ようこそ、<ruby>Q<rt>クイズ</rt></ruby>.flatへ！</h2>
+			<p class="section-text">
+				Q.flatは、<br>
+				<span style="color: red;">Fun　楽しく</span><br>
+				<span style="color: green;">Learn　学ぶ</span><br>
+				<span style="color: blue;">Together　一緒に！</span><br>
+				がテーマのクイズ投稿サイトです！<br>
+				<br>
+				普段の勉強のアウトプットや、空いた時間でサクっと知識をつけたいときはもちろん、家族や友人と集まったときや通話をしている時に、クイズを出し合って遊びたいと思ったらご活用ください！<br>
+				<br>
+				それでは、このサイトの使い方をざっくりとご説明します！
+			</p>
+		</section>
+
+		<div class="contents">
+			<ul>
+				<li>
+					<a href="#number1">その１　クイズの遊び方</a>
+				</li>
+				<li>
+					<a href="#number2">その２　クイズを投稿しよう！</a>
+				</li>
+				<li>
+					<a href="#number3">その３　お気に入り・コメントしよう！</a>
+				</li>
+				<li>
+					<a href="#number4">その４　ユーザーをフォローしよう！</a>
+				</li>
+				<li>
+					<a href="#number5">その５　さいごに！</a>
+				</li>
+			</ul>
+		</div>
+
+		<section id="number1">
+			<h4 class="section-number">
+				<span>その１ クイズの遊び方</span>
+			</h4>
+			<p class="section-text">
+				このサイトには、より幅広いクイズを出題できるように、クイズの解答をする機能などはありません！<br>
+				クイズの一覧から、気になったクイズをクリック！<br>
+				クイズの詳細画面で、答えや解説をサクッと確認できます。
+			</p>
+
+			<div class="quiz-box quiz-fake">
+				<div class="mb-3">
+					<%= image_tag 'sozai_cman_jp_20200510165455.jpg',size: "40x40", class: "rounded-circle" %>
+					<span class="user-name">クイズたろう</span>
+				</div>
+				<div class="category">
+					<span class="fake" style="background-color: orange;">謎解き</span>
+				</div>
+				<div class="tags">
+					<span class="fake" style="background-color: #33CC00;">なぞなぞ</span>
+				</div>
+				<div>
+					<h4>問題</h4>
+					<p>パンはパンでも食べられないパンはなんだ？</p>
+				</div>
+				<h4 class="answer-show">答えを見る</h4>
+				<div class="answer">
+					<P>フライパン</P>
+					<h4 class="explanation-show">解説を見る</h4>
+					<div class="explanation">
+						<p>フライ「パン」は硬くて食べられないね！</p>
+					</div>
+				</div>
+				<div class="favorite-comment">
+					<i class="far fa-star"></i>２
+					<i class="far fa-comment-alt ml-1"></i>３
+				</div>
+			</div>
+		</section>
+
+		<section id="number2">
+			<h4 class="section-number">
+				<span>その２　クイズを投稿しよう！</span>
+			</h4>
+			<p class="section-text">
+				クイズの投稿には、アカウントの作成が必要です。
+			</p>
+
+			<div class="about-sign-in">
+				<%= link_to '新規登録はこちら！', user_session_path, class: "btn btn-outline-primary text-center" %>
+				<%= link_to 'ログインはこちら!', new_user_session_path, class: "btn btn-outline-warning" %>
+			</div>
+
+			<p class="section-text">
+				⬅︎左のメニューにある、
+				<span class="fake" style="background-color: #ffc107;">クイズを投稿する</span>
+				から投稿することができます。問題文と答えは必ず入力してください。<br>
+				投稿したクイズは、後から編集も可能です。
+			</p>
+
+			<div class="fake-form">
+				<div class="field">
+					<select class="form-control">
+						<option>カテゴリは全部で11種類！</option>
+					</select>
+				</div>
+				<!-- 問題文 -->
+				<div class="field">
+					<textarea placeholder="問題文　出題形式はあなた次第！選択問題でも、○X問題でも！", class="question-area form-control"></textarea>
+				</div>
+				<!-- 答え -->
+				<div class="field">
+					<textarea placeholder="答え　解答は200文字まで入力できます！複雑な解答も可能です！", class="answer-area form-control"></textarea>
+				</div>
+				<!-- 解説 -->
+				<div class="field">
+					<textarea placeholder="解説　が、あったら嬉しいな…", class="explanation-area form-control"></textarea>
+				</div>
+				<!-- タグ -->
+				<div class="field">
+				<textarea placeholder="タグ付けして、たくさんの人にクイズを見てもらおう！", class="form-control"></textarea>
+				</div>
+			</div>
+		</section>
+
+		<section id="number3">
+			<h4 class="section-number">
+				<span>その３　お気に入り・コメントしよう！</span>
+			</h4>
+			<p class="section-text">
+				アカウントを登録すると、クイズをお気に入りに登録できるようになります。<br>
+				クイズの左下にある
+				<i class="far fa-star"></i>
+				をクリックすると、お気に入りに登録できます。お気に入りに登録したクイズは、マイページから確認することができます。<br>
+				また、クイズの詳細画面から、クイズにコメントを残すことができます。クイズの感想や、自分の考察などをコメントしましょう。
+			</p>
+
+			<div class="quiz-box quiz-fake">
+				<div class="mb-3">
+					<%= image_tag 'sozai_cman_jp_20200510165455.jpg',size: "40x40", class: "rounded-circle" %>
+					<span class="user-name">クイズたろう</span>
+				</div>
+				<div class="category">
+					<span class="fake" style="background-color: orange;">謎解き</span>
+				</div>
+				<div class="tags">
+					<span class="fake" style="background-color: #33CC00;">なぞなぞ</span>
+				</div>
+				<div>
+					<h4>問題</h4>
+					<p>パンはパンでも食べられないパンはなんだ？</p>
+				</div>
+				<div class="favorite-comment">
+					<i class="far fa-star fake-fav"></i><span class="fav-cnt">０</span>
+					<i class="far fa-comment-alt ml-1"></i>０
+				</div>
+			</div>
+		</section>
+
+		<section id="number4">
+			<h4 class="section-number">
+				<span>その４　ユーザーをフォローしよう！</span>
+			</h4>
+			<p class="section-text">
+				ユーザーをフォローすると、ホーム画面にフォローしたユーザーのクイズを一覧で表示することができます。<br>
+				気に入ったユーザーがいたら、ユーザーの名前をクリックし、ユーザーのページからフォローしましょう。
+			</p>
+
+			<div class="profile profile-fake">
+			<!-- ユーザーの画像、名前、自己紹介 -->
+			<div class="mb-3">
+				<%= image_tag 'sozai_cman_jp_20200510165455.jpg',size: "60x60", class: "rounded-circle" %>
+				<h3 class="user-name">クイズたろう</h3>
+				<p class="introduction">
+					クイズたろうと申します！<br>
+					謎解きを中心に投稿しています！
+				</p>
+			</div>
+			<div class="follow-related">
+				<span class="btn btn-warning fake-follow">フォローする</span>
+				<span>フォロー</span>０
+				<span>フォロワー</span><span class="follow-cnt">０</span>
+			</div>
+		</section>
+
+		<section id="number5">
+			<h4 class="section-number">
+				<span>その５　さいごに！</span>
+			</h4>
+			<p class="section-text">
+				とてもシンプルなサイトなので、幅広い使い方ができると思います。<br>
+				・勉強のアウトプットにクイズを投稿したり、<br>
+				・暇つぶしにちょっとした雑学を身につけたり、<br>
+				・家族や友達とクイズを出題しあって遊んだり…。<br>
+				このサイトを使って、みんなで一緒に、楽しく、学んでください！<br>
+				では、よいクイズライフを！
+			</p>
+
+			<div class="about-sign-in">
+				<%= link_to '新規登録はこちら！', user_session_path, class: "btn btn-outline-primary text-center" %>
+				<%= link_to 'ログインはこちら!', new_user_session_path, class: "btn btn-outline-warning" %>
+			</div>
+	</div>
+</div>
