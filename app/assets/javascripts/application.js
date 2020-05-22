@@ -50,6 +50,43 @@ $(document).on('turbolinks:load',function() {
 		}
 	});
 
+	// アバウトページの目次からのスクロール
+	$('.contents a').click(function(){
+		var id = $(this).attr('href');
+		var position = $(id).offset().top;
+		$('html, body').animate({
+			"scrollTop":position
+		},800);
+	});
+
+	// アバウトページのお気に入りデモ
+	$('.fake-fav').click(function() {
+		if($('.fake-fav').hasClass('far')) {
+			$('.fake-fav').removeClass('far');
+			$('.fake-fav').addClass('fas');
+			$('.fav-cnt').html('１');
+		}else{
+			$('.fake-fav').removeClass('fas');
+			$('.fake-fav').addClass('far');
+			$('.fav-cnt').html('０');
+		}
+	});
+
+	// アバウトページのフォローデモ
+	$('.fake-follow').click(function() {
+		if($('.fake-follow').hasClass('btn-warning')){
+			$('.fake-follow').removeClass('btn-warning');
+			$('.fake-follow').addClass('btn-outline-warning');
+			$('.fake-follow').html('フォロー中');
+			$('.follow-cnt').html('１');
+		}else{
+			$('.fake-follow').removeClass('btn-outline-warning');
+			$('.fake-follow').addClass('btn-warning');
+			$('.fake-follow').html('フォローする');
+			$('.follow-cnt').html('０');
+		}
+	})
+
 	// タブメニュー
 	$('#tab-contents .tab[id != "tab1"]').hide();
 
