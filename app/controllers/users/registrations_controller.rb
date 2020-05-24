@@ -10,9 +10,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  def create
-    super { |resource| resource.remember_me = true }
-  end
+  # def create
+  #   super
+  # end
 
   # GET /resource/edit
   # def edit
