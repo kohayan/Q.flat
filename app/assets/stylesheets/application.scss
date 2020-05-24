@@ -523,6 +523,10 @@ section h2{
 	margin: 10px;
 }
 
+.please-signin span{
+	display: inline-block;
+}
+
 .fa-times {
 	position: absolute;
 	top: 12px;
@@ -642,11 +646,10 @@ section h2{
 	position: absolute;
 	top: 25%;
 	left: 30%;
-	padding: 20px 0 40px;
+	padding: 20px 0;
 	text-align: center;
 	border-radius: 5px;
 	width: 40%;
-	height: 50%;
 }
 
 .comment-area{
@@ -723,7 +726,7 @@ section h2{
 }
 
 @media screen and (max-width:768px) {
-	#logo{
+	#logo, .header-nuv{
 		display: none;
 	}
 
@@ -772,8 +775,14 @@ section h2{
 		transform: translateZ(0);
 	}
 
-	.sign-form, #quiz-form, #quiz-edit-form, .user-edit{
+	#quiz-form, #comment-form, .please-signin, .notification-box{
 		width: 100%;
+		left: 0;
+	}
+
+	.sign-form, #quiz-edit-form, .user-edit{
+		width: 100%;
+		max-width: 500px;
 	}
 
 	#quiz-edit-form textarea{
@@ -782,5 +791,16 @@ section h2{
 
 	#tab-menu.fixed{
 		width: 92%;
+	}
+}
+
+
+@media screen and (max-width:670px) {
+
+	.user-box .follow-related{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		min-width: 45%;
 	}
 }
