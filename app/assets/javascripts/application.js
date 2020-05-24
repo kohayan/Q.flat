@@ -20,6 +20,30 @@
 
 $(document).on('turbolinks:load',function() {
 
+	// レスポンシブ時のメニューの表示・非表示
+	$('.menu-triger').click(function(){
+		if($(this).hasClass('active')){
+			$(this).removeClass('active');
+			$('.main').removeClass('open');
+			$('#sideber').removeClass('open');
+			$('.overlay').removeClass('open');
+		} else {
+			$(this).addClass('active');
+			$('.main').addClass('open');
+			$('#sideber').addClass('open');
+			$('.overlay').addClass('open');
+		}
+	});
+
+	$('.overlay').on('click',function(){
+		if($(this).hasClass('open')){
+			$(this).removeClass('open');
+			$('.menu-trigger').removeClass('active');
+			$('.main').removeClass('open');
+			$('#sideber').removeClass('open');
+		}
+	});
+
 	// 今いるページのサイドバーのリンクに装飾
 	var url = window.location.pathname;
         $('#sideber li a[href="'+url+'"]').addClass('active');

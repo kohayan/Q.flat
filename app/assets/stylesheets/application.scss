@@ -80,11 +80,13 @@ h1, h2, h3, h4, h5, h6{
 
 /*ヘッダー*/
 header{
+	width: 100%;
 	height: 10vh;
 	background-color: orange;
 	padding: 15px;
-	position: sticky;
+	position: fixed;
 	top: 0;
+	left: 0;
 	z-index: 9;
 	display: flex;
 	justify-content: flex-end;
@@ -98,6 +100,10 @@ header{
 
 #logo span{
 	color: #FF0000;
+}
+
+.menu-triger{
+	display: none;
 }
 
 .header-nuv{
@@ -118,11 +124,14 @@ header{
 
 /*サイドバー*/
 #sideber{
+	width: 23%;
 	height: 90vh;
 	background-color: #fff;
 	padding: 20px;
-	position: sticky;
+	position: fixed;
 	top: 10vh;
+	left: 0;
+	z-index: 5;
 	display: flex;
 	flex-direction: column;
 }
@@ -216,6 +225,11 @@ header{
 
 .about-link a{
 	color: #bbbbbb;
+}
+
+/*メインコンテンツ*/
+.main{
+	padding-top: 10vh;
 }
 
 /*アバウトページ*/
@@ -532,6 +546,7 @@ section h2{
 
 #quiz-edit-form textarea{
 	height: 200px;
+	resize: none;
 }
 
 /*クイズ一覧、詳細画面*/
@@ -576,6 +591,7 @@ section h2{
 .tags a{
 	background-color: #33CC00;
 	color: #fff;
+	margin-bottom: 3px;
 	padding: 0 2px;
 	border-radius: 3px;
 	display: inline-block;
@@ -704,4 +720,67 @@ section h2{
 	background-color: white;
 	padding: 15px;
 	border-radius: 5px;
+}
+
+@media screen and (max-width:768px) {
+	#logo{
+		display: none;
+	}
+
+	.menu-triger{
+		color: #fff;
+		margin-right: auto;
+		display: block;
+	}
+
+	.overlay{
+		content: "";
+		display: block;
+		width: 0;
+		height: 0;
+		background-color: rgba(0, 0, 0, 0.6);
+		position: fixed;
+		top: 0;
+		right: 0;
+		z-index: 2;
+		opacity: 0;
+		transition: opacity .5s;
+	}
+
+	.overlay.open {
+		width: 100%;
+		height: 100%;
+		opacity: 1;
+	}
+
+	.main{
+		height: 100%;
+		transition: all .5s;
+	}
+
+	.main.open {
+		transform: translateX(80%);
+	}
+
+	#sideber{
+		width: 80%;
+		transform: translate(-100%);
+		transition: all .5s;
+	}
+
+	#sideber.open{
+		transform: translateZ(0);
+	}
+
+	.sign-form, #quiz-form, #quiz-edit-form, .user-edit{
+		width: 100%;
+	}
+
+	#quiz-edit-form textarea{
+		height: 100px;
+	}
+
+	#tab-menu.fixed{
+		width: 92%;
+	}
 }
