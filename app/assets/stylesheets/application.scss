@@ -240,6 +240,10 @@ header{
 	border-radius: 5px;
 }
 
+.about-page span{
+	display: inline-block;
+}
+
 .site-name{
 	color: orange;
 	font-size: 100px;
@@ -262,6 +266,8 @@ header{
 
 .contents a{
 	color: orange;
+	display: inline-block;
+	padding: 3px 0;
 }
 
 .contents a:hover{
@@ -805,5 +811,80 @@ section h2{
 		flex-direction: column;
 		align-items: center;
 		min-width: 45%;
+	}
+
+	.about-page{
+		padding: 0;
+	}
+
+	.contents ul{
+		width: 90%;
+	}
+
+	section{
+		padding: 10px;
+	}
+
+	section h2{
+		width: 100%;
+		margin-bottom: 15px;
+	}
+
+	.section-text{
+		font-size: 20px;
+		width: 80%;
+		margin: 5px auto 5px;
+	}
+
+	.section-number{
+		margin-bottom: 20px;
+	}
+
+	.section-number span{
+		color: #fff;
+		background-color: orange;
+		padding: 5px 10px;
+		border-radius: 18px;
+	}
+
+	.quiz-fake, .profile-fake{
+		border: 1px orange solid;
+	}
+
+	.fake{
+		color: #fff;
+		padding: 3px;
+		border-radius: 3px
+	}
+
+	.about-sign-in{
+		margin: 20px 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.about-sign-in .btn{
+		width: 100%;
+		margin: 5px 0;
+	}
+
+	.fake-form{
+		padding: 20px 20px 0;
+		border-radius: 3px;
+		border: 1px orange solid;
+		text-align: center;
+	}
+
+	.fake-form textarea{
+		resize: none;
+	}
+
+	.fake-fav, .fake-follow{
+		cursor: pointer;
+	}
+
+	.about-page .profile{
+		padding: 10px 0;
 	}
 }
