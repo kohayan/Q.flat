@@ -111,6 +111,25 @@ $(document).on('turbolinks:load',function() {
 		}
 	})
 
+	// タブメニューの固定
+	var tabmenu = $('#tab-menu'),
+		tabmenuOffsetTop = tabmenu.offset().top,
+		tabmenuHeight = tabmenu.outerHeight(true),
+		tabwrapWidth = $('.tab-wrap').outerWidth(true);
+
+	$(window).on('scroll', function () {
+		if($(this).scrollTop() > tabmenuOffsetTop) {
+			$('#tab-menu').addClass('fixed');
+			$('#tab-contents').css('padding-top', tabmenuHeight);
+			$(tabmenu).css('width', tabwrapWidth);
+		} else {
+			$('#tab-menu').removeClass('fixed');
+			$('#tab-contents').css('padding-top', '');
+			$(tabmenu).css('width', '100%');
+		}
+	});
+
+
 	// タブメニュー
 	$('#tab-contents .tab[id != "tab1"]').hide();
 

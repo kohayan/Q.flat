@@ -404,10 +404,16 @@ section h2{
 }
 
 #tab-menu{
+	margin-top: -10vh;
+	padding-top: 10vh;
+	width: 100%;
 	list-style: none;
 	display: flex;
 	background-color: #fff;
-	position: sticky;
+}
+
+#tab-menu.fixed{
+	position: fixed;
 	top: 10vh;
 }
 
@@ -428,9 +434,6 @@ section h2{
 
 #tab-menu .active a{
 	font-weight: bold;
-}
-
-#tab-menu .active a{
 	color: orange;
 }
 
