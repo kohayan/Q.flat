@@ -8,22 +8,23 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
   </head>
 
   <body>
-    <!-- ヘッダー -->
-    <%= render 'layouts/header' %>
+    <div class="container-fluid" style="padding: 0; overflow-x: hidden;">
+      <!-- ヘッダー -->
+      <%= render 'layouts/header' %>
 
-    <div class="container-fluid" style="padding: 0;">
       <div class="row">
         <!-- サイドバー -->
-        <div class="col-md-3">
+        <div class="col-lg-3 col-xs-10">
           <%= render 'layouts/sideber' %>
         </div>
 
         <!-- メインコンテンツ -->
-        <div class="col-md-9 col-xs-12">
-          <div class="offset-1 col-md-10">
+        <div class="main col-lg-9 col-xs-12">
+          <div class="offset-lg-1 col-lg-10 col-xs-12 mb-4">
             <!-- フラッシュメッセージ -->
             <% unless request.url.include?("sign_in") %>
               <%- flash.each do |name, msg| -%>
@@ -36,25 +37,27 @@
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- トップへ戻るボタン -->
-    <span id="top-btn">
-      <a href="#">
-        <i class="fas fa-angle-up"></i>
-      </a>
-    </span>
+      <div class="overlay"></div>
 
-    <!-- クイズフォーム -->
-    <div id="quiz-form-wrapper">
-      <%= render 'quizzes/quiz_form', new_quiz: @new_quiz %>
-    </div>
+      <!-- トップへ戻るボタン -->
+      <span id="top-btn">
+        <a href="#">
+          <i class="fas fa-angle-up"></i>
+        </a>
+      </span>
 
-    <!-- 通知画面 -->
-    <% if user_signed_in? %>
-      <div class="notification-wrapper">
-        <%= render 'layouts/notification', notifications: @notifications %>
+      <!-- クイズフォーム -->
+      <div id="quiz-form-wrapper">
+        <%= render 'quizzes/quiz_form', new_quiz: @new_quiz %>
       </div>
-    <% end %>
+
+      <!-- 通知画面 -->
+      <% if user_signed_in? %>
+        <div class="notification-wrapper">
+          <%= render 'layouts/notification', notifications: @notifications %>
+        </div>
+      <% end %>
+    </div>
   </body>
 </html>
