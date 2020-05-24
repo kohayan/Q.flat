@@ -155,15 +155,15 @@ header{
 }
 
 .search-ber input{
-	height: 40px;
-	width: 90%;
+	flex: 1 1 auto;
+	width: 1%;
+	height: 35px;
 	border: 1px solid orange;
 	border-right: transparent;
 	outline: none;
 }
 
 .search-ber button{
-	width: 10%;
 	background-color: #fff;
 	border: 1px solid orange;
 	border-left: transparent;
