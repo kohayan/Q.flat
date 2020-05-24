@@ -24,6 +24,10 @@ class User < ApplicationRecord
 
   scope :date, -> { order(created_at: :desc) }
 
+  def remember_me
+    true
+  end
+
   def follow(user_id)
     follower.create(followed_id: user_id)
   end
