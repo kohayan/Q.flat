@@ -9,14 +9,8 @@
 				<% end %>
 			</div>
 			<!-- 通知 -->
-			<div class="notification">
-				<%= link_to notifications_path, remote: true do %>
-					<span>通知</span>
-					<i class="far fa-bell ml-1"></i>
-				<% end %>
-				<% if unchecked_notifications.any? %>
-					<i class="fa fa-circle" style="color: gold;"></i>
-				<% end %>
+			<div class="notification_<%= current_user.id %>">
+				<%= render 'layouts/mark_notification' %>
 			</div>
 		</div>
 		<!-- 検索バー -->

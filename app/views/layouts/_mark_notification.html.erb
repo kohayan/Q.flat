@@ -1,0 +1,9 @@
+<div class="notification">
+	<%= link_to notifications_path, remote: true do %>
+		<span>通知</span>
+		<i class="far fa-bell ml-1"></i>
+	<% end %>
+	<% if unchecked_notifications.any? %>
+		<i class="fa fa-circle" style="color: gold;"></i>
+	<% end %>
+</div>
