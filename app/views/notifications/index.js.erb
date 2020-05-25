@@ -1,6 +1,6 @@
-$(".notification-wrapper").html("<%= j(render 'layouts/notification', notifications: @notifications) %>")
+$(".notification-wrapper").html("<%= j(render 'layouts/notification', notifications: @notifications) %>");
+$('.notification_<%= current_user.id %>').html("<%= j(render 'layouts/mark_notification') %>");
 $('.notification-wrapper').fadeIn();
 $(document).on('click', '.close-notification', function() {
 	$('.notification-wrapper').fadeOut();
-	location.reload();
 });
