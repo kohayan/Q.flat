@@ -6,7 +6,6 @@ class QuizCommentsController < ApplicationController
     @comment = @quiz.quiz_comments.new(quiz_comment_params)
     @comment.user_id = current_user.id
     if @comment.save
-      flash[:success] = "コメントを送信しました"
       @quiz = @comment.quiz
       @quiz.create_notification_comment!(current_user, @comment.id, @quiz.user.id)
     else
