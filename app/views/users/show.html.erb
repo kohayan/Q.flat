@@ -4,7 +4,7 @@
 	<div class="mb-3">
 		<% if @user == current_user %>
 			<div class="current-user-only">
-				<%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "log-out" %>
+				<%= link_to 'ログアウト', destroy_user_session_path, method: :delete, "data-confirm" => "ログアウトしますか?", class: "log-out" %>
 				<%= link_to edit_user_path(@user) do %>
 					<i class="fas fa-cog"></i>
 				<% end %>
