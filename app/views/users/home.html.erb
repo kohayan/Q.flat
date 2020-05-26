@@ -1,6 +1,11 @@
 <div class="mt-4">
 	<% if @quizzes.blank? %>
-		<h3 class="nothing">ユーザーをフォローしよう！</h3>
+		<h3 class="nothing">
+			<span>ユーザーを</span><span>フォローしよう！</span>
+		</h3>
+		<h5 class="text-center mt-3">
+			<%= link_to 'みんなのクイズを見る', quizzes_path, style: "color: orange;" %>
+		</h5>
 	<% else %>
 		<% @quizzes.each do |quiz| %>
 			<%= render 'quizzes/quiz', quiz: quiz %>
