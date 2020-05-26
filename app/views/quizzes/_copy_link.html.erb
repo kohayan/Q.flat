@@ -1,0 +1,26 @@
+<div class="link-copy">
+	<p class="copytext_<%= quiz.id %>" style="display: none;">
+		<%= request.url %>
+	</p>
+	<p class="copy_alert_<%= quiz.id %>" style="display: none; color: orange;">
+		<span>リンクを</span><span>コピーしました！</span>
+	</p>
+	<span class="copy_btn_<%= quiz.id %> copy-btn">
+		<i class="fas fa-link"></i>
+	</span>
+</div>
+
+<script>
+	$(function() {
+		$('.copy_btn_<%= quiz.id %>').on('click',function(){
+			let text = $('.copytext_<%= quiz.id %>').text();
+			let $textarea = $('<textarea></textarea>');
+			$textarea.text(text);
+			$(this).append($textarea);
+			$textarea.select();
+			document.execCommand('copy');
+			$textarea.remove();
+			$('.copy_alert_<%= quiz.id %>').show().delay(2000).fadeOut(400);
+		});
+	});
+</script>
