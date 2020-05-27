@@ -43,8 +43,14 @@ h1, h2, h3, h4, h5, h6{
 
 /*フラッシュメッセージ*/
 #flash{
-	margin-top: 15px;
-	color: orange;
+	color: #fff;
+	background-color: orange;
+	padding: 10px;
+	border-radius: 5px;
+	position: fixed;
+	top: 13vh;
+	z-index: 8;
+	box-shadow: 1px 1px 1px 1px #ccc;
 }
 
 /*トップへスクロールするボタン*/
@@ -124,6 +130,15 @@ header{
 
 .header-nuv li :hover{
 	color: #ff0000;
+}
+
+/*メインコンテンツ*/
+.main{
+	padding-top: 10vh;
+}
+
+.main-contents{
+	width: 100%;
 }
 
 /*サイドバー*/
@@ -229,11 +244,6 @@ header{
 
 .about-link a{
 	color: #bbbbbb;
-}
-
-/*メインコンテンツ*/
-.main{
-	padding-top: 10vh;
 }
 
 /*アバウトページ*/
