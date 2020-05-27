@@ -25,15 +25,17 @@
         <!-- メインコンテンツ -->
         <div class="main col-lg-9 col-xs-12">
           <div class="offset-lg-1 col-lg-10 col-xs-12 mb-4">
-            <!-- フラッシュメッセージ -->
-            <% unless request.url.include?("sign_in") %>
-              <%- flash.each do |name, msg| -%>
-                <h4 id="flash"><%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %></h4>
-              <%- end -%>
-            <% end %>
+            <div class="main-contents">
+              <!-- フラッシュメッセージ -->
+              <% unless request.url.include?("sign_in") %>
+                <%- flash.each do |name, msg| -%>
+                  <h4 id="flash"><%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %></h4>
+                <%- end -%>
+              <% end %>
 
-            <%= yield %>
+              <%= yield %>
 
+            </div>
           </div>
         </div>
       </div>
