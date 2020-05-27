@@ -46,10 +46,14 @@ $(document).on('turbolinks:load',function() {
 
 	// 今いるページのサイドバーのリンクに装飾
 	var url = window.location.pathname;
-        $('#sideber li a[href="'+url+'"]').addClass('active');
+	$('#sideber li a[href="'+url+'"]').addClass('active');
 
 	// フラッシュメッセージを自動でフェードアウト
 	setTimeout("$('#flash').fadeOut()", 2000);
+
+	// フラッシュメッセージの幅
+	var flashWidth = $('.main-contents').outerWidth(true);
+	$('#flash').css('width', flashWidth);
 
 	// トップへ戻るボタン
 	$('#top-btn a').on('click',function(){
