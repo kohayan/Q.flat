@@ -624,14 +624,6 @@ section h2{
 	display: inline-block;
 }
 
-.favorite-comment{
-	font-size: 20px;
-	color: #888888;
-	margin-top: 15px;
-	display: flex;
-	align-items: center;
-}
-
 .comment-form-show{
 	margin-left: 5px;
 }
@@ -644,12 +636,48 @@ section h2{
 	display: none;
 }
 
+.quiz-under{
+	margin-top: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+
+.favorite-comment{
+	font-size: 20px;
+	color: #888888;
+	margin-right: auto;
+	display: flex;
+	align-items: center;
+}
+
 .fa-star{
 	color: #FFCC00;
 }
 
 .far.fa-comment-alt{
 	color: #2C7CFF;
+}
+
+.link-copy{
+	display: flex;
+	align-items: center;
+}
+
+.link-copy p{
+	margin-bottom: 0;
+}
+
+.link-copy span{
+	display: inline-block;
+}
+
+.copy-btn{
+	color: orange;
+	background-color: #fff;
+	border: transparent;
+	cursor: pointer;
 }
 
 /*クイズへのコメント*/

@@ -48,11 +48,16 @@
 		<% end %>
 	</div>
 
-	<!-- お気に入りとコメント -->
-	<div class="favorite-comment">
-		<div class="favorite_comment_<%= quiz.id %>">
-			<%= render 'favorite_comment', quiz: quiz %>
+	<div class="quiz-under">
+		<!-- お気に入りとコメント -->
+		<div class="favorite-comment">
+			<div class="favorite_comment_<%= quiz.id %>">
+				<%= render 'favorite_comment', quiz: quiz %>
+			</div>
+			<span class="comment-form-show">コメントする</span>
 		</div>
-		<span class="comment-form-show">コメントする</span>
+
+		<!-- リンクのコピー -->
+		<%= render 'quizzes/copy_link', quiz: quiz %>
 	</div>
 </div>
