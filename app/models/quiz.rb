@@ -40,8 +40,8 @@ class Quiz < ApplicationRecord
     end
 
     new_tags.each do |new_name|
-      article_category = Tag.find_or_create_by(name: new_name)
-      self.tags << article_category
+      quiz_tag = Tag.find_or_create_by(name: new_name)
+      self.tags << quiz_tag
     end
   end
 
