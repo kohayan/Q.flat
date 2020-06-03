@@ -3,3 +3,5 @@ $(".comments_<%= @quiz.id %>").html("<%= j(render 'quizzes/comments', comments: 
 $("#comment-form-wrapper").hide();
 $(".comment-area").val("");
 $('.now_cnt').text(0);
+$('#ajax-flash').html('コメントを送信しました！');
+$('#ajax-flash').show().delay(2000).fadeOut();

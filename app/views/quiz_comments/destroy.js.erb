@@ -1,2 +1,4 @@
 $(".favorite_comment_<%= @quiz.id %>").html("<%= j(render 'quizzes/favorite_comment', quiz: @quiz) %>");
 $(".comments_<%= @quiz.id %>").html("<%= j(render 'quizzes/comments', comments: @quiz.quiz_comments ) %>");
+$('#ajax-flash').html('コメントを削除しました！');
+$('#ajax-flash').show().delay(2000).fadeOut();
