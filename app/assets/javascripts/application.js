@@ -53,7 +53,7 @@ $(document).on('turbolinks:load',function() {
 
 	// フラッシュメッセージの幅
 	var flashWidth = $('.main-contents').outerWidth(true);
-	$('#flash').css('width', flashWidth);
+	$('#flash, #ajax-flash').css('width', flashWidth);
 
 	// トップへ戻るボタン
 	$('#top-btn a').on('click',function(){

@@ -32,6 +32,7 @@
                   <h4 id="flash"><%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %></h4>
                 <%- end -%>
               <% end %>
+              <h4 id="ajax-flash"></h4>
 
               <%= yield %>
 
