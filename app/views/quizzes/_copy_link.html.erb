@@ -1,8 +1,5 @@
 <div class="link-copy">
 	<p class="copytext_<%= quiz.id %>" style="display: none;"><%= request.url %></p>
-	<p class="copy_alert_<%= quiz.id %>" style="display: none; color: orange;">
-		<span>リンクを</span><span>コピーしました！</span>
-	</p>
 	<span class="copy_btn_<%= quiz.id %> copy-btn">
 		<i class="fas fa-link"></i>
 	</span>
@@ -18,7 +15,8 @@
 			$textarea.select();
 			document.execCommand('copy');
 			$textarea.remove();
-			$('.copy_alert_<%= quiz.id %>').show().delay(2000).fadeOut(400);
+			$('#ajax-flash').html('リンクをコピーしました！');
+			$('#ajax-flash').show().delay(2000).fadeOut();
 		});
 	});
 </script>
