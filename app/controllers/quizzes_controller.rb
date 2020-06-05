@@ -64,7 +64,11 @@ class QuizzesController < ApplicationController
   private
 
   def set_quiz
-    @quiz = Quiz.find(params[:id])
+    @quiz = Quiz.find_by(id: params[:id])
+    if @quiz.nil?
+      flash[:notice] = "クイズが存在しません"
+      redirect_to quizzes_path
+    end
   end
 
   def quiz_params
