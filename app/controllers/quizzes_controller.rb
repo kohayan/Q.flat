@@ -22,6 +22,7 @@ class QuizzesController < ApplicationController
     if user_signed_in?
       @quiz.create_impression(current_user)
     end
+    @ref = request.referer
   end
 
   def index
@@ -51,9 +52,10 @@ class QuizzesController < ApplicationController
   end
 
   def destroy
+    ref = params[:ref]
     @quiz.destroy
     flash[:notice] = "クイズを削除しました！"
-    redirect_to user_path(@quiz.user)
+    redirect_to (ref)
   end
 
   def famous
