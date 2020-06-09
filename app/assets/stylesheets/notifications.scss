@@ -1,3 +1,46 @@
 // Place all the styles related to the notifications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*通知一覧*/
+.notification-wrapper{
+	display: none;
+	background-color: rgba(0, 0, 0, 0.6);
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 10;
+}
+
+.notification-box{
+	background-color: #fff;
+	position: absolute;
+	top: 25%;
+	left: 30%;
+	padding: 40px;
+	border-radius: 5px;
+	width: 40%;
+	height: 50%;
+	overflow: scroll;
+}
+
+.notification-detail{
+	margin-right: auto;
+	padding: 10px;
+	border-top: 1px solid #dddddd;
+}
+
+.notification-detail p{
+	color: #c0c0c0;
+	text-align: center;
+}
+
+.notification-detail a{
+	font-weight: bold;
+}
+
+.notification-detail span{
+	color: #bbbbbb;
+}
