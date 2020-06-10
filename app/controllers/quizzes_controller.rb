@@ -55,7 +55,7 @@ class QuizzesController < ApplicationController
     ref = params[:ref]
     @quiz.destroy
     flash[:notice] = "クイズを削除しました！"
-    redirect_to (ref)
+    redirect_to ref
   end
 
   def famous

@@ -1,3 +1,49 @@
 // Place all the styles related to the quiz_comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*クイズへのコメント*/
+#comment-form-wrapper{
+	display: none;
+	background-color: rgba(0, 0, 0, 0.6);
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 10;
+}
+
+#comment-form{
+	background-color: #fff;
+	position: absolute;
+	top: 25%;
+	left: 30%;
+	padding: 20px 0;
+	text-align: center;
+	border-radius: 5px;
+	width: 40%;
+}
+
+.comment-area{
+	resize: none;
+	width: 90%;
+	height: 270px;
+	border: transparent;
+	outline: none;
+}
+
+.cnt_danger{
+    color: #FF0000;
+}
+
+.comment-box{
+	background-color: white;
+	margin-bottom: 5px;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.comment-form-show{
+	font-size: 15px;
+}

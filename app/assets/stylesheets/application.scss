@@ -41,6 +41,7 @@ h1, h2, h3, h4, h5, h6{
 	color: orange;
 }
 
+
 /*フラッシュメッセージ*/
 #flash, #ajax-flash{
 	color: #fff;
@@ -56,6 +57,7 @@ h1, h2, h3, h4, h5, h6{
 #ajax-flash{
 	display: none;
 }
+
 
 /*トップへスクロールするボタン*/
 #top-btn{
@@ -75,11 +77,13 @@ h1, h2, h3, h4, h5, h6{
 	color: #fff;
 }
 
+
 /*前のページに戻るボタン*/
 .back a{
 	color: orange;
 	font-weight: bold;
 }
+
 
 /*ページに何もクイズがなかったとき*/
 .nothing{
@@ -91,6 +95,7 @@ h1, h2, h3, h4, h5, h6{
 .nothing span{
 	display: inline-block;
 }
+
 
 /*ヘッダー*/
 header{
@@ -136,6 +141,7 @@ header{
 	color: #ff0000;
 }
 
+
 /*メインコンテンツ*/
 .main{
 	padding-top: 10vh;
@@ -144,6 +150,7 @@ header{
 .main-contents{
 	width: 100%;
 }
+
 
 /*サイドバー*/
 #sideber{
@@ -250,183 +257,8 @@ header{
 	color: #bbbbbb;
 }
 
-/*アバウトページ*/
-.about-page{
-	background-color: #fff;
-	margin-bottom: 20px;
-	padding: 15px;
-	border-radius: 5px;
-}
 
-.about-page span{
-	display: inline-block;
-}
-
-.site-name{
-	color: orange;
-	font-size: 100px;
-	text-align: center;
-	margin-bottom: 30px
-}
-
-.site-name span{
-	color: red;
-}
-
-.contents ul{
-	margin: 0 auto;
-	width: 50%;
-	padding: 20px;
-	border-radius: 3px;
-	border: 1px orange solid;
-	list-style: none;
-}
-
-.contents a{
-	color: orange;
-	display: inline-block;
-	padding: 3px 0;
-}
-
-.contents a:hover{
-	font-weight: bold;
-}
-
-
-section{
-	padding: 30px;
-}
-
-section h2{
-	margin-bottom: 15px;
-}
-
-.section-text{
-	font-size: 20px;
-	width: 80%;
-	margin: 5px auto 5px;
-}
-
-.section-number{
-	margin-bottom: 20px;
-}
-
-.section-number span{
-	color: #fff;
-	background-color: orange;
-	padding: 5px 10px;
-	border-radius: 18px;
-}
-
-.quiz-fake, .profile-fake{
-	border: 1px orange solid;
-}
-
-.fake{
-	color: #fff;
-	padding: 3px;
-	border-radius: 3px
-}
-
-.about-sign-in{
-	margin: 20px 0;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.about-sign-in .btn{
-	width: 40%;
-	margin: 5px 0;
-}
-
-.fake-form{
-	padding: 20px 20px 0;
-	border-radius: 3px;
-	border: 1px orange solid;
-	text-align: center;
-}
-
-.fake-form textarea{
-	resize: none;
-}
-
-.fake-fav, .fake-follow{
-	cursor: pointer;
-}
-
-/*新規登録、ログイン画面*/
-.sign-form{
-	width: 60%;
-	margin: 15% auto;
-	background-color: white;
-	padding: 30px;
-	border-radius: 5px;
-	text-align: center;
-}
-
-.sign-form h3{
-	font-weight: bold;
-	margin-bottom: 30px;
-}
-
-.field{
-	margin-bottom: 30px;
-}
-
-/*ユーザー詳細画面*/
-.profile{
-	background-color: white;
-	position: relative;
-	margin: 5% auto 0;
-	padding: 10px 15px 30px;
-	border-bottom: solid 1px orange;
-	border-radius: 5px 5px 0 0;
-	text-align: center;
-}
-
-.current-user-only{
-	display: flex;
-	justify-content: flex-end;
-}
-
-.current-user-only .log-out{
-	color: #bb0000;
-}
-
-.log-out{
-	margin-right: auto;
-	font-weight: bold;
-}
-
-.fa-cog {
-	color: rgba(128, 128, 128, 0.46);
-	cursor: pointer;
-}
-
-.introduction{
-	width: 70%;
-	margin: 0 auto;
-}
-
-.follow-related{
-	margin-bottom: 5px;
-}
-
-.follow-related .btn-warning{
-	color: #fff;
-}
-
-.follow-related a{
-	color: #777777;
-}
-
-.followed{
-	color: #999999;
-	background-color: #eeeeee;
-	border-radius: 1px;
-}
-
+/*タブメニュー*/
 #tab-menu{
 	margin-top: -10vh;
 	padding-top: 10vh;
@@ -461,324 +293,6 @@ section h2{
 	color: orange;
 }
 
-.user-edit{
-	background-color: white;
-	width: 60%;
-	margin: 0 auto;
-	padding: 30px;
-	text-align: center;
-	border-radius: 5px;
-}
-
-.user-edit input{
-	border: transparent;
-	border-bottom: 1px solid orange;
-	outline: none;
-}
-
-.user-edit textarea{
-	resize: none;
-	height: 150px;
-	border: transparent;
-	border-bottom: 1px solid orange;
-	outline: none;
-}
-
-.user-box{
-	background-color: white;
-	margin: 0 auto 20px;
-	padding: 15px 30px;
-	border-radius: 5px;
-	display: flex;
-	align-items: center;
-}
-
-.user-box .follow-related{
-	margin-left: auto;
-}
-
-.user-name{
-	font-weight: bold;
-}
-
-/*クイズ投稿画面*/
-#quiz-form-wrapper{
-	display: none;
-	background-color: rgba(0, 0, 0, 0.6);
-	position: fixed;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	z-index: 10;
-}
-
-#quiz-form{
-	background-color: #fff;
-	position: absolute;
-	top: 10%;
-	left: 25%;
-	padding: 50px;
-	text-align: center;
-	border-radius: 5px;
-	width: 50%;
-	height: 80%;
-	overflow: scroll;
-}
-
-#quiz-form textarea{
-	height: 200px;
-	resize: none;
-}
-
-.please-signin{
-	background-color: #fff;
-	position: absolute;
-	top: 25%;
-	left: 30%;
-	border-radius: 5px;
-	width: 40%;
-	height: 50%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
-.please-signin .btn{
-	width: 50%;
-	margin: 10px;
-}
-
-.please-signin span{
-	display: inline-block;
-}
-
-.fa-times {
-	position: absolute;
-	top: 12px;
-	right: 12px;
-	color: orange;
-	cursor: pointer;
-}
-
-#quiz-edit-form{
-	width: 80%;
-	margin: 0 auto;
-	background-color: white;
-	padding: 30px;
-	border-radius: 5px;
-	text-align: center;
-}
-
-#quiz-edit-form label{
-	font-weight: bold;
-}
-
-#quiz-edit-form textarea{
-	height: 200px;
-	resize: none;
-}
-
-/*クイズ一覧、詳細画面*/
-.quiz-box{
-	background-color: white;
-	margin-bottom: 20px;
-	padding: 15px;
-	border-radius: 5px;
-}
-
-.quiz-box h4{
-	margin-top: 20px;
-	font-weight: bold;
-	border-bottom: 1px solid orange;
-}
-
-.quiz-box p{
-	font-size: 20px;
-}
-
-.quiz-user, .comment-user{
-	margin-bottom: 10px;
-	display: flex;
-	justify-content: flex-end;
-}
-
-.quiz-user-link, .comment-user-link{
-	margin-right: auto;
-}
-
-.category a{
-	background-color: orange;
-	color: #fff;
-	padding: 3px;
-	border-radius: 3px
-}
-
-.tags{
-	margin: 10px 0;
-}
-
-.tags a{
-	background-color: #33CC00;
-	color: #fff;
-	margin-bottom: 3px;
-	padding: 0 2px;
-	border-radius: 3px;
-	display: inline-block;
-}
-
-.comment-form-show{
-	margin-left: 5px;
-}
-
-.answer-show, .explanation-show, .comment-form-show{
-	cursor: pointer;
-}
-
-.answer, .explanation, .comment-form-wrapper{
-	display: none;
-}
-
-.quiz-under{
-	margin-top: 15px;
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
-}
-
-
-.favorite-comment{
-	font-size: 20px;
-	color: #888888;
-	margin-right: auto;
-	display: flex;
-	align-items: center;
-}
-
-.fa-star{
-	color: #FFCC00;
-}
-
-.far.fa-comment-alt{
-	color: #2C7CFF;
-}
-
-.link-copy{
-	display: flex;
-	align-items: center;
-}
-
-.link-copy p{
-	margin-bottom: 0;
-}
-
-.link-copy span{
-	display: inline-block;
-}
-
-.copy-btn{
-	color: orange;
-	background-color: #fff;
-	border: transparent;
-	cursor: pointer;
-}
-
-/*クイズへのコメント*/
-#comment-form-wrapper{
-	display: none;
-	background-color: rgba(0, 0, 0, 0.6);
-	position: fixed;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	z-index: 10;
-}
-
-#comment-form{
-	background-color: #fff;
-	position: absolute;
-	top: 25%;
-	left: 30%;
-	padding: 20px 0;
-	text-align: center;
-	border-radius: 5px;
-	width: 40%;
-}
-
-.comment-area{
-	resize: none;
-	width: 90%;
-	height: 270px;
-	border: transparent;
-	outline: none;
-}
-
-.cnt_danger{
-    color: #FF0000;
-}
-
-.comment-box{
-	background-color: white;
-	margin-bottom: 5px;
-	padding: 10px;
-	border-radius: 5px;
-}
-
-.comment-form-show{
-	font-size: 15px;
-}
-
-
-/*通知一覧*/
-.notification-wrapper{
-	display: none;
-	background-color: rgba(0, 0, 0, 0.6);
-	position: fixed;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	z-index: 10;
-}
-
-.notification-box{
-	background-color: #fff;
-	position: absolute;
-	top: 25%;
-	left: 30%;
-	padding: 40px;
-	border-radius: 5px;
-	width: 40%;
-	height: 50%;
-	overflow: scroll;
-}
-
-.notification-detail{
-	margin-right: auto;
-	padding: 10px;
-	border-top: 1px solid #dddddd;
-}
-
-.notification-detail p{
-	color: #c0c0c0;
-	text-align: center;
-}
-
-.notification-detail a{
-	font-weight: bold;
-}
-
-.notification-detail span{
-	color: #bbbbbb;
-}
-
-.search-tags{
-	background-color: white;
-	padding: 15px;
-	border-radius: 5px;
-}
 
 @media screen and (max-width:768px) {
 	#logo, .header-nuv{
