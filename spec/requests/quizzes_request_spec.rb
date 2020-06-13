@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe "Quizzes", type: :request do
+    let(:user) { create(:user) }
+    let(:quiz) { create(:quiz, user_id: user.id) }
+    let(:quiz_params) { attributes_for(:quiz) }
+    let(:invalid_quiz_params) { attributes_for(:quiz, question: "") }
+
 	describe 'クイズ一覧ページ' do
         context "クイズ一覧ページが正しく表示される" do
             before do
@@ -8,6 +13,20 @@ RSpec.describe "Quizzes", type: :request do
             end
             it 'リクエストは200 OKとなること' do
                 expect(response.status).to eq 200
+            end
+        end
+    end
+
+    describe 'GET #show' do
+        subject { get quiz_path(quiz) }
+        it 'リクエストが成功すること' do
+            is_expected.to eq 200
+        end
+
+        context 'クイズが存在しない場合' do
+            it 'リダイレクトされること' do
+                quiz.destroy
+                is_expected.to redirect_to quizzes_path
             end
         end
     end
