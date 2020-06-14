@@ -40,13 +40,7 @@ RSpec.describe "Quizzes", type: :request do
             it 'リクエストが成功すること' do
                 is_expected.to eq 200
             end
-        end
-
-        context 'クイズが存在しない場合' do
-            before do
-                sign_in user
-            end
-            it 'リダイレクトされること' do
+            it 'クイズが存在しない場合リダイレクトされること' do
                 quiz.destroy
                 is_expected.to redirect_to quizzes_path
             end
