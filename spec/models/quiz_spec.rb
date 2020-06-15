@@ -15,4 +15,14 @@ RSpec.describe Quiz, type: :model do
             expect(@quiz).to be_valid
         end
     end
+
+    context "データが正しく保存されない" do
+        before do
+            @quiz = Quiz.new(question: "", answer: "")
+            @quiz.save
+        end
+        it "question,answerが入力されていないので保存されない" do
+            expect(@quiz).to be_invalid
+        end
+    end
 end
