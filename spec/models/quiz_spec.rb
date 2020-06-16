@@ -35,4 +35,14 @@ RSpec.describe Quiz, type: :model do
             expect(@quiz).to be_valid
         end
     end
+
+    context "データが正しく削除される" do
+        before do
+            @quiz = quiz
+            @quiz.destroy
+        end
+        it "正しく削除される" do
+            expect(@quiz).to be_valid
+        end
+    end
 end
