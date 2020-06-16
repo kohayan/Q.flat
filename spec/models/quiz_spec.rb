@@ -18,11 +18,21 @@ RSpec.describe Quiz, type: :model do
 
     context "データが正しく保存されない" do
         before do
-            @quiz = Quiz.new(question: "", answer: "")
+            @quiz = Quiz.new(invalid_quiz_params)
             @quiz.save
         end
         it "question,answerが入力されていないので保存されない" do
             expect(@quiz).to be_invalid
+        end
+    end
+
+    context "データが正しく更新される" do
+        before do
+            @quiz = quiz
+            @quiz.update(question: "update-test", answer: "update-test")
+        end
+        it "正しく更新される" do
+            expect(@quiz).to be_valid
         end
     end
 end
