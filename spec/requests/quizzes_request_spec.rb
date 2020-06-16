@@ -3,8 +3,44 @@ require 'rails_helper'
 RSpec.describe "Quizzes", type: :request do
     let(:user) { create(:user) }
     let(:quiz) { create(:quiz, user_id: user.id) }
-    let(:quiz_params) { attributes_for(:quiz) }
-    let(:invalid_quiz_params) { attributes_for(:quiz, question: "") }
+    let(:quiz_params) { attributes_for(:quiz, tag_list: "") }
+    let(:invalid_quiz_params) { attributes_for(:quiz, question: "", tag_list: "") }
+
+    describe 'POST #create' do
+        before do
+            sign_in user
+        end
+        context 'パラメータが妥当な場合' do
+            it 'リクエストが成功すること' do
+                post quizzes_path, params: { quiz: quiz_params, tag_list: "" }
+                expect(response.status).to eq 302
+            end
+
+            it 'createが成功すること' do
+                expect do
+                    post quizzes_path, params: { quiz: quiz_params }
+                end
+            end
+
+            it 'リダイレクトされること' do
+                post quizzes_path, params: { quiz: quiz_params }
+                expect(response).to redirect_to home_users_path
+            end
+        end
+
+        context 'パラメータが不正な場合' do
+            it 'リクエストが成功すること' do
+                post quizzes_path, params: { quiz: invalid_quiz_params }
+                expect(response.status).to eq 200
+            end
+
+            it 'createが失敗すること' do
+                expect do
+                    post quizzes_path, params: { quiz: invalid_quiz_params }
+                end
+            end
+        end
+    end
 
 	describe 'クイズ一覧ページ' do
         context "クイズ一覧ページが正しく表示される" do
