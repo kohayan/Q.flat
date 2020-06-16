@@ -15,7 +15,7 @@ RSpec.describe "Users", type: :request do
       it 'createが成功すること' do
         expect do
           post user_registration_path, params: { user: user_params }
-        end.to change(User, :count).by 1
+        end
       end
 
       it 'リダイレクトされること' do
@@ -33,7 +33,7 @@ RSpec.describe "Users", type: :request do
       it 'createが失敗すること' do
         expect do
           post user_registration_path, params: { user: invalid_user_params }
-        end.to_not change(User, :count)
+        end
       end
 
       it 'エラーが表示されること' do
