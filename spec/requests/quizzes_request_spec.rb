@@ -125,6 +125,29 @@ RSpec.describe "Quizzes", type: :request do
         end
     end
 
+    describe 'DELETE #destroy' do
+        before do
+            sign_in user
+        end
+        context 'パラメータが妥当な場合' do
+            it 'リクエストが成功すること' do
+                delete quiz_path(quiz), params: { ref: quizzes_path }
+                expect(response.status).to eq 302
+            end
+
+            it 'destroyが成功すること' do
+                expect do
+                    delete quiz_path(quiz)
+                end
+            end
+
+            it 'リダイレクトされること' do
+                delete quiz_path(quiz), params: { ref: quizzes_path }
+                expect(response).to redirect_to quizzes_path
+            end
+        end
+    end
+
     describe '人気クイズページ' do
         context "人気クイズページが正しく表示される" do
             before do
