@@ -12,7 +12,7 @@ RSpec.describe "Quizzes", type: :request do
         end
         context 'パラメータが妥当な場合' do
             it 'リクエストが成功すること' do
-                post quizzes_path, params: { quiz: quiz_params, tag_list: "" }
+                post quizzes_path, params: { quiz: quiz_params }
                 expect(response.status).to eq 302
             end
 
@@ -85,6 +85,65 @@ RSpec.describe "Quizzes", type: :request do
         context 'ゲストの場合' do
             it 'リダイレクトされること' do
                 is_expected.to redirect_to new_user_session_path
+            end
+        end
+    end
+
+    describe 'PATCH #update' do
+        before do
+            sign_in user
+        end
+        context 'パラメータが妥当な場合' do
+            it 'リクエストが成功すること' do
+                patch quiz_path(quiz), params: { quiz: quiz_params, question: "update" }
+                expect(response.status).to eq 302
+            end
+
+            it 'updateが成功すること' do
+                expect do
+                    patch quiz_path(quiz), params: { quiz: quiz_params, question: "update" }
+                end
+            end
+
+            it 'リダイレクトされること' do
+                patch quiz_path(quiz), params: { quiz: quiz_params, question: "update" }
+                expect(response).to redirect_to quiz_path(quiz)
+            end
+        end
+
+        context 'パラメータが不正な場合' do
+            it 'リクエストが成功すること' do
+                patch quiz_path(quiz), params: { quiz: invalid_quiz_params }
+                expect(response.status).to eq 200
+            end
+
+            it 'updateが失敗すること' do
+                expect do
+                    patch quiz_path(quiz), params: { quiz: invalid_quiz_params }
+                end
+            end
+        end
+    end
+
+    describe 'DELETE #destroy' do
+        before do
+            sign_in user
+        end
+        context 'パラメータが妥当な場合' do
+            it 'リクエストが成功すること' do
+                delete quiz_path(quiz), params: { ref: quizzes_path }
+                expect(response.status).to eq 302
+            end
+
+            it 'destroyが成功すること' do
+                expect do
+                    delete quiz_path(quiz)
+                end
+            end
+
+            it 'リダイレクトされること' do
+                delete quiz_path(quiz), params: { ref: quizzes_path }
+                expect(response).to redirect_to quizzes_path
             end
         end
     end
