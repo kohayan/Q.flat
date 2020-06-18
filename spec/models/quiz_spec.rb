@@ -6,7 +6,7 @@ RSpec.describe Quiz, type: :model do
     let(:quiz_params) { attributes_for(:quiz) }
     let(:invalid_quiz_params) { attributes_for(:quiz, question: "") }
 
-  	context "データが正しく保存される" do
+  	context "クイズが正しく保存される" do
         before do
             @quiz = user.quizzes.new(quiz_params)
             @quiz.save
@@ -16,7 +16,7 @@ RSpec.describe Quiz, type: :model do
         end
     end
 
-    context "データが正しく保存されない" do
+    context "クイズが正しく保存されない" do
         before do
             @quiz = Quiz.new(invalid_quiz_params)
             @quiz.save
@@ -26,7 +26,7 @@ RSpec.describe Quiz, type: :model do
         end
     end
 
-    context "データが正しく更新される" do
+    context "クイズが正しく更新される" do
         before do
             @quiz = quiz
             @quiz.update(question: "update-test", answer: "update-test")
@@ -36,7 +36,7 @@ RSpec.describe Quiz, type: :model do
         end
     end
 
-    context "データが正しく削除される" do
+    context "クイズが正しく削除される" do
         before do
             @quiz = quiz
             @quiz.destroy
