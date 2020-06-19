@@ -5,7 +5,7 @@ RSpec.describe User, type: :model do
   let(:user_params) { attributes_for(:user) }
   let(:invalid_user_params) { attributes_for(:user, nick_name: "") }
 
-  context "ユーザーが正しく保存される" do
+    context "ユーザーが正しく保存される" do
         before do
             @user = User.new(user_params)
             @user.save
