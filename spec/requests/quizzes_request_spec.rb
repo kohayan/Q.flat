@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Quizzes", type: :request do
     let(:user) { create(:user) }
     let(:quiz) { create(:quiz, user_id: user.id) }
-    let(:quiz_params) { attributes_for(:quiz, tag_list: "") }
+    let(:quiz_params) { attributes_for(:quiz, tag_list: "テスト1,テスト2") }
     let(:invalid_quiz_params) { attributes_for(:quiz, question: "", tag_list: "") }
 
     describe 'POST #create' do
