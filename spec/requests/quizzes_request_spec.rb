@@ -169,6 +169,16 @@ RSpec.describe "Quizzes", type: :request do
                 expect(response).to redirect_to quizzes_path
             end
         end
+
+        context 'クイズを作成したユーザーじゃない場合' do
+            before do
+                sign_in other_user
+            end
+            it 'リダイレクトされること' do
+                delete quiz_path(quiz), params: { ref: quizzes_path }
+                is_expected.to redirect_to root_path
+            end
+        end
     end
 
     describe '人気クイズページ' do
