@@ -100,24 +100,21 @@ RSpec.describe "Quizzes", type: :request do
     end
 
     describe 'PATCH #update' do
+        subject { patch quiz_path(quiz), params: { quiz: quiz_params, question: "update" } }
         context 'パラメータが妥当な場合' do
             before do
                 sign_in user
             end
             it 'リクエストが成功すること' do
-                patch quiz_path(quiz), params: { quiz: quiz_params, question: "update" }
-                expect(response.status).to eq 302
+                is_expected.to eq 302
             end
 
             it 'updateが成功すること' do
-                expect do
-                    patch quiz_path(quiz), params: { quiz: quiz_params, question: "update" }
-                end
+                is_expected
             end
 
             it 'リダイレクトされること' do
-                patch quiz_path(quiz), params: { quiz: quiz_params, question: "update" }
-                expect(response).to redirect_to quiz_path(quiz)
+                is_expected.to redirect_to quiz_path(quiz)
             end
         end
 
@@ -149,24 +146,21 @@ RSpec.describe "Quizzes", type: :request do
     end
 
     describe 'DELETE #destroy' do
+        subject { delete quiz_path(quiz), params: { ref: quizzes_path } }
         context 'パラメータが妥当な場合' do
             before do
                 sign_in user
             end
             it 'リクエストが成功すること' do
-                delete quiz_path(quiz), params: { ref: quizzes_path }
-                expect(response.status).to eq 302
+                is_expected.to eq 302
             end
 
             it 'destroyが成功すること' do
-                expect do
-                    delete quiz_path(quiz)
-                end
+                is_expected
             end
 
             it 'リダイレクトされること' do
-                delete quiz_path(quiz), params: { ref: quizzes_path }
-                expect(response).to redirect_to quizzes_path
+                is_expected.to redirect_to quizzes_path
             end
         end
 
@@ -175,7 +169,6 @@ RSpec.describe "Quizzes", type: :request do
                 sign_in other_user
             end
             it 'リダイレクトされること' do
-                delete quiz_path(quiz), params: { ref: quizzes_path }
                 is_expected.to redirect_to root_path
             end
         end
