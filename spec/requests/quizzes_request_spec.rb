@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Quizzes", type: :request do
     let(:user) { create(:user) }
+    let(:other_user) { create(:other_user) }
     let(:quiz) { create(:quiz, user_id: user.id) }
     let(:quiz_params) { attributes_for(:quiz, tag_list: "テスト1,テスト2") }
     let(:invalid_quiz_params) { attributes_for(:quiz, question: "", tag_list: "") }
@@ -82,6 +83,15 @@ RSpec.describe "Quizzes", type: :request do
             end
         end
 
+        context 'クイズを作成したユーザーじゃない場合' do
+            before do
+                sign_in other_user
+            end
+            it 'リダイレクトされること' do
+                is_expected.to redirect_to root_path
+            end
+        end
+
         context 'ゲストの場合' do
             it 'リダイレクトされること' do
                 is_expected.to redirect_to new_user_session_path
@@ -90,10 +100,10 @@ RSpec.describe "Quizzes", type: :request do
     end
 
     describe 'PATCH #update' do
-        before do
-            sign_in user
-        end
         context 'パラメータが妥当な場合' do
+            before do
+                sign_in user
+            end
             it 'リクエストが成功すること' do
                 patch quiz_path(quiz), params: { quiz: quiz_params, question: "update" }
                 expect(response.status).to eq 302
@@ -112,6 +122,9 @@ RSpec.describe "Quizzes", type: :request do
         end
 
         context 'パラメータが不正な場合' do
+            before do
+                sign_in user
+            end
             it 'リクエストが成功すること' do
                 patch quiz_path(quiz), params: { quiz: invalid_quiz_params }
                 expect(response.status).to eq 200
@@ -123,13 +136,23 @@ RSpec.describe "Quizzes", type: :request do
                 end
             end
         end
+
+        context 'クイズを作成したユーザーじゃない場合' do
+            before do
+                sign_in other_user
+            end
+            it 'リダイレクトされること' do
+                patch quiz_path(quiz), params: { quiz: quiz_params, question: "update" }
+                is_expected.to redirect_to root_path
+            end
+        end
     end
 
     describe 'DELETE #destroy' do
-        before do
-            sign_in user
-        end
         context 'パラメータが妥当な場合' do
+            before do
+                sign_in user
+            end
             it 'リクエストが成功すること' do
                 delete quiz_path(quiz), params: { ref: quizzes_path }
                 expect(response.status).to eq 302
@@ -144,6 +167,16 @@ RSpec.describe "Quizzes", type: :request do
             it 'リダイレクトされること' do
                 delete quiz_path(quiz), params: { ref: quizzes_path }
                 expect(response).to redirect_to quizzes_path
+            end
+        end
+
+        context 'クイズを作成したユーザーじゃない場合' do
+            before do
+                sign_in other_user
+            end
+            it 'リダイレクトされること' do
+                delete quiz_path(quiz), params: { ref: quizzes_path }
+                is_expected.to redirect_to root_path
             end
         end
     end
