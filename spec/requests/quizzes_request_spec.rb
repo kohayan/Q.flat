@@ -100,10 +100,10 @@ RSpec.describe "Quizzes", type: :request do
     end
 
     describe 'PATCH #update' do
-        before do
-            sign_in user
-        end
         context 'パラメータが妥当な場合' do
+            before do
+                sign_in user
+            end
             it 'リクエストが成功すること' do
                 patch quiz_path(quiz), params: { quiz: quiz_params, question: "update" }
                 expect(response.status).to eq 302
@@ -122,6 +122,9 @@ RSpec.describe "Quizzes", type: :request do
         end
 
         context 'パラメータが不正な場合' do
+            before do
+                sign_in user
+            end
             it 'リクエストが成功すること' do
                 patch quiz_path(quiz), params: { quiz: invalid_quiz_params }
                 expect(response.status).to eq 200
@@ -133,13 +136,23 @@ RSpec.describe "Quizzes", type: :request do
                 end
             end
         end
+
+        context 'クイズを作成したユーザーじゃない場合' do
+            before do
+                sign_in other_user
+            end
+            it 'リダイレクトされること' do
+                patch quiz_path(quiz), params: { quiz: quiz_params, question: "update" }
+                is_expected.to redirect_to root_path
+            end
+        end
     end
 
     describe 'DELETE #destroy' do
-        before do
-            sign_in user
-        end
         context 'パラメータが妥当な場合' do
+            before do
+                sign_in user
+            end
             it 'リクエストが成功すること' do
                 delete quiz_path(quiz), params: { ref: quizzes_path }
                 expect(response.status).to eq 302
