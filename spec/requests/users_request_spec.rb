@@ -45,10 +45,12 @@ RSpec.describe "Users", type: :request do
 
   describe 'GET #home' do
     subject { get home_users_path }
+
     context 'ログインしている場合' do
       before do
         sign_in user
       end
+
       it 'リクエストが成功すること' do
         is_expected.to eq 200
       end
@@ -63,10 +65,12 @@ RSpec.describe "Users", type: :request do
 
   describe 'GET #edit' do
     subject { get edit_user_path(user) }
+
     context 'ログインしている場合' do
       before do
         sign_in user
       end
+
       it 'リクエストが成功すること' do
         is_expected.to eq 200
       end
@@ -80,9 +84,10 @@ RSpec.describe "Users", type: :request do
   end
 
   describe 'GET #show' do
-  	subject { get user_path(user) }
-  	it 'リクエストが成功すること' do
-        is_expected.to eq 200
+    subject { get user_path(user) }
+
+    it 'リクエストが成功すること' do
+      is_expected.to eq 200
     end
 
     context 'ユーザーが存在しない場合' do
