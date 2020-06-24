@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Quizzes", type: :request do
     let(:user) { create(:user) }
+    let(:other_user) { create(:other_user) }
     let(:quiz) { create(:quiz, user_id: user.id) }
     let(:quiz_params) { attributes_for(:quiz, tag_list: "テスト1,テスト2") }
     let(:invalid_quiz_params) { attributes_for(:quiz, question: "", tag_list: "") }
@@ -79,6 +80,15 @@ RSpec.describe "Quizzes", type: :request do
             it 'クイズが存在しない場合リダイレクトされること' do
                 quiz.destroy
                 is_expected.to redirect_to quizzes_path
+            end
+        end
+
+        context 'クイズを作成したユーザーじゃない場合' do
+            before do
+                sign_in other_user
+            end
+            it 'リダイレクトされること' do
+                is_expected.to redirect_to root_path
             end
         end
 
