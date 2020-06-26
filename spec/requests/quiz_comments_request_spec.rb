@@ -36,4 +36,24 @@ RSpec.describe "QuizComments", type: :request do
       end
     end
   end
+
+  describe 'DELETE #destroy' do
+    context 'パラメータが妥当な場合' do
+      before do
+        sign_in user
+        @comment = QuizComment.create(user_id: user.id, quiz_id: quiz.id, comment: "test-comment")
+      end
+
+      it 'リクエストが成功すること' do
+        delete quiz_quiz_comment_path(quiz, @comment), xhr: true
+        expect(response.status).to eq 200
+      end
+
+      it 'destroyが成功すること' do
+        expect do
+          delete quiz_quiz_comment_path(quiz, @comment), xhr: true
+        end
+      end
+    end
+  end
 end
